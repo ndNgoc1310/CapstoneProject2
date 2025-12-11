@@ -9,6 +9,9 @@ module alu
     output  logic   [3:0]   flag // Flag = {Ovf, Carry, Neg, Zero} (Ovf, Carry, Negative, Zero)
 );
 
+logic   [31:0] src_b, sum;
+logic          cout;
+
 // Determine if the operation is an addition or subtraction
 logic   isAddSub;
 // isAddSub = 1 if ALUControl = 0000, 0001, 0101, 1001 (I-type Load, S-type, B-type, add, addi, jalr, sub, slt, slti, sltu, sltui)
@@ -19,15 +22,13 @@ assign isAddSub =   (~ALUControl[3] & ~ALUControl[2] & ~ALUControl[1]) |
 // FLAGS   
 logic   Ovf, Carry, Neg, Zero; 
 assign flag = {Ovf, Carry, Neg, Zero};
+
 assign Neg = sum[31];          // Negative flag is set if the most significant bit of the sum is 1
 assign Zero = &(~rslt);         // Zero flag is set if all bits of the result are 0
 assign Carry = cout & isAddSub; // Carry flag is set if there is a carry out in addition or subtraction
 assign Ovf =  (~(ALUControl[0] ^ a[31] ^ b[31])) & (a[31] ^ sum[31]) & isAddSub; // Overflow flag is set if the sign of the result is different from the signs of both operands in addition or subtraction
 
 // ARITHMETIC UNITS
-logic   [31:0] src_b, sum;
-logic          cout;
-
 // Calculate SUM
 mux_2 #(32) mux1
 (

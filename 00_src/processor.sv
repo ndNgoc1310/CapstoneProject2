@@ -15,7 +15,7 @@ module processor
     output logic [31:0]     top_Read1D, top_Read2D,
     output logic [4:0]      top_RdD,
     output logic [4:0]      top_LSTypeD,
-    output                  top_JumplrD,
+    output logic            top_JumplrD,
 
     // Execute Stage (E)    
     output logic [31:0]     top_Read1E, top_Read2E, top_pcE, top_ImmExtE, top_PCPlus4E, 

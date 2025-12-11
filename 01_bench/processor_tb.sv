@@ -365,8 +365,13 @@ end
 
 // Test sequence
 initial begin
+    // For Verilator
     $dumpfile("wave.vcd");
     $dumpvars(0, processor_tb);
+
+    // For Xcelium
+    $shm_open("waves.shm");
+    $shm_probe("ASM");
 
     // Reset Test Pass Flag
     test_passed_flag = 0;

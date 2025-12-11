@@ -1,3 +1,2 @@
 `verilator_config
-lint_off -file "../00_src/../01_bench/alu_tb.sv"
-lint_off -file "../00_src/../01_bench/testbench.sv"
+lint_off -file "../00_src/../01_bench/processor_tb.sv"

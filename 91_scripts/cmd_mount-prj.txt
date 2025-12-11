@@ -1,0 +1,2 @@
+mkdir -p ~/CapstoneProject2
+vmhgfs-fuse .host:/CapstoneProject2 ~/CapstoneProject2 -o umask=0033

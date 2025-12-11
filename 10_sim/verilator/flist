@@ -1,60 +1,67 @@
--I./../../00_src/
-./../../00_src/adder_1b.sv
-./../../00_src/adder_nb.sv
-./../../00_src/alu_dec.sv
-./../../00_src/alu.sv
-./../../00_src/and_nb.sv
-./../../00_src/bru.sv
-./../../00_src/controller.sv
-./../../00_src/d_mem.sv
-./../../00_src/data_path.sv
-./../../00_src/eu.sv
-./../../00_src/extender.sv
-./../../00_src/flop_r.sv
-./../../00_src/hazard_unit.sv
-./../../00_src/i_mem.sv
-./../../00_src/lsu.sv
-./../../00_src/main_dec.sv
-./../../00_src/mrwu.sv
-./../../00_src/mux_2.sv
-./../../00_src/mux_4.sv
-./../../00_src/mux_8.sv
-./../../00_src/mux_16.sv
-./../../00_src/or_nb.sv
-./../../00_src/processor.sv
-./../../00_src/reg_file.sv
-./../../00_src/shifter_l_l_nb.sv
-./../../00_src/shifter_r_a_nb.sv
-./../../00_src/shifter_r_l_nb.sv
-./../../00_src/top.sv
-./../../00_src/xor_nb.sv
+# Include paths to RTL and source files
+-I ./../../00_rtl/
 
-# ./../../01_bench/alu_tb.sv
-# ./../../01_bench/F_stage_tb.sv
-# ./../../01_bench/reg_file_tb.sv
-# ./../../01_bench/extender_tb.sv
-# ./../../01_bench/controller_tb.sv
-# ./../../01_bench/D_stage_tb.sv
-./../../01_bench/processor_tb.sv
-# ./../../01_bench/top_tb.sv
+# RTL FILES ---
 
+# ALU modules
+./../../00_rtl/alu/adder_1b.sv
+./../../00_rtl/alu/adder_nb.sv
+./../../00_rtl/alu/alu.sv
+./../../00_rtl/alu/and_nb.sv
+./../../00_rtl/alu/or_nb.sv
+./../../00_rtl/alu/shifter_l_l_nb.sv
+./../../00_rtl/alu/shifter_r_a_nb.sv
+./../../00_rtl/alu/shifter_r_l_nb.sv
+./../../00_rtl/alu/xor_nb.sv
 
+# Common modules
+./../../00_rtl/common/flop_r.sv
+./../../00_rtl/common/mux_16.sv
+./../../00_rtl/common/mux_2.sv
+./../../00_rtl/common/mux_4.sv
+./../../00_rtl/common/mux_8.sv
+
+# Core modules
+./../../00_rtl/core/alu_dec.sv
+./../../00_rtl/core/bru.sv
+./../../00_rtl/core/controller.sv
+./../../00_rtl/core/data_path.sv
+./../../00_rtl/core/eu.sv
+./../../00_rtl/core/extender.sv
+./../../00_rtl/core/hazard_unit.sv
+./../../00_rtl/core/lsu.sv
+./../../00_rtl/core/main_dec.sv
+./../../00_rtl/core/mrwu.sv
+./../../00_rtl/core/reg_file.sv
+
+# Memory modules
+./../../00_rtl/memory/d_mem.sv
+./../../00_rtl/memory/i_mem.sv
+
+# Top-level modules
+./../../00_rtl/top/processor.sv
+./../../00_rtl/top/top.sv
+
+# TESTBENCH FILES ---
+
+# ALU tests
+# ./../../01_tb/alu/alu_tb.sv
+
+# Controller tests
+# ./../../01_tb/controller/controller_tb.sv
+
+# Pipeline block tests
+# ./../../01_tb/pipeline/D_stage_tb.sv
+# ./../../01_tb/pipeline/extender_tb.sv
+# ./../../01_tb/pipeline/F_stage_tb.sv
+# ./../../01_tb/pipeline/reg_file_tb.sv
+
+# System tests
+./../../01_tb/system/processor_tb.sv
+# ./../../01_tb/system/top_tb.sv
+
+# Verilator configuration file
 ./conf.vlt
+
+# Set top-level module for simulation
 -top processor_tb
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

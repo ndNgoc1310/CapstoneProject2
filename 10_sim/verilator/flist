@@ -22,21 +22,22 @@
 ./../../00_rtl/common/mux_8.sv
 
 # Core modules
-./../../00_rtl/core/alu_dec.sv
+./../../00_rtl/core/dec_alu.sv
 ./../../00_rtl/core/bru.sv
 ./../../00_rtl/core/controller.sv
 ./../../00_rtl/core/data_path.sv
 ./../../00_rtl/core/eu.sv
 ./../../00_rtl/core/extender.sv
 ./../../00_rtl/core/hazard_unit.sv
-./../../00_rtl/core/lsu.sv
-./../../00_rtl/core/main_dec.sv
+./../../00_rtl/core/lsu_dec.sv
+./../../00_rtl/core/dec_main.sv
 ./../../00_rtl/core/mrwu.sv
 ./../../00_rtl/core/reg_file.sv
 
 # Memory modules
 ./../../00_rtl/memory/d_mem.sv
 ./../../00_rtl/memory/i_mem.sv
+./../../00_rtl/memory/lsu.sv
 
 # Top-level modules
 ./../../00_rtl/top/processor.sv

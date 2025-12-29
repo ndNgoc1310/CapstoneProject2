@@ -7,7 +7,7 @@ module reg_file_tb;
 logic [4:0]  top_regfile_addr;
 logic [31:0] top_regfile_data;
 
-logic           clk, rst;
+logic           clk, rstn;
 logic   [4:0]   i_rd_addr_0, i_rd_addr_1;
 logic   [4:0]   i_wr_addr;
 logic           i_wr_en;
@@ -27,7 +27,7 @@ reg_file dut (
     .top_regfile_data (top_regfile_data),
 
     .clk(clk),
-    .rst(rst),
+    .rstn(rstn),
     .i_rd_addr_0(i_rd_addr_0),
     .i_rd_addr_1(i_rd_addr_1),
     .i_wr_addr(i_wr_addr),
@@ -74,28 +74,28 @@ initial begin
     // Test 0: Reset State
     $display("\n----------- Reset Tests -----------");
     // Case 0.1: Initial reset
-    rst = 1; i_rd_addr_0 = 5'd0; i_rd_addr_1 = 5'd0; 
+    rstn = 1; i_rd_addr_0 = 5'd0; i_rd_addr_1 = 5'd0; 
     i_wr_addr = 5'd0; i_wr_en = 0; i_wr_dat = 32'h0;
     #10;
     run_test(32'h0, 32'h0, "Initial reset");
 
     // Case 0.2: Reset with pending write
-    rst = 1; i_rd_addr_0 = 5'd1; i_rd_addr_1 = 5'd1;
+    rstn = 1; i_rd_addr_0 = 5'd1; i_rd_addr_1 = 5'd1;
     i_wr_addr = 5'd1; i_wr_en = 1; i_wr_dat = 32'hFFFFFFFF;
     @(posedge clk);
     run_test(32'h0, 32'h0, "Reset overrides write");
-    rst = 0;
+    rstn = 0;
 
     // Test 1: Basic Register Write/Read
     $display("\n----------- Basic Write/Read Tests -----------");
     // Case 1.1: Write to single register
-    rst = 0; i_rd_addr_0 = 5'd1; i_rd_addr_1 = 5'd1;
+    rstn = 0; i_rd_addr_0 = 5'd1; i_rd_addr_1 = 5'd1;
     i_wr_addr = 5'd1; i_wr_en = 1; i_wr_dat = 32'h12345678;
     @(posedge clk); @(negedge clk);
     run_test(32'h12345678, 32'h12345678, "Single register write/read");
 
     // Case 1.2: Write disabled
-    rst = 0; i_rd_addr_0 = 5'd1; i_rd_addr_1 = 5'd1;
+    rstn = 0; i_rd_addr_0 = 5'd1; i_rd_addr_1 = 5'd1;
     i_wr_addr = 5'd1; i_wr_en = 0; i_wr_dat = 32'hFFFFFFFF;
     @(posedge clk); @(negedge clk);
     run_test(32'h12345678, 32'h12345678, "Write disabled");
@@ -103,13 +103,13 @@ initial begin
     // Test 2: x0 Register Tests
     $display("\n----------- x0 Register Tests -----------");
     // Case 2.1: Read x0
-    rst = 0; i_rd_addr_0 = 5'd0; i_rd_addr_1 = 5'd0;
+    rstn = 0; i_rd_addr_0 = 5'd0; i_rd_addr_1 = 5'd0;
     i_wr_addr = 5'd0; i_wr_en = 0; i_wr_dat = 32'h0;
     @(posedge clk); @(negedge clk);
     run_test(32'h0, 32'h0, "Read x0");
 
     // Case 2.2: Attempt to write x0
-    rst = 0; i_rd_addr_0 = 5'd0; i_rd_addr_1 = 5'd0;
+    rstn = 0; i_rd_addr_0 = 5'd0; i_rd_addr_1 = 5'd0;
     i_wr_addr = 5'd0; i_wr_en = 1; i_wr_dat = 32'hFFFFFFFF;
     @(posedge clk); @(negedge clk);
     run_test(32'h0, 32'h0, "Write to x0 blocked");
@@ -117,7 +117,7 @@ initial begin
     // Test 3: Multiple Register Access
     $display("\n----------- Multiple Register Tests -----------");
     // Case 3.1: Write different values to multiple registers
-    rst = 0; i_rd_addr_0 = 5'd2; i_rd_addr_1 = 5'd3;
+    rstn = 0; i_rd_addr_0 = 5'd2; i_rd_addr_1 = 5'd3;
     i_wr_addr = 5'd2; i_wr_en = 1; i_wr_dat = 32'hAAAAAAAA;
     @(posedge clk); @(negedge clk);
     
@@ -128,13 +128,13 @@ initial begin
     // Test 4: Edge Cases
     $display("\n----------- Edge Cases -----------");
     // Case 4.1: Last register (x31)
-    rst = 0; i_rd_addr_0 = 5'd31; i_rd_addr_1 = 5'd31;
+    rstn = 0; i_rd_addr_0 = 5'd31; i_rd_addr_1 = 5'd31;
     i_wr_addr = 5'd31; i_wr_en = 1; i_wr_dat = 32'hDEADBEEF;
     @(posedge clk); @(negedge clk);
     run_test(32'hDEADBEEF, 32'hDEADBEEF, "Last register access");
 
     // Case 4.2: Write-then-read same cycle
-    rst = 0; i_rd_addr_0 = 5'd15; i_rd_addr_1 = 5'd15;
+    rstn = 0; i_rd_addr_0 = 5'd15; i_rd_addr_1 = 5'd15;
     i_wr_addr = 5'd15; i_wr_en = 1; i_wr_dat = 32'hCAFEBABE;
     @(negedge clk);
     run_test(32'hCAFEBABE, 32'hCAFEBABE, "Same cycle write-read");
@@ -142,14 +142,14 @@ initial begin
     // Test 5: Reset Recovery
     $display("\n----------- Reset Recovery Tests -----------");
     // Case 5.1: Reset after writes
-    rst = 0; i_rd_addr_0 = 5'd4; i_rd_addr_1 = 5'd5;
+    rstn = 0; i_rd_addr_0 = 5'd4; i_rd_addr_1 = 5'd5;
     i_wr_addr = 5'd4; i_wr_en = 1; i_wr_dat = 32'h11111111;
     @(posedge clk); @(negedge clk);
     
     i_wr_addr = 5'd5; i_wr_dat = 32'h22222222;
     @(posedge clk); @(negedge clk);
     
-    rst = 1;
+    rstn = 1;
     @(posedge clk); @(negedge clk);
     run_test(32'h0, 32'h0, "Reset after writes");
 

@@ -3,7 +3,7 @@
 module F_stage_tb;
 
 // Signals
-logic           clk, rst;        // System signals
+logic           clk, rstn;        // System signals
 logic           StallF;          // Control signal from Hazard Unit
 logic           PCSrcE;          // Control signal from Controller
 logic [31:0]    PCTargetE;       // Input bus from Execute stage
@@ -29,7 +29,7 @@ mux_2 #(.WIDTH(32)) PCmux
 flop_r #(.WIDTH(32)) Freg
 (
     .clk    (clk),
-    .rst    (rst),
+    .rstn    (rstn),
     .en     (~StallF),
     .clr    (1'b0),
     .d      (pcF0),
@@ -90,25 +90,25 @@ initial begin
     // Test 0: Reset Cases
     $display("\n----------- Reset Tests -----------");
     // Case 0.1: Initial reset
-    rst = 1; StallF = 0; PCSrcE = 0; PCTargetE = 32'h0;
+    rstn = 1; StallF = 0; PCSrcE = 0; PCTargetE = 32'h0;
     #10;
     run_test(32'h00000004, 32'h00000000, 32'h00500113, "Initial reset");
     
     // Case 0.2: Reset with branch pending
-    rst = 1; StallF = 0; PCSrcE = 1; PCTargetE = 32'h00000020;
+    rstn = 1; StallF = 0; PCSrcE = 1; PCTargetE = 32'h00000020;
     @(posedge clk);
     run_test(32'h00000020, 32'h00000000, 32'h00500113, "Reset overrides branch");
     
     // Case 0.3: Reset with stall active
-    rst = 1; StallF = 1; PCSrcE = 0; PCTargetE = 32'h0;
+    rstn = 1; StallF = 1; PCSrcE = 0; PCTargetE = 32'h0;
     @(posedge clk);
     run_test(32'h00000004, 32'h00000000, 32'h00500113, "Reset overrides stall");
-    rst = 0;
+    rstn = 0;
 
     // Test 1: Sequential Fetch Cases
     $display("\n----------- Sequential Fetch Tests -----------");
     // Case 1.1: Basic sequential fetch
-    rst = 0; StallF = 0; PCSrcE = 0; PCTargetE = 32'h0;
+    rstn = 0; StallF = 0; PCSrcE = 0; PCTargetE = 32'h0;
     repeat(4) begin
         @(posedge clk);
         run_test(pcF + 8, pcF + 4, imem.RAM[(pcF + 4) >> 2], "Basic sequential");
@@ -122,7 +122,7 @@ initial begin
     // Test 2: Stall Cases
     $display("\n----------- Stall Tests -----------");
     // Case 2.1: Single cycle stall
-    rst = 0; StallF = 1; PCSrcE = 0; PCTargetE = 32'h0;
+    rstn = 0; StallF = 1; PCSrcE = 0; PCTargetE = 32'h0;
     @(posedge clk);
     run_test(pcF + 4, pcF, imem.RAM[pcF >> 2], "Single cycle stall");
     
@@ -145,7 +145,7 @@ initial begin
     // Test 3: Branch/Jump Cases
     $display("\n----------- Branch/Jump Tests -----------");
     // Case 3.1: Basic branch
-    rst = 0; StallF = 0; PCSrcE = 1; PCTargetE = 32'h00000008;
+    rstn = 0; StallF = 0; PCSrcE = 1; PCTargetE = 32'h00000008;
     @(posedge clk);
     run_test(32'h00000008, 32'h00000008, imem.RAM[32'h8 >> 2], "Basic branch");
     
@@ -162,21 +162,21 @@ initial begin
     // Test 4: Edge Cases
     $display("\n----------- Edge Cases -----------");
     // Case 4.1: Maximum PC
-    rst = 0; StallF = 0; PCSrcE = 1; PCTargetE = 32'hFFFFFFFC;
+    rstn = 0; StallF = 0; PCSrcE = 1; PCTargetE = 32'hFFFFFFFC;
     @(posedge clk);
     run_test(32'hFFFFFFFC, 32'hFFFFFFFC, imem.RAM[32'hFFFFFFFC >> 2], "Maximum PC");
     
     // Case 4.2: PC wrap-around
-    rst = 0; StallF = 0; PCSrcE = 0;
+    rstn = 0; StallF = 0; PCSrcE = 0;
     @(posedge clk);
     run_test(32'h00000004, 32'h00000000, imem.RAM[0], "PC wrap-around");
     
     // Case 4.3: Quick control changes
-    rst = 0; StallF = 0;
+    rstn = 0; StallF = 0;
     PCSrcE = 1; PCTargetE = 32'h00000020; #1;
     PCSrcE = 0; #1;
     StallF = 1; #1;
-    rst = 1;
+    rstn = 1;
     @(posedge clk);
     run_test(32'h00000004, 32'h00000000, 32'h00500113, "Multiple control changes");
 

@@ -228,7 +228,7 @@ refer to the applicable agreement for further details.
 ; 00_src/mux_4.sv                  ; yes             ; User SystemVerilog HDL File  ; D:/OneDrive/BKLearning/CapstoneProject1/20_syn/quartus/00_src/mux_4.sv          ;         ;
 ; 00_src/mux_2.sv                  ; yes             ; User SystemVerilog HDL File  ; D:/OneDrive/BKLearning/CapstoneProject1/20_syn/quartus/00_src/mux_2.sv          ;         ;
 ; 00_src/mrwu.sv                   ; yes             ; User SystemVerilog HDL File  ; D:/OneDrive/BKLearning/CapstoneProject1/20_syn/quartus/00_src/mrwu.sv           ;         ;
-; 00_src/main_dec.sv               ; yes             ; User SystemVerilog HDL File  ; D:/OneDrive/BKLearning/CapstoneProject1/20_syn/quartus/00_src/main_dec.sv       ;         ;
+; 00_src/dec_main.sv               ; yes             ; User SystemVerilog HDL File  ; D:/OneDrive/BKLearning/CapstoneProject1/20_syn/quartus/00_src/dec_main.sv       ;         ;
 ; 00_src/lsu.sv                    ; yes             ; User SystemVerilog HDL File  ; D:/OneDrive/BKLearning/CapstoneProject1/20_syn/quartus/00_src/lsu.sv            ;         ;
 ; 00_src/i_mem.sv                  ; yes             ; User SystemVerilog HDL File  ; D:/OneDrive/BKLearning/CapstoneProject1/20_syn/quartus/00_src/i_mem.sv          ;         ;
 ; 00_src/hazard_unit.sv            ; yes             ; User SystemVerilog HDL File  ; D:/OneDrive/BKLearning/CapstoneProject1/20_syn/quartus/00_src/hazard_unit.sv    ;         ;
@@ -240,7 +240,7 @@ refer to the applicable agreement for further details.
 ; 00_src/controller.sv             ; yes             ; User SystemVerilog HDL File  ; D:/OneDrive/BKLearning/CapstoneProject1/20_syn/quartus/00_src/controller.sv     ;         ;
 ; 00_src/bru.sv                    ; yes             ; User SystemVerilog HDL File  ; D:/OneDrive/BKLearning/CapstoneProject1/20_syn/quartus/00_src/bru.sv            ;         ;
 ; 00_src/and_nb.sv                 ; yes             ; User SystemVerilog HDL File  ; D:/OneDrive/BKLearning/CapstoneProject1/20_syn/quartus/00_src/and_nb.sv         ;         ;
-; 00_src/alu_dec.sv                ; yes             ; User SystemVerilog HDL File  ; D:/OneDrive/BKLearning/CapstoneProject1/20_syn/quartus/00_src/alu_dec.sv        ;         ;
+; 00_src/dec_alu.sv                ; yes             ; User SystemVerilog HDL File  ; D:/OneDrive/BKLearning/CapstoneProject1/20_syn/quartus/00_src/dec_alu.sv        ;         ;
 ; 00_src/alu.sv                    ; yes             ; User SystemVerilog HDL File  ; D:/OneDrive/BKLearning/CapstoneProject1/20_syn/quartus/00_src/alu.sv            ;         ;
 ; 00_src/adder_nb.sv               ; yes             ; User SystemVerilog HDL File  ; D:/OneDrive/BKLearning/CapstoneProject1/20_syn/quartus/00_src/adder_nb.sv       ;         ;
 ; 00_src/adder_1b.sv               ; yes             ; User SystemVerilog HDL File  ; D:/OneDrive/BKLearning/CapstoneProject1/20_syn/quartus/00_src/adder_1b.sv       ;         ;
@@ -299,11 +299,11 @@ refer to the applicable agreement for further details.
 ;    |i_mem:im|                                   ; 101 (101)           ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |top|i_mem:im                                                                                        ; i_mem           ; work         ;
 ;    |processor:proc|                             ; 934 (0)             ; 809 (0)                   ; 2048              ; 0          ; 0    ; 0            ; |top|processor:proc                                                                                  ; processor       ; work         ;
 ;       |controller:ctrl|                         ; 34 (0)              ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |top|processor:proc|controller:ctrl                                                                  ; controller      ; work         ;
-;          |alu_dec:ad|                           ; 9 (9)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |top|processor:proc|controller:ctrl|alu_dec:ad                                                       ; alu_dec         ; work         ;
+;          |dec_alu:ad|                           ; 9 (9)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |top|processor:proc|controller:ctrl|dec_alu:ad                                                       ; dec_alu         ; work         ;
 ;          |bru:bru|                              ; 3 (3)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |top|processor:proc|controller:ctrl|bru:bru                                                          ; bru             ; work         ;
 ;          |eu:eu|                                ; 4 (4)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |top|processor:proc|controller:ctrl|eu:eu                                                            ; eu              ; work         ;
 ;          |lsu:lsu|                              ; 4 (4)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |top|processor:proc|controller:ctrl|lsu:lsu                                                          ; lsu             ; work         ;
-;          |main_dec:md|                          ; 14 (14)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |top|processor:proc|controller:ctrl|main_dec:md                                                      ; main_dec        ; work         ;
+;          |dec_main:md|                          ; 14 (14)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |top|processor:proc|controller:ctrl|dec_main:md                                                      ; dec_main        ; work         ;
 ;       |data_path:dp|                            ; 886 (0)             ; 809 (0)                   ; 2048              ; 0          ; 0    ; 0            ; |top|processor:proc|data_path:dp                                                                     ; data_path       ; work         ;
 ;          |adder_nb:PCplus4|                     ; 36 (0)              ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |top|processor:proc|data_path:dp|adder_nb:PCplus4                                                    ; adder_nb        ; work         ;
 ;             |adder_1b:a10|                      ; 2 (2)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |top|processor:proc|data_path:dp|adder_nb:PCplus4|adder_1b:a10                                       ; adder_1b        ; work         ;
@@ -1276,8 +1276,8 @@ Info (12021): Found 1 design units, including 1 entities, in source file 00_src/
     Info (12023): Found entity 1: mux_2 File: D:/OneDrive/BKLearning/CapstoneProject1/20_syn/quartus/00_src/mux_2.sv Line: 3
 Info (12021): Found 1 design units, including 1 entities, in source file 00_src/mrwu.sv
     Info (12023): Found entity 1: mrwu File: D:/OneDrive/BKLearning/CapstoneProject1/20_syn/quartus/00_src/mrwu.sv Line: 3
-Info (12021): Found 1 design units, including 1 entities, in source file 00_src/main_dec.sv
-    Info (12023): Found entity 1: main_dec File: D:/OneDrive/BKLearning/CapstoneProject1/20_syn/quartus/00_src/main_dec.sv Line: 3
+Info (12021): Found 1 design units, including 1 entities, in source file 00_src/dec_main.sv
+    Info (12023): Found entity 1: dec_main File: D:/OneDrive/BKLearning/CapstoneProject1/20_syn/quartus/00_src/dec_main.sv Line: 3
 Info (12021): Found 1 design units, including 1 entities, in source file 00_src/lsu.sv
     Info (12023): Found entity 1: lsu File: D:/OneDrive/BKLearning/CapstoneProject1/20_syn/quartus/00_src/lsu.sv Line: 1
 Info (12021): Found 1 design units, including 1 entities, in source file 00_src/i_mem.sv
@@ -1300,8 +1300,8 @@ Info (12021): Found 1 design units, including 1 entities, in source file 00_src/
     Info (12023): Found entity 1: bru File: D:/OneDrive/BKLearning/CapstoneProject1/20_syn/quartus/00_src/bru.sv Line: 1
 Info (12021): Found 1 design units, including 1 entities, in source file 00_src/and_nb.sv
     Info (12023): Found entity 1: and_nb File: D:/OneDrive/BKLearning/CapstoneProject1/20_syn/quartus/00_src/and_nb.sv Line: 3
-Info (12021): Found 1 design units, including 1 entities, in source file 00_src/alu_dec.sv
-    Info (12023): Found entity 1: alu_dec File: D:/OneDrive/BKLearning/CapstoneProject1/20_syn/quartus/00_src/alu_dec.sv Line: 3
+Info (12021): Found 1 design units, including 1 entities, in source file 00_src/dec_alu.sv
+    Info (12023): Found entity 1: dec_alu File: D:/OneDrive/BKLearning/CapstoneProject1/20_syn/quartus/00_src/dec_alu.sv Line: 3
 Info (12021): Found 1 design units, including 1 entities, in source file 00_src/alu.sv
     Info (12023): Found entity 1: alu File: D:/OneDrive/BKLearning/CapstoneProject1/20_syn/quartus/00_src/alu.sv Line: 3
 Info (12021): Found 1 design units, including 1 entities, in source file 00_src/adder_nb.sv
@@ -1311,8 +1311,8 @@ Info (12021): Found 1 design units, including 1 entities, in source file 00_src/
 Info (12127): Elaborating entity "top" for the top level hierarchy
 Info (12128): Elaborating entity "processor" for hierarchy "processor:proc" File: D:/OneDrive/BKLearning/CapstoneProject1/20_syn/quartus/00_src/top.sv Line: 178
 Info (12128): Elaborating entity "controller" for hierarchy "processor:proc|controller:ctrl" File: D:/OneDrive/BKLearning/CapstoneProject1/20_syn/quartus/00_src/processor.sv Line: 144
-Info (12128): Elaborating entity "main_dec" for hierarchy "processor:proc|controller:ctrl|main_dec:md" File: D:/OneDrive/BKLearning/CapstoneProject1/20_syn/quartus/00_src/controller.sv Line: 39
-Info (12128): Elaborating entity "alu_dec" for hierarchy "processor:proc|controller:ctrl|alu_dec:ad" File: D:/OneDrive/BKLearning/CapstoneProject1/20_syn/quartus/00_src/controller.sv Line: 49
+Info (12128): Elaborating entity "dec_main" for hierarchy "processor:proc|controller:ctrl|dec_main:md" File: D:/OneDrive/BKLearning/CapstoneProject1/20_syn/quartus/00_src/controller.sv Line: 39
+Info (12128): Elaborating entity "dec_alu" for hierarchy "processor:proc|controller:ctrl|dec_alu:ad" File: D:/OneDrive/BKLearning/CapstoneProject1/20_syn/quartus/00_src/controller.sv Line: 49
 Info (12128): Elaborating entity "bru" for hierarchy "processor:proc|controller:ctrl|bru:bru" File: D:/OneDrive/BKLearning/CapstoneProject1/20_syn/quartus/00_src/controller.sv Line: 60
 Info (12128): Elaborating entity "lsu" for hierarchy "processor:proc|controller:ctrl|lsu:lsu" File: D:/OneDrive/BKLearning/CapstoneProject1/20_syn/quartus/00_src/controller.sv Line: 66
 Info (12128): Elaborating entity "eu" for hierarchy "processor:proc|controller:ctrl|eu:eu" File: D:/OneDrive/BKLearning/CapstoneProject1/20_syn/quartus/00_src/controller.sv Line: 75

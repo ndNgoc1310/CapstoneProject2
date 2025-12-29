@@ -8,7 +8,7 @@ logic [4:0]  top_regfile_addr;
 logic [31:0] top_regfile_data;
 
 // System
-logic           clk, rst;
+logic           clk, rstn;
 logic           Ecall, Ebreak;
 
 // Processor - Instruction Memory
@@ -121,7 +121,7 @@ initial begin
 
     // Initialize test
     cycle_count = 0;
-    rst = 1; #22; rst = 0;
+    rstn = 1; #22; rstn = 0;
 
     // Expected final results
     expected_addr = 32'h84;  // Address 132
@@ -170,8 +170,8 @@ initial begin
 end
 
 // Cycle counter
-always @(posedge clk, posedge rst) begin
-    if (rst)
+always @(posedge clk, negedge rstn) begin
+    if (!rstn)
         cycle_count <= 0;
     else
         cycle_count <= cycle_count + 1;

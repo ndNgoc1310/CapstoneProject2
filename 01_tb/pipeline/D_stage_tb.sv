@@ -9,7 +9,7 @@ logic [31:0] mask_top_regfile_data;
 
 
 // Inputs
-logic           clk, rst;
+logic           clk, rstn;
 logic   [31:0]  InstrF;         // From Fetch stage
 logic   [31:0]  pcF;            // From Fetch stage
 logic   [31:0]  PCPlus4F;       // From Fetch stage
@@ -63,7 +63,7 @@ logic           Ecall, Ebreak;
 // Pipeline register
 flop_r #(.WIDTH(96)) Dreg (
     .clk    (clk),
-    .rst    (rst),
+    .rstn    (rstn),
     .en     (~StallD),
     .clr    (FlushD),
     .d      ({InstrF, pcF, PCPlus4F}),
@@ -77,7 +77,7 @@ reg_file rf (
     .top_regfile_data (top_regfile_data),
 
     .clk            (~clk),
-    .rst            (rst),
+    .rstn            (rstn),
     .i_rd_addr_0    (InstrD[19:15]),
     .i_rd_addr_1    (InstrD[24:20]),
     .i_wr_addr      (RdW),
@@ -303,7 +303,7 @@ initial begin
 
     // Test 0: Reset
     $display("\n----------- Reset Tests -----------");
-    rst = 1; 
+    rstn = 1; 
     InstrF = 32'h0; pcF = 32'h0; PCPlus4F = 32'h4;
     StallD = 0; FlushD = 0;
     ZeroE = 0; BranchE = 0; JumpE = 0; ALUResultEb0 = 0;
@@ -338,7 +338,7 @@ initial begin
                       1'b0,      // Ebreak (not EBREAK)
                       32'dx,     // top_regfile_data (Register data)
                       "Reset state");
-    rst = 0;
+    rstn = 0;
 
     // Test 1: R-type Instructions
     $display("\n----------- R-type Instructions -----------");

@@ -1,6 +1,0 @@
-//
-// File created by:  xrun
-// Do not modify this file
-
-s1::(25Jun2025:12:43:18):( xrun +xm64bit -sv -f ./flist /home/admin/CapstoneProject2/01_bench/processor_tb.sv -timescale 1ns/1ns +ntb_random_seed=automatic +access+rcw )
-s2::(28Jun2025:05:49:57):( xrun -gui +xm64bit -sv -f ./flist /home/admin/CapstoneProject2/01_bench/processor_tb.sv -timescale 1ns/1ns +ntb_random_seed=automatic +access+rcw )

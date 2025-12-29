@@ -1,5 +1,5 @@
 filelist="-f ./flist"
-tb_file="/home/admin/CapstoneProject2/01_bench/processor_tb.sv"
+tb_file="/home/admin/CapstoneProject2/01_tb/system/processor_tb.sv"
 time_unit="-timescale 1ns/1ns"
 acc_debug="+access+rcw"
 seed = +ntb_random_seed=automatic
@@ -26,7 +26,7 @@ wave:
 	simvision $(wave_data) &
 
 .PHONY: all
-all: sim wave
+all: clean sim wave
 
 clean:
 	@echo "-> CLEANING SIMULATION FILES"

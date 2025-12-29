@@ -207,21 +207,21 @@ FlagE[0] => FlagE[0].IN1
 FlagE[1] => FlagE[1].IN1
 FlagE[2] => FlagE[2].IN1
 FlagE[3] => FlagE[3].IN1
-RegWriteD <= main_dec:md.RegWriteD
-MemWriteD <= main_dec:md.MemWriteD
-JumpD <= main_dec:md.JumpD
-JumplrD <= main_dec:md.JumplrD
-BranchD <= main_dec:md.BranchD
-ALUSrcD <= main_dec:md.ALUSrcD
-ALUControlD[0] <= alu_dec:ad.ALUControlD
-ALUControlD[1] <= alu_dec:ad.ALUControlD
-ALUControlD[2] <= alu_dec:ad.ALUControlD
-ALUControlD[3] <= alu_dec:ad.ALUControlD
-ResultSrcD[0] <= main_dec:md.ResultSrcD
-ResultSrcD[1] <= main_dec:md.ResultSrcD
-ImmSrcD[0] <= main_dec:md.ImmSrcD
-ImmSrcD[1] <= main_dec:md.ImmSrcD
-ImmSrcD[2] <= main_dec:md.ImmSrcD
+RegWriteD <= dec_main:md.RegWriteD
+MemWriteD <= dec_main:md.MemWriteD
+JumpD <= dec_main:md.JumpD
+JumplrD <= dec_main:md.JumplrD
+BranchD <= dec_main:md.BranchD
+ALUSrcD <= dec_main:md.ALUSrcD
+ALUControlD[0] <= dec_alu:ad.ALUControlD
+ALUControlD[1] <= dec_alu:ad.ALUControlD
+ALUControlD[2] <= dec_alu:ad.ALUControlD
+ALUControlD[3] <= dec_alu:ad.ALUControlD
+ResultSrcD[0] <= dec_main:md.ResultSrcD
+ResultSrcD[1] <= dec_main:md.ResultSrcD
+ImmSrcD[0] <= dec_main:md.ImmSrcD
+ImmSrcD[1] <= dec_main:md.ImmSrcD
+ImmSrcD[2] <= dec_main:md.ImmSrcD
 LSTypeD[0] <= lsu:lsu.LSTypeD
 LSTypeD[1] <= lsu:lsu.LSTypeD
 LSTypeD[2] <= lsu:lsu.LSTypeD
@@ -233,7 +233,7 @@ Ecall <= eu:eu.Ecall
 Ebreak <= eu:eu.Ebreak
 
 
-|top|processor:proc|controller:ctrl|main_dec:md
+|top|processor:proc|controller:ctrl|dec_main:md
 opD[0] => Decoder0.IN6
 opD[1] => Decoder0.IN5
 opD[2] => Decoder0.IN4
@@ -256,7 +256,7 @@ ALUOp[0] <= controls.DB_MAX_OUTPUT_PORT_TYPE
 ALUOp[1] <= WideOr8.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|top|processor:proc|controller:ctrl|alu_dec:ad
+|top|processor:proc|controller:ctrl|dec_alu:ad
 opDb5 => RtypeSub.IN0
 funct3D[0] => Mux0.IN9
 funct3D[0] => Mux1.IN10

@@ -1,67 +1,61 @@
-# Include paths to RTL and source files
--I ./../../00_rtl/
+// Include dirs (xrun)
++incdir+./../../00_rtl
++incdir+./../../02_include
 
-# RTL FILES ---
-
-# ALU modules
-./../../00_rtl/alu/adder_1b.sv
-./../../00_rtl/alu/adder_nb.sv
-./../../00_rtl/alu/alu.sv
-./../../00_rtl/alu/and_nb.sv
-./../../00_rtl/alu/or_nb.sv
-./../../00_rtl/alu/shifter_l_l_nb.sv
-./../../00_rtl/alu/shifter_r_a_nb.sv
-./../../00_rtl/alu/shifter_r_l_nb.sv
-./../../00_rtl/alu/xor_nb.sv
-
-# Common modules
+// RTL FILES ---
+// Common
+./../../00_rtl/common/adder_1b.sv
+./../../00_rtl/common/adder_nb.sv
+./../../00_rtl/common/and_nb.sv
 ./../../00_rtl/common/flop_r.sv
 ./../../00_rtl/common/mux_16.sv
 ./../../00_rtl/common/mux_2.sv
 ./../../00_rtl/common/mux_4.sv
 ./../../00_rtl/common/mux_8.sv
+./../../00_rtl/common/or_nb.sv
+./../../00_rtl/common/shifter_l_l_nb.sv
+./../../00_rtl/common/shifter_r_a_nb.sv
+./../../00_rtl/common/shifter_r_l_nb.sv
+./../../00_rtl/common/xor_nb.sv
 
-# Core modules
-./../../00_rtl/core/alu_dec.sv
-./../../00_rtl/core/bru.sv
-./../../00_rtl/core/controller.sv
-./../../00_rtl/core/data_path.sv
-./../../00_rtl/core/eu.sv
-./../../00_rtl/core/extender.sv
-./../../00_rtl/core/hazard_unit.sv
-./../../00_rtl/core/lsu.sv
-./../../00_rtl/core/main_dec.sv
-./../../00_rtl/core/mrwu.sv
-./../../00_rtl/core/reg_file.sv
+// Controller
+./../../00_rtl/controller/dec_alu.sv
+./../../00_rtl/controller/bru.sv
+./../../00_rtl/controller/controller.sv
+./../../00_rtl/controller/eu.sv
+./../../00_rtl/controller/dec_main.sv
 
-# Memory modules
-./../../00_rtl/memory/d_mem.sv
-./../../00_rtl/memory/i_mem.sv
+// Datapath
+./../../00_rtl/datapath/alu.sv
+./../../00_rtl/datapath/data_path.sv
+./../../00_rtl/datapath/extender.sv
+./../../00_rtl/datapath/hazard_unit.sv
+./../../00_rtl/datapath/led7seg_hex_dec.sv
+./../../00_rtl/datapath/reg_file.sv
 
-# Top-level modules
+// Memory + LSU
+./../../00_rtl/memory/dmem_8b_16k.sv
+./../../00_rtl/memory/dmem.sv
+./../../00_rtl/memory/imem.sv
+./../../00_rtl/memory/lsu_dec_addr.sv
+./../../00_rtl/memory/lsu_dec.sv
+./../../00_rtl/memory/lsu_io_buffer_in.sv
+./../../00_rtl/memory/lsu_io_buffer_out.sv
+./../../00_rtl/memory/lsu_dec_io_out.sv
+./../../00_rtl/memory/lsu_dec_mem_addr.sv
+./../../00_rtl/memory/lsu_dec_mem_data_read.sv
+./../../00_rtl/memory/lsu_dec_mem_data_write.sv
+./../../00_rtl/memory/lsu_dec_mem_write_en.sv
+./../../00_rtl/memory/lsu_dec_mem.sv
+./../../00_rtl/memory/lsu_mux_out.sv
+./../../00_rtl/memory/lsu_dec_type.sv
+./../../00_rtl/memory/lsu.sv
+
+// Top
+./../../00_rtl/top/pipelined.sv
 ./../../00_rtl/top/processor.sv
 ./../../00_rtl/top/top.sv
 
-# TESTBENCH FILES ---
-
-# ALU tests
-# ./../../01_tb/alu/alu_tb.sv
-
-# Controller tests
-# ./../../01_tb/controller/controller_tb.sv
-
-# Pipeline block tests
-# ./../../01_tb/pipeline/D_stage_tb.sv
-# ./../../01_tb/pipeline/extender_tb.sv
-# ./../../01_tb/pipeline/F_stage_tb.sv
-# ./../../01_tb/pipeline/reg_file_tb.sv
-
-# System tests
-./../../01_tb/system/processor_tb.sv
-# ./../../01_tb/system/top_tb.sv
-
-# Verilator configuration file
-./conf.vlt
 
 # Set top-level module for simulation
 -top processor_tb

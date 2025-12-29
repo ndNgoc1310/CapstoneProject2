@@ -1,0 +1,753 @@
+
+#
+# Mnemonic Maps
+#
+mmap new  -reuse -name {Boolean as Logic} -radix %b -contents {{%c=FALSE -edgepriority 1 -shape low}
+{%c=TRUE -edgepriority 1 -shape high}}
+mmap new  -reuse -name {Example Map} -radix %x -contents {{%b=11???? -bgcolor orange -label REG:%x -linecolor yellow -shape bus}
+{%x=1F -bgcolor red -label ERROR -linecolor white -shape EVENT}
+{%x=2C -bgcolor red -label ERROR -linecolor white -shape EVENT}
+{%x=* -label %x -linecolor gray -shape bus}}
+
+array unset createdGroup
+array set createdGroup {}
+set id [waveform add -signals [subst  {
+	{[format {processor_tb.Ebreak}]}
+	} ]]
+waveform format $id -color #ffff00 -namecolor #ffff00
+set id [waveform add -signals [subst  {
+	{[format {processor_tb.Ecall}]}
+	} ]]
+waveform format $id -color #ffff00 -namecolor #ffff00
+set id [waveform add -signals [subst  {
+	{[format {processor_tb.InstrVldW}]}
+	} ]]
+waveform format $id -color #ffff00 -namecolor #ffff00
+set id [waveform add -signals [subst  {
+	{[format {processor_tb.rstn}]}
+	} ]]
+waveform format $id -color #ffff00 -namecolor #ffff00
+set id [waveform add -signals [subst  {
+	{[format {processor_tb.clk}]}
+	} ]]
+waveform format $id -namecolor #00ff00
+set id [waveform add -signals [subst  {
+	{[format {processor_tb.cycle_count}]}
+	} ]]
+waveform format $id -namecolor #00ff00
+set id [waveform add -signals [subst  {
+	{[format {processor_tb.top_pcF0[31:0]}]}
+	} ]]
+waveform format $id -color #ff0000 -namecolor #ff0000
+set id [waveform add -signals [subst  {
+	{[format {processor_tb.top_pcF[31:0]}]}
+	} ]]
+waveform format $id -radix %x -color #ff0000 -namecolor #ff0000
+set id [waveform add -signals [subst  {
+	{[format {processor_tb.top_InstrF[31:0]}]}
+	} ]]
+waveform format $id -color #ff0000 -namecolor #ff0000
+set id [waveform add -signals [subst  {
+	{[format {processor_tb.top_PCSrcE[1:0]}]}
+	} ]]
+waveform format $id -color #ff0000 -namecolor #ff0000
+set id [waveform add -signals [subst  {
+	{[format {processor_tb.top_PCPlus4F[31:0]}]}
+	} ]]
+waveform format $id -color #ff0000 -namecolor #ff0000
+set id [waveform add -signals [subst  {
+	{[format {processor_tb.top_PCTargetE[31:0]}]}
+	} ]]
+waveform format $id -color #ff0000 -namecolor #ff0000
+set id [waveform add -signals [subst  {
+	{[format {processor_tb.top_StallF}]}
+	} ]]
+waveform format $id -color #ff0000 -namecolor #ff0000
+set id [waveform add -signals [subst  {
+	{[format {processor_tb.clk}]}
+	} ]]
+waveform format $id -namecolor #00ff00
+set id [waveform add -signals [subst  {
+	{[format {processor_tb.cycle_count}]}
+	} ]]
+waveform format $id -namecolor #00ff00
+set id [waveform add -signals [subst  {
+	{[format {processor_tb.top_StallD}]}
+	} ]]
+waveform format $id -color #00ffff -namecolor #00ffff
+set id [waveform add -signals [subst  {
+	{[format {processor_tb.top_FlushD}]}
+	} ]]
+waveform format $id -color #00ffff -namecolor #00ffff
+set id [waveform add -signals [subst  {
+	{[format {processor_tb.top_BranchD}]}
+	} ]]
+waveform format $id -color #00ffff -namecolor #00ffff
+set id [waveform add -signals [subst  {
+	{[format {processor_tb.top_JumpD}]}
+	} ]]
+waveform format $id -color #00ffff -namecolor #00ffff
+set id [waveform add -signals [subst  {
+	{[format {processor_tb.top_JumplrD}]}
+	} ]]
+waveform format $id -color #00ffff -namecolor #00ffff
+set id [waveform add -signals [subst  {
+	{[format {processor_tb.top_pcD[31:0]}]}
+	} ]]
+waveform format $id -color #00ffff -namecolor #00ffff
+set id [waveform add -signals [subst  {
+	{[format {processor_tb.top_InstrD[31:0]}]}
+	} ]]
+waveform format $id -radix %x -color #00ffff -namecolor #00ffff
+set id [waveform add -signals [subst  {
+	{[format {processor_tb.top_Read1D[31:0]}]}
+	} ]]
+waveform format $id -color #00ffff -namecolor #00ffff
+set id [waveform add -signals [subst  {
+	{[format {processor_tb.top_Read2D[31:0]}]}
+	} ]]
+waveform format $id -color #00ffff -namecolor #00ffff
+set id [waveform add -signals [subst  {
+	{[format {processor_tb.top_funct3D[2:0]}]}
+	} ]]
+waveform format $id -radix %b -color #00ffff -namecolor #00ffff
+set id [waveform add -signals [subst  {
+	{[format {processor_tb.top_Rs1D[4:0]}]}
+	} ]]
+waveform format $id -radix %d -color #00ffff -namecolor #00ffff
+set id [waveform add -signals [subst  {
+	{[format {processor_tb.top_Rs2D[4:0]}]}
+	} ]]
+waveform format $id -radix %d -color #00ffff -namecolor #00ffff
+set id [waveform add -signals [subst  {
+	{[format {processor_tb.top_RdD[4:0]}]}
+	} ]]
+waveform format $id -radix %d -color #00ffff -namecolor #00ffff
+set id [waveform add -signals [subst  {
+	{[format {processor_tb.top_ImmExtD[31:0]}]}
+	} ]]
+waveform format $id -color #00ffff -namecolor #00ffff
+set id [waveform add -signals [subst  {
+	{[format {processor_tb.top_ResultSrcD[1:0]}]}
+	} ]]
+waveform format $id -radix %b -color #00ffff -namecolor #00ffff
+set id [waveform add -signals [subst  {
+	{[format {processor_tb.clk}]}
+	} ]]
+waveform format $id -namecolor #00ff00
+set id [waveform add -signals [subst  {
+	{[format {processor_tb.cycle_count}]}
+	} ]]
+waveform format $id -namecolor #00ff00
+set id [waveform add -signals [subst  {
+	{[format {processor_tb.top_pcE[31:0]}]}
+	} ]]
+waveform format $id -color #ff9900 -namecolor #ff9900
+set id [waveform add -signals [subst  {
+	{[format {processor_tb.top_ImmExtE[31:0]}]}
+	} ]]
+waveform format $id -color #ff9900 -namecolor #ff9900
+set id [waveform add -signals [subst  {
+	{[format {processor_tb.top_PCTargetE[31:0]}]}
+	} ]]
+waveform format $id -color #ff9900 -namecolor #ff9900
+set id [waveform add -signals [subst  {
+	{[format {processor_tb.top_PCPlus4E[31:0]}]}
+	} ]]
+waveform format $id -color #ff9900 -namecolor #ff9900
+set id [waveform add -signals [subst  {
+	{[format {processor_tb.top_SrcAE[31:0]}]}
+	} ]]
+waveform format $id -color #ff9900 -namecolor #ff9900
+set id [waveform add -signals [subst  {
+	{[format {processor_tb.top_SrcBE[31:0]}]}
+	} ]]
+waveform format $id -color #ff9900 -namecolor #ff9900
+set id [waveform add -signals [subst  {
+	{[format {processor_tb.top_ALUResultE[31:0]}]}
+	} ]]
+waveform format $id -color #ff9900 -namecolor #ff9900
+set id [waveform add -signals [subst  {
+	{[format {processor_tb.top_FlagE[3:0]}]}
+	} ]]
+waveform format $id -radix %b -color #ff9900 -namecolor #ff9900
+set id [waveform add -signals [subst  {
+	{[format {processor_tb.top_PCSrcE[1:0]}]}
+	} ]]
+waveform format $id -radix %b -color #ff9900 -namecolor #ff9900
+set id [waveform add -signals [subst  {
+	{[format {processor_tb.top_BranchE}]}
+	} ]]
+waveform format $id -color #ff9900 -namecolor #ff9900
+set id [waveform add -signals [subst  {
+	{[format {processor_tb.top_JumpE}]}
+	} ]]
+waveform format $id -color #ff9900 -namecolor #ff9900
+set id [waveform add -signals [subst  {
+	{[format {processor_tb.top_JumplrE}]}
+	} ]]
+waveform format $id -color #ff9900 -namecolor #ff9900
+set id [waveform add -signals [subst  {
+	{[format {processor_tb.top_FlushE}]}
+	} ]]
+waveform format $id -color #ff9900 -namecolor #ff9900
+set id [waveform add -signals [subst  {
+	{[format {processor_tb.top_ForwardAE[1:0]}]}
+	} ]]
+waveform format $id -radix %b -color #ff9900 -namecolor #ff9900
+set id [waveform add -signals [subst  {
+	{[format {processor_tb.top_ForwardBE[1:0]}]}
+	} ]]
+waveform format $id -radix %b -color #ff9900 -namecolor #ff9900
+set id [waveform add -signals [subst  {
+	{[format {processor_tb.top_ResultSrcE[1:0]}]}
+	} ]]
+waveform format $id -radix %b -color #ff9900 -namecolor #ff9900
+set id [waveform add -signals [subst  {
+	{[format {processor_tb.clk}]}
+	} ]]
+waveform format $id -namecolor #00ff00
+set id [waveform add -signals [subst  {
+	{[format {processor_tb.cycle_count}]}
+	} ]]
+waveform format $id -namecolor #00ff00
+set id [waveform add -signals [subst  {
+	{[format {processor_tb.top_MemWriteM}]}
+	} ]]
+waveform format $id -color #ff0099 -namecolor #ff0099
+set id [waveform add -signals [subst  {
+	{[format {processor_tb.top_ALUResultM[31:0]}]}
+	} ]]
+waveform format $id -radix %x -color #ff0099 -namecolor #ff0099
+set id [waveform add -signals [subst  {
+	{[format {processor_tb.top_WriteDataM[31:0]}]}
+	} ]]
+waveform format $id -color #ff0099 -namecolor #ff0099
+set id [waveform add -signals [subst  {
+	{[format {processor_tb.top_ReadDataM[31:0]}]}
+	} ]]
+waveform format $id -color #ff0099 -namecolor #ff0099
+set id [waveform add -signals [subst  {
+	{[format {processor_tb.top_ResultSrcM[1:0]}]}
+	} ]]
+waveform format $id -radix %b -color #ff0099 -namecolor #ff0099
+set id [waveform add -signals [subst  {
+	{[format {processor_tb.top_LSMemM}]}
+	} ]]
+waveform format $id -color #ff0000 -namecolor #ff0000
+set id [waveform add -signals [subst  {
+	{[format {processor_tb.top_func3M[2:0]}]}
+	} ]]
+waveform format $id -color #ff0000 -namecolor #ff0000
+set id [waveform add -signals [subst  {
+	{[format {processor_tb.top_LSWordM}]}
+	} ]]
+waveform format $id -color #ff0000 -namecolor #ff0000
+set id [waveform add -signals [subst  {
+	{[format {processor_tb.top_LSHalfM}]}
+	} ]]
+waveform format $id -color #ff0000 -namecolor #ff0000
+set id [waveform add -signals [subst  {
+	{[format {processor_tb.top_LSByteM}]}
+	} ]]
+waveform format $id -color #ff0000 -namecolor #ff0000
+set id [waveform add -signals [subst  {
+	{[format {processor_tb.top_LSHalfUM}]}
+	} ]]
+waveform format $id -color #ff0000 -namecolor #ff0000
+set id [waveform add -signals [subst  {
+	{[format {processor_tb.top_LSByteUM}]}
+	} ]]
+waveform format $id -color #ff0000 -namecolor #ff0000
+set id [waveform add -signals [subst  {
+	{[format {processor_tb.top_MemSelM[3:0]}]}
+	} ]]
+waveform format $id -color #ff0000 -namecolor #ff0000
+set id [waveform add -signals [subst  {
+	{[format {processor_tb.top_MemDataReadOutM[31:0]}]}
+	} ]]
+waveform format $id -color #00ffff -namecolor #00ffff
+set id [waveform add -signals [subst  {
+	{[format {processor_tb.dm.MemAddrM[3:0]}]}
+	} ]]
+waveform format $id -color #00ffff -namecolor #00ffff
+waveform hierarchy expand $id
+set id2 [lindex [waveform hierarchy content $id] 0]
+waveform format $id2 -color #00ffff -namecolor #00ffff
+set id2 [lindex [waveform hierarchy content $id] 1]
+waveform format $id2 -color #00ffff -namecolor #00ffff
+set id2 [lindex [waveform hierarchy content $id] 2]
+waveform format $id2 -color #00ffff -namecolor #00ffff
+set id2 [lindex [waveform hierarchy content $id] 3]
+waveform format $id2 -color #00ffff -namecolor #00ffff
+set id [waveform add -signals [subst  {
+	{[format {processor_tb.dm.MemDataWriteM[3:0]}]}
+	} ]]
+waveform format $id -radix %x -color #00ffff -namecolor #00ffff
+waveform hierarchy expand $id
+set id2 [lindex [waveform hierarchy content $id] 0]
+waveform format $id2 -color #00ffff -namecolor #00ffff
+set id2 [lindex [waveform hierarchy content $id] 1]
+waveform format $id2 -color #00ffff -namecolor #00ffff
+set id2 [lindex [waveform hierarchy content $id] 2]
+waveform format $id2 -color #00ffff -namecolor #00ffff
+set id2 [lindex [waveform hierarchy content $id] 3]
+waveform format $id2 -color #00ffff -namecolor #00ffff
+set id [waveform add -signals [subst  {
+	{[format {processor_tb.dm.MemWriteEnM[3:0]}]}
+	} ]]
+waveform format $id -color #00ffff -namecolor #00ffff
+waveform hierarchy expand $id
+set id2 [lindex [waveform hierarchy content $id] 0]
+waveform format $id2 -color #00ffff -namecolor #00ffff
+set id2 [lindex [waveform hierarchy content $id] 1]
+waveform format $id2 -color #00ffff -namecolor #00ffff
+set id2 [lindex [waveform hierarchy content $id] 2]
+waveform format $id2 -color #00ffff -namecolor #00ffff
+set id2 [lindex [waveform hierarchy content $id] 3]
+waveform format $id2 -color #00ffff -namecolor #00ffff
+set id [waveform add -signals [subst  {
+	{[format {processor_tb.clk}]}
+	} ]]
+waveform format $id -namecolor #00ff00
+set id [waveform add -signals [subst  {
+	{[format {processor_tb.cycle_count}]}
+	} ]]
+waveform format $id -namecolor #00ff00
+set id [waveform add -signals [subst  {
+	{[format {processor_tb.top_RegWriteW}]}
+	} ]]
+waveform format $id -color #ffff00 -namecolor #ffff00
+set id [waveform add -signals [subst  {
+	{[format {processor_tb.top_RdW[4:0]}]}
+	} ]]
+waveform format $id -radix %d -color #ffff00 -namecolor #ffff00
+set id [waveform add -signals [subst  {
+	{[format {processor_tb.top_ALUResultW[31:0]}]}
+	} ]]
+waveform format $id -radix %x -color #ffff00 -namecolor #ffff00
+set id [waveform add -signals [subst  {
+	{[format {processor_tb.top_ReadDataW[31:0]}]}
+	} ]]
+waveform format $id -color #ffff00 -namecolor #ffff00
+set id [waveform add -signals [subst  {
+	{[format {processor_tb.top_PCTargetW[31:0]}]}
+	} ]]
+waveform format $id -color #ffff00 -namecolor #ffff00
+set id [waveform add -signals [subst  {
+	{[format {processor_tb.top_PCPlus4W[31:0]}]}
+	} ]]
+waveform format $id -color #ffff00 -namecolor #ffff00
+set id [waveform add -signals [subst  {
+	{[format {processor_tb.top_ResultSrcW[1:0]}]}
+	} ]]
+waveform format $id -radix %b -color #ffff00 -namecolor #ffff00
+set id [waveform add -signals [subst  {
+	{[format {processor_tb.top_ResultW[31:0]}]}
+	} ]]
+waveform format $id -radix %x -color #ffff00 -namecolor #ffff00
+set id [waveform add -signals [subst  {
+	{[format {processor_tb.clk}]}
+	} ]]
+waveform format $id -namecolor #00ff00
+set id [waveform add -signals [subst  {
+	{[format {processor_tb.cycle_count}]}
+	} ]]
+waveform format $id -namecolor #00ff00
+set id [waveform add -signals [subst  {
+	{[format {processor_tb.proc.dp.rf.REGFILE[31:0]}]}
+	} ]]
+waveform format $id -color #0099ff -namecolor #0099ff
+waveform hierarchy expand $id
+set id2 [lindex [waveform hierarchy content $id] 0]
+waveform format $id2 -color #0099ff -namecolor #0099ff
+set id2 [lindex [waveform hierarchy content $id] 1]
+waveform format $id2 -color #0099ff -namecolor #0099ff
+set id2 [lindex [waveform hierarchy content $id] 2]
+waveform format $id2 -color #0099ff -namecolor #0099ff
+set id2 [lindex [waveform hierarchy content $id] 3]
+waveform format $id2 -color #0099ff -namecolor #0099ff
+set id2 [lindex [waveform hierarchy content $id] 4]
+waveform format $id2 -color #0099ff -namecolor #0099ff
+set id2 [lindex [waveform hierarchy content $id] 5]
+waveform format $id2 -color #0099ff -namecolor #0099ff
+set id2 [lindex [waveform hierarchy content $id] 6]
+waveform format $id2 -color #0099ff -namecolor #0099ff
+set id2 [lindex [waveform hierarchy content $id] 7]
+waveform format $id2 -color #0099ff -namecolor #0099ff
+set id2 [lindex [waveform hierarchy content $id] 8]
+waveform format $id2 -color #0099ff -namecolor #0099ff
+set id2 [lindex [waveform hierarchy content $id] 9]
+waveform format $id2 -color #0099ff -namecolor #0099ff
+set id2 [lindex [waveform hierarchy content $id] 10]
+waveform format $id2 -color #0099ff -namecolor #0099ff
+set id2 [lindex [waveform hierarchy content $id] 11]
+waveform format $id2 -color #0099ff -namecolor #0099ff
+set id2 [lindex [waveform hierarchy content $id] 12]
+waveform format $id2 -color #0099ff -namecolor #0099ff
+set id2 [lindex [waveform hierarchy content $id] 13]
+waveform format $id2 -color #0099ff -namecolor #0099ff
+set id2 [lindex [waveform hierarchy content $id] 14]
+waveform format $id2 -color #0099ff -namecolor #0099ff
+set id2 [lindex [waveform hierarchy content $id] 15]
+waveform format $id2 -color #0099ff -namecolor #0099ff
+set id2 [lindex [waveform hierarchy content $id] 16]
+waveform format $id2 -color #0099ff -namecolor #0099ff
+set id2 [lindex [waveform hierarchy content $id] 17]
+waveform format $id2 -color #0099ff -namecolor #0099ff
+set id2 [lindex [waveform hierarchy content $id] 18]
+waveform format $id2 -color #0099ff -namecolor #0099ff
+set id2 [lindex [waveform hierarchy content $id] 19]
+waveform format $id2 -color #0099ff -namecolor #0099ff
+set id2 [lindex [waveform hierarchy content $id] 20]
+waveform format $id2 -color #0099ff -namecolor #0099ff
+set id2 [lindex [waveform hierarchy content $id] 21]
+waveform format $id2 -color #0099ff -namecolor #0099ff
+set id2 [lindex [waveform hierarchy content $id] 22]
+waveform format $id2 -color #0099ff -namecolor #0099ff
+set id2 [lindex [waveform hierarchy content $id] 23]
+waveform format $id2 -color #0099ff -namecolor #0099ff
+set id2 [lindex [waveform hierarchy content $id] 24]
+waveform format $id2 -color #0099ff -namecolor #0099ff
+set id2 [lindex [waveform hierarchy content $id] 25]
+waveform format $id2 -color #0099ff -namecolor #0099ff
+set id2 [lindex [waveform hierarchy content $id] 26]
+waveform format $id2 -color #0099ff -namecolor #0099ff
+set id2 [lindex [waveform hierarchy content $id] 27]
+waveform format $id2 -color #0099ff -namecolor #0099ff
+set id2 [lindex [waveform hierarchy content $id] 28]
+waveform format $id2 -color #0099ff -namecolor #0099ff
+set id2 [lindex [waveform hierarchy content $id] 29]
+waveform format $id2 -color #0099ff -namecolor #0099ff
+set id2 [lindex [waveform hierarchy content $id] 30]
+waveform format $id2 -color #0099ff -namecolor #0099ff
+set id2 [lindex [waveform hierarchy content $id] 31]
+waveform format $id2 -color #0099ff -namecolor #0099ff
+waveform hierarchy collapse $id
+set id [waveform add -signals [subst  {
+	{[format {processor_tb.dm.mem3.DMEM[0:16383]}]}
+	} ]]
+waveform format $id -color #ff9900 -namecolor #ff9900
+waveform hierarchy expand $id
+set id2 [lindex [waveform hierarchy content $id] 0]
+waveform format $id2 -color #ff9900 -namecolor #ff9900
+set id2 [lindex [waveform hierarchy content $id] 1]
+waveform format $id2 -color #ff9900 -namecolor #ff9900
+set id2 [lindex [waveform hierarchy content $id] 2]
+waveform format $id2 -color #ff9900 -namecolor #ff9900
+set id2 [lindex [waveform hierarchy content $id] 3]
+waveform format $id2 -color #ff9900 -namecolor #ff9900
+set id2 [lindex [waveform hierarchy content $id] 4]
+waveform format $id2 -color #ff9900 -namecolor #ff9900
+set id2 [lindex [waveform hierarchy content $id] 5]
+waveform format $id2 -color #ff9900 -namecolor #ff9900
+set id2 [lindex [waveform hierarchy content $id] 6]
+waveform format $id2 -color #ff9900 -namecolor #ff9900
+set id2 [lindex [waveform hierarchy content $id] 7]
+waveform format $id2 -color #ff9900 -namecolor #ff9900
+set id2 [lindex [waveform hierarchy content $id] 8]
+waveform format $id2 -color #ff9900 -namecolor #ff9900
+set id2 [lindex [waveform hierarchy content $id] 9]
+waveform format $id2 -color #ff9900 -namecolor #ff9900
+set id2 [lindex [waveform hierarchy content $id] 10]
+waveform format $id2 -color #ff9900 -namecolor #ff9900
+set id2 [lindex [waveform hierarchy content $id] 11]
+waveform format $id2 -color #ff9900 -namecolor #ff9900
+set id2 [lindex [waveform hierarchy content $id] 12]
+waveform format $id2 -color #ff9900 -namecolor #ff9900
+set id2 [lindex [waveform hierarchy content $id] 13]
+waveform format $id2 -color #ff9900 -namecolor #ff9900
+set id2 [lindex [waveform hierarchy content $id] 14]
+waveform format $id2 -color #ff9900 -namecolor #ff9900
+set id2 [lindex [waveform hierarchy content $id] 15]
+waveform format $id2 -color #ff9900 -namecolor #ff9900
+set id2 [lindex [waveform hierarchy content $id] 16]
+waveform format $id2 -color #ff9900 -namecolor #ff9900
+set id2 [lindex [waveform hierarchy content $id] 17]
+waveform format $id2 -color #ff9900 -namecolor #ff9900
+set id2 [lindex [waveform hierarchy content $id] 18]
+waveform format $id2 -color #ff9900 -namecolor #ff9900
+set id2 [lindex [waveform hierarchy content $id] 19]
+waveform format $id2 -color #ff9900 -namecolor #ff9900
+set id2 [lindex [waveform hierarchy content $id] 20]
+waveform format $id2 -color #ff9900 -namecolor #ff9900
+set id2 [lindex [waveform hierarchy content $id] 21]
+waveform format $id2 -color #ff9900 -namecolor #ff9900
+set id2 [lindex [waveform hierarchy content $id] 22]
+waveform format $id2 -color #ff9900 -namecolor #ff9900
+set id2 [lindex [waveform hierarchy content $id] 23]
+waveform format $id2 -color #ff9900 -namecolor #ff9900
+set id2 [lindex [waveform hierarchy content $id] 24]
+waveform format $id2 -color #ff9900 -namecolor #ff9900
+set id2 [lindex [waveform hierarchy content $id] 25]
+waveform format $id2 -color #ff9900 -namecolor #ff9900
+set id2 [lindex [waveform hierarchy content $id] 26]
+waveform format $id2 -color #ff9900 -namecolor #ff9900
+set id2 [lindex [waveform hierarchy content $id] 27]
+waveform format $id2 -color #ff9900 -namecolor #ff9900
+set id2 [lindex [waveform hierarchy content $id] 28]
+waveform format $id2 -color #ff9900 -namecolor #ff9900
+set id2 [lindex [waveform hierarchy content $id] 29]
+waveform format $id2 -color #ff9900 -namecolor #ff9900
+set id2 [lindex [waveform hierarchy content $id] 30]
+waveform format $id2 -color #ff9900 -namecolor #ff9900
+waveform hierarchy collapse $id
+set id [waveform add -signals [subst  {
+	{[format {processor_tb.dm.mem2.DMEM[0:16383]}]}
+	} ]]
+waveform format $id -color #ff0000 -namecolor #ff0000
+waveform hierarchy expand $id
+set id2 [lindex [waveform hierarchy content $id] 0]
+waveform format $id2 -color #ff0000 -namecolor #ff0000
+set id2 [lindex [waveform hierarchy content $id] 1]
+waveform format $id2 -color #ff0000 -namecolor #ff0000
+set id2 [lindex [waveform hierarchy content $id] 2]
+waveform format $id2 -color #ff0000 -namecolor #ff0000
+set id2 [lindex [waveform hierarchy content $id] 3]
+waveform format $id2 -color #ff0000 -namecolor #ff0000
+set id2 [lindex [waveform hierarchy content $id] 4]
+waveform format $id2 -color #ff0000 -namecolor #ff0000
+set id2 [lindex [waveform hierarchy content $id] 5]
+waveform format $id2 -color #ff0000 -namecolor #ff0000
+set id2 [lindex [waveform hierarchy content $id] 6]
+waveform format $id2 -color #ff0000 -namecolor #ff0000
+set id2 [lindex [waveform hierarchy content $id] 7]
+waveform format $id2 -color #ff0000 -namecolor #ff0000
+set id2 [lindex [waveform hierarchy content $id] 8]
+waveform format $id2 -color #ff0000 -namecolor #ff0000
+set id2 [lindex [waveform hierarchy content $id] 9]
+waveform format $id2 -color #ff0000 -namecolor #ff0000
+set id2 [lindex [waveform hierarchy content $id] 10]
+waveform format $id2 -color #ff0000 -namecolor #ff0000
+set id2 [lindex [waveform hierarchy content $id] 11]
+waveform format $id2 -color #ff0000 -namecolor #ff0000
+set id2 [lindex [waveform hierarchy content $id] 12]
+waveform format $id2 -color #ff0000 -namecolor #ff0000
+set id2 [lindex [waveform hierarchy content $id] 13]
+waveform format $id2 -color #ff0000 -namecolor #ff0000
+set id2 [lindex [waveform hierarchy content $id] 14]
+waveform format $id2 -color #ff0000 -namecolor #ff0000
+set id2 [lindex [waveform hierarchy content $id] 15]
+waveform format $id2 -color #ff0000 -namecolor #ff0000
+set id2 [lindex [waveform hierarchy content $id] 16]
+waveform format $id2 -color #ff0000 -namecolor #ff0000
+set id2 [lindex [waveform hierarchy content $id] 17]
+waveform format $id2 -color #ff0000 -namecolor #ff0000
+set id2 [lindex [waveform hierarchy content $id] 18]
+waveform format $id2 -color #ff0000 -namecolor #ff0000
+set id2 [lindex [waveform hierarchy content $id] 19]
+waveform format $id2 -color #ff0000 -namecolor #ff0000
+set id2 [lindex [waveform hierarchy content $id] 20]
+waveform format $id2 -color #ff0000 -namecolor #ff0000
+set id2 [lindex [waveform hierarchy content $id] 21]
+waveform format $id2 -color #ff0000 -namecolor #ff0000
+set id2 [lindex [waveform hierarchy content $id] 22]
+waveform format $id2 -color #ff0000 -namecolor #ff0000
+set id2 [lindex [waveform hierarchy content $id] 23]
+waveform format $id2 -color #ff0000 -namecolor #ff0000
+set id2 [lindex [waveform hierarchy content $id] 24]
+waveform format $id2 -color #ff0000 -namecolor #ff0000
+set id2 [lindex [waveform hierarchy content $id] 25]
+waveform format $id2 -color #ff0000 -namecolor #ff0000
+set id2 [lindex [waveform hierarchy content $id] 26]
+waveform format $id2 -color #ff0000 -namecolor #ff0000
+set id2 [lindex [waveform hierarchy content $id] 27]
+waveform format $id2 -color #ff0000 -namecolor #ff0000
+set id2 [lindex [waveform hierarchy content $id] 28]
+waveform format $id2 -color #ff0000 -namecolor #ff0000
+set id2 [lindex [waveform hierarchy content $id] 29]
+waveform format $id2 -color #ff0000 -namecolor #ff0000
+set id2 [lindex [waveform hierarchy content $id] 30]
+waveform format $id2 -color #ff0000 -namecolor #ff0000
+waveform hierarchy collapse $id
+set id [waveform add -signals [subst  {
+	{[format {processor_tb.dm.mem1.DMEM[0:16383]}]}
+	} ]]
+waveform format $id -color #ff00ff -namecolor #ff00ff
+waveform hierarchy expand $id
+set id2 [lindex [waveform hierarchy content $id] 0]
+waveform format $id2 -color #ff00ff -namecolor #ff00ff
+set id2 [lindex [waveform hierarchy content $id] 1]
+waveform format $id2 -color #ff00ff -namecolor #ff00ff
+set id2 [lindex [waveform hierarchy content $id] 2]
+waveform format $id2 -color #ff00ff -namecolor #ff00ff
+set id2 [lindex [waveform hierarchy content $id] 3]
+waveform format $id2 -color #ff00ff -namecolor #ff00ff
+set id2 [lindex [waveform hierarchy content $id] 4]
+waveform format $id2 -color #ff00ff -namecolor #ff00ff
+set id2 [lindex [waveform hierarchy content $id] 5]
+waveform format $id2 -color #ff00ff -namecolor #ff00ff
+set id2 [lindex [waveform hierarchy content $id] 6]
+waveform format $id2 -color #ff00ff -namecolor #ff00ff
+set id2 [lindex [waveform hierarchy content $id] 7]
+waveform format $id2 -color #ff00ff -namecolor #ff00ff
+set id2 [lindex [waveform hierarchy content $id] 8]
+waveform format $id2 -color #ff00ff -namecolor #ff00ff
+set id2 [lindex [waveform hierarchy content $id] 9]
+waveform format $id2 -color #ff00ff -namecolor #ff00ff
+set id2 [lindex [waveform hierarchy content $id] 10]
+waveform format $id2 -color #ff00ff -namecolor #ff00ff
+set id2 [lindex [waveform hierarchy content $id] 11]
+waveform format $id2 -color #ff00ff -namecolor #ff00ff
+set id2 [lindex [waveform hierarchy content $id] 12]
+waveform format $id2 -color #ff00ff -namecolor #ff00ff
+set id2 [lindex [waveform hierarchy content $id] 13]
+waveform format $id2 -color #ff00ff -namecolor #ff00ff
+set id2 [lindex [waveform hierarchy content $id] 14]
+waveform format $id2 -color #ff00ff -namecolor #ff00ff
+set id2 [lindex [waveform hierarchy content $id] 15]
+waveform format $id2 -color #ff00ff -namecolor #ff00ff
+set id2 [lindex [waveform hierarchy content $id] 16]
+waveform format $id2 -color #ff00ff -namecolor #ff00ff
+set id2 [lindex [waveform hierarchy content $id] 17]
+waveform format $id2 -color #ff00ff -namecolor #ff00ff
+set id2 [lindex [waveform hierarchy content $id] 18]
+waveform format $id2 -color #ff00ff -namecolor #ff00ff
+set id2 [lindex [waveform hierarchy content $id] 19]
+waveform format $id2 -color #ff00ff -namecolor #ff00ff
+set id2 [lindex [waveform hierarchy content $id] 20]
+waveform format $id2 -color #ff00ff -namecolor #ff00ff
+set id2 [lindex [waveform hierarchy content $id] 21]
+waveform format $id2 -color #ff00ff -namecolor #ff00ff
+set id2 [lindex [waveform hierarchy content $id] 22]
+waveform format $id2 -color #ff00ff -namecolor #ff00ff
+set id2 [lindex [waveform hierarchy content $id] 23]
+waveform format $id2 -color #ff00ff -namecolor #ff00ff
+set id2 [lindex [waveform hierarchy content $id] 24]
+waveform format $id2 -color #ff00ff -namecolor #ff00ff
+set id2 [lindex [waveform hierarchy content $id] 25]
+waveform format $id2 -color #ff00ff -namecolor #ff00ff
+set id2 [lindex [waveform hierarchy content $id] 26]
+waveform format $id2 -color #ff00ff -namecolor #ff00ff
+set id2 [lindex [waveform hierarchy content $id] 27]
+waveform format $id2 -color #ff00ff -namecolor #ff00ff
+set id2 [lindex [waveform hierarchy content $id] 28]
+waveform format $id2 -color #ff00ff -namecolor #ff00ff
+set id2 [lindex [waveform hierarchy content $id] 29]
+waveform format $id2 -color #ff00ff -namecolor #ff00ff
+set id2 [lindex [waveform hierarchy content $id] 30]
+waveform format $id2 -color #ff00ff -namecolor #ff00ff
+waveform hierarchy collapse $id
+set id [waveform add -signals [subst  {
+	{[format {processor_tb.dm.mem0.DMEM[0:16383]}]}
+	} ]]
+waveform format $id -color #00ffff -namecolor #00ffff
+waveform hierarchy expand $id
+set id2 [lindex [waveform hierarchy content $id] 0]
+waveform format $id2 -color #00ffff -namecolor #00ffff
+set id2 [lindex [waveform hierarchy content $id] 1]
+waveform format $id2 -color #00ffff -namecolor #00ffff
+set id2 [lindex [waveform hierarchy content $id] 2]
+waveform format $id2 -color #00ffff -namecolor #00ffff
+set id2 [lindex [waveform hierarchy content $id] 3]
+waveform format $id2 -color #00ffff -namecolor #00ffff
+set id2 [lindex [waveform hierarchy content $id] 4]
+waveform format $id2 -color #00ffff -namecolor #00ffff
+set id2 [lindex [waveform hierarchy content $id] 5]
+waveform format $id2 -color #00ffff -namecolor #00ffff
+set id2 [lindex [waveform hierarchy content $id] 6]
+waveform format $id2 -color #00ffff -namecolor #00ffff
+set id2 [lindex [waveform hierarchy content $id] 7]
+waveform format $id2 -color #00ffff -namecolor #00ffff
+set id2 [lindex [waveform hierarchy content $id] 8]
+waveform format $id2 -color #00ffff -namecolor #00ffff
+set id2 [lindex [waveform hierarchy content $id] 9]
+waveform format $id2 -color #00ffff -namecolor #00ffff
+set id2 [lindex [waveform hierarchy content $id] 10]
+waveform format $id2 -color #00ffff -namecolor #00ffff
+set id2 [lindex [waveform hierarchy content $id] 11]
+waveform format $id2 -color #00ffff -namecolor #00ffff
+set id2 [lindex [waveform hierarchy content $id] 12]
+waveform format $id2 -color #00ffff -namecolor #00ffff
+set id2 [lindex [waveform hierarchy content $id] 13]
+waveform format $id2 -color #00ffff -namecolor #00ffff
+set id2 [lindex [waveform hierarchy content $id] 14]
+waveform format $id2 -color #00ffff -namecolor #00ffff
+set id2 [lindex [waveform hierarchy content $id] 15]
+waveform format $id2 -color #00ffff -namecolor #00ffff
+set id2 [lindex [waveform hierarchy content $id] 16]
+waveform format $id2 -color #00ffff -namecolor #00ffff
+set id2 [lindex [waveform hierarchy content $id] 17]
+waveform format $id2 -color #00ffff -namecolor #00ffff
+set id2 [lindex [waveform hierarchy content $id] 18]
+waveform format $id2 -color #00ffff -namecolor #00ffff
+set id2 [lindex [waveform hierarchy content $id] 19]
+waveform format $id2 -color #00ffff -namecolor #00ffff
+set id2 [lindex [waveform hierarchy content $id] 20]
+waveform format $id2 -color #00ffff -namecolor #00ffff
+set id2 [lindex [waveform hierarchy content $id] 21]
+waveform format $id2 -color #00ffff -namecolor #00ffff
+set id2 [lindex [waveform hierarchy content $id] 22]
+waveform format $id2 -color #00ffff -namecolor #00ffff
+set id2 [lindex [waveform hierarchy content $id] 23]
+waveform format $id2 -color #00ffff -namecolor #00ffff
+set id2 [lindex [waveform hierarchy content $id] 24]
+waveform format $id2 -color #00ffff -namecolor #00ffff
+set id2 [lindex [waveform hierarchy content $id] 25]
+waveform format $id2 -color #00ffff -namecolor #00ffff
+set id2 [lindex [waveform hierarchy content $id] 26]
+waveform format $id2 -color #00ffff -namecolor #00ffff
+set id2 [lindex [waveform hierarchy content $id] 27]
+waveform format $id2 -color #00ffff -namecolor #00ffff
+set id2 [lindex [waveform hierarchy content $id] 28]
+waveform format $id2 -color #00ffff -namecolor #00ffff
+set id2 [lindex [waveform hierarchy content $id] 29]
+waveform format $id2 -color #00ffff -namecolor #00ffff
+set id2 [lindex [waveform hierarchy content $id] 30]
+waveform format $id2 -color #00ffff -namecolor #00ffff
+waveform hierarchy collapse $id
+set id [waveform add -signals [subst  {
+	{[format {processor_tb.SwDataInM[31:0]}]}
+	} ]]
+waveform format $id -color #0099ff -namecolor #0099ff
+set id [waveform add -signals [subst  {
+	{[format {processor_tb.KeyDataInM[1:0]}]}
+	} ]]
+waveform format $id -color #0099ff -namecolor #0099ff
+set id [waveform add -signals [subst  {
+	{[format {processor_tb.LedrDataOutM[31:0]}]}
+	} ]]
+waveform format $id -color #0099ff -namecolor #0099ff
+set id [waveform add -signals [subst  {
+	{[format {processor_tb.LedgDataOutM[31:0]}]}
+	} ]]
+waveform format $id -color #0099ff -namecolor #0099ff
+set id [waveform add -signals [subst  {
+	{[format {processor_tb.LcdDataOutM[31:0]}]}
+	} ]]
+waveform format $id -color #0099ff -namecolor #0099ff
+set id [waveform add -signals [subst  {
+	{[format {processor_tb.Hex0DataOutM[6:0]}]}
+	} ]]
+waveform format $id -color #0099ff -namecolor #0099ff
+set id [waveform add -signals [subst  {
+	{[format {processor_tb.Hex1DataOutM[6:0]}]}
+	} ]]
+waveform format $id -color #0099ff -namecolor #0099ff
+set id [waveform add -signals [subst  {
+	{[format {processor_tb.Hex2DataOutM[6:0]}]}
+	} ]]
+waveform format $id -color #0099ff -namecolor #0099ff
+set id [waveform add -signals [subst  {
+	{[format {processor_tb.Hex3DataOutM[6:0]}]}
+	} ]]
+waveform format $id -color #0099ff -namecolor #0099ff
+set id [waveform add -signals [subst  {
+	{[format {processor_tb.Hex4DataOutM[6:0]}]}
+	} ]]
+waveform format $id -color #0099ff -namecolor #0099ff
+set id [waveform add -signals [subst  {
+	{[format {processor_tb.Hex5DataOutM[6:0]}]}
+	} ]]
+waveform format $id -color #0099ff -namecolor #0099ff
+set id [waveform add -signals [subst  {
+	{[format {processor_tb.Hex6DataOutM[6:0]}]}
+	} ]]
+waveform format $id -color #0099ff -namecolor #0099ff
+set id [waveform add -signals [subst  {
+	{[format {processor_tb.Hex7DataOutM[6:0]}]}
+	} ]]
+waveform format $id -color #0099ff -namecolor #0099ff
+
+waveform xview limits 795.482ns 845.64ns
+waveform set -signalfilter rst

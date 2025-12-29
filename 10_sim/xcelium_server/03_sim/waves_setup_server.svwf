@@ -1,0 +1,391 @@
+
+#
+# Mnemonic Maps
+#
+mmap new  -reuse -name {Boolean as Logic} -radix %b -contents {{%c=FALSE -edgepriority 1 -shape low}
+{%c=TRUE -edgepriority 1 -shape high}}
+mmap new  -reuse -name {Example Map} -radix %x -contents {{%b=11???? -bgcolor orange -label REG:%x -linecolor yellow -shape bus}
+{%x=1F -bgcolor red -label ERROR -linecolor white -shape EVENT}
+{%x=2C -bgcolor red -label ERROR -linecolor white -shape EVENT}
+{%x=* -label %x -linecolor gray -shape bus}}
+
+array unset createdGroup
+array set createdGroup {}
+set id [waveform add -signals [subst  {
+	{[format {tbench.dut.top.Ebreak}]}
+	} ]]
+waveform format $id -color #ffff00 -namecolor #ffff00
+set id [waveform add -signals [subst  {
+	{[format {tbench.dut.top.Ecall}]}
+	} ]]
+waveform format $id -color #ffff00 -namecolor #ffff00
+set id [waveform add -signals [subst  {
+	{[format {tbench.dut.top.InstrVldW}]}
+	} ]]
+waveform format $id -color #ffff00 -namecolor #ffff00
+set id [waveform add -signals [subst  {
+	{[format {tbench.dut.o_insn_vld}]}
+	} ]]
+waveform format $id -color #ffff00 -namecolor #ffff00
+set id [waveform add -signals [subst  {
+	{[format {tbench.dut.o_ctrl}]}
+	} ]]
+waveform format $id -color #ffff00 -namecolor #ffff00
+set id [waveform add -signals [subst  {
+	{[format {tbench.dut.o_mispred}]}
+	} ]]
+waveform format $id -color #ffff00 -namecolor #ffff00
+set id [waveform add -signals [subst  {
+	{[format {tbench.dut.i_reset}]}
+	} ]]
+waveform format $id -color #ffff00 -namecolor #ffff00
+set id [waveform add -signals [subst  {
+	{[format {tbench.dut.i_clk}]}
+	} ]]
+waveform format $id -namecolor #00ff00
+set id [waveform add -signals [subst  {
+	{[format {tbench.dut.top.top_pcF0[31:0]}]}
+	} ]]
+waveform format $id -color #ff0000 -namecolor #ff0000
+set id [waveform add -signals [subst  {
+	{[format {tbench.dut.top.top_pcF[31:0]}]}
+	} ]]
+waveform format $id -color #ff0000 -namecolor #ff0000
+set id [waveform add -signals [subst  {
+	{[format {tbench.dut.top.top_InstrF[31:0]}]}
+	} ]]
+waveform format $id -color #ff0000 -namecolor #ff0000
+set id [waveform add -signals [subst  {
+	{[format {tbench.dut.top.top_PCSrcE[1:0]}]}
+	} ]]
+waveform format $id -radix %b -color #ff0000 -namecolor #ff0000
+set id [waveform add -signals [subst  {
+	{[format {tbench.dut.top.top_PCPlus4F[31:0]}]}
+	} ]]
+waveform format $id -color #ff0000 -namecolor #ff0000
+set id [waveform add -signals [subst  {
+	{[format {tbench.dut.top.top_PCTargetE[31:0]}]}
+	} ]]
+waveform format $id -color #ff0000 -namecolor #ff0000
+set id [waveform add -signals [subst  {
+	{[format {tbench.dut.top.top_StallF}]}
+	} ]]
+waveform format $id -color #ff0000 -namecolor #ff0000
+set id [waveform add -signals [subst  {
+	{[format {tbench.dut.i_clk}]}
+	} ]]
+waveform format $id -namecolor #00ff00
+set id [waveform add -signals [subst  {
+	{[format {tbench.dut.top.top_StallD}]}
+	} ]]
+waveform format $id -color #00ffff -namecolor #00ffff
+set id [waveform add -signals [subst  {
+	{[format {tbench.dut.top.top_FlushD}]}
+	} ]]
+waveform format $id -color #00ffff -namecolor #00ffff
+set id [waveform add -signals [subst  {
+	{[format {tbench.dut.top.top_BranchD}]}
+	} ]]
+waveform format $id -color #00ffff -namecolor #00ffff
+set id [waveform add -signals [subst  {
+	{[format {tbench.dut.top.top_JumpD}]}
+	} ]]
+waveform format $id -color #00ffff -namecolor #00ffff
+set id [waveform add -signals [subst  {
+	{[format {tbench.dut.top.top_JumplrD}]}
+	} ]]
+waveform format $id -color #00ffff -namecolor #00ffff
+set id [waveform add -signals [subst  {
+	{[format {tbench.dut.top.top_pcD[31:0]}]}
+	} ]]
+waveform format $id -color #00ffff -namecolor #00ffff
+set id [waveform add -signals [subst  {
+	{[format {tbench.dut.top.top_InstrD[31:0]}]}
+	} ]]
+waveform format $id -color #00ffff -namecolor #00ffff
+set id [waveform add -signals [subst  {
+	{[format {tbench.dut.top.top_Read1D[31:0]}]}
+	} ]]
+waveform format $id -color #00ffff -namecolor #00ffff
+set id [waveform add -signals [subst  {
+	{[format {tbench.dut.top.top_Read2D[31:0]}]}
+	} ]]
+waveform format $id -color #00ffff -namecolor #00ffff
+set id [waveform add -signals [subst  {
+	{[format {tbench.dut.top.top_funct3D[2:0]}]}
+	} ]]
+waveform format $id -radix %b -color #00ffff -namecolor #00ffff
+set id [waveform add -signals [subst  {
+	{[format {tbench.dut.top.top_Rs1D[4:0]}]}
+	} ]]
+waveform format $id -radix %d -color #00ffff -namecolor #00ffff
+set id [waveform add -signals [subst  {
+	{[format {tbench.dut.top.top_Rs2D[4:0]}]}
+	} ]]
+waveform format $id -radix %d -color #00ffff -namecolor #00ffff
+set id [waveform add -signals [subst  {
+	{[format {tbench.dut.top.top_RdD[4:0]}]}
+	} ]]
+waveform format $id -radix %d -color #00ffff -namecolor #00ffff
+set id [waveform add -signals [subst  {
+	{[format {tbench.dut.top.top_ImmExtD[31:0]}]}
+	} ]]
+waveform format $id -color #00ffff -namecolor #00ffff
+set id [waveform add -signals [subst  {
+	{[format {tbench.dut.top.top_ResultSrcD[1:0]}]}
+	} ]]
+waveform format $id -radix %b -color #00ffff -namecolor #00ffff
+set id [waveform add -signals [subst  {
+	{[format {tbench.dut.i_clk}]}
+	} ]]
+waveform format $id -namecolor #00ff00
+set id [waveform add -signals [subst  {
+	{[format {tbench.dut.top.top_pcE[31:0]}]}
+	} ]]
+waveform format $id -color #ff9900 -namecolor #ff9900
+set id [waveform add -signals [subst  {
+	{[format {tbench.dut.top.top_ImmExtE[31:0]}]}
+	} ]]
+waveform format $id -color #ff9900 -namecolor #ff9900
+set id [waveform add -signals [subst  {
+	{[format {tbench.dut.top.top_PCTargetE[31:0]}]}
+	} ]]
+waveform format $id -color #ff9900 -namecolor #ff9900
+set id [waveform add -signals [subst  {
+	{[format {tbench.dut.top.top_PCPlus4E[31:0]}]}
+	} ]]
+waveform format $id -color #ff9900 -namecolor #ff9900
+set id [waveform add -signals [subst  {
+	{[format {tbench.dut.top.top_SrcAE[31:0]}]}
+	} ]]
+waveform format $id -color #ff9900 -namecolor #ff9900
+set id [waveform add -signals [subst  {
+	{[format {tbench.dut.top.top_SrcBE[31:0]}]}
+	} ]]
+waveform format $id -color #ff9900 -namecolor #ff9900
+set id [waveform add -signals [subst  {
+	{[format {tbench.dut.top.top_ALUResultE[31:0]}]}
+	} ]]
+waveform format $id -color #ff9900 -namecolor #ff9900
+set id [waveform add -signals [subst  {
+	{[format {tbench.dut.top.top_FlagE[3:0]}]}
+	} ]]
+waveform format $id -radix %b -color #ff9900 -namecolor #ff9900
+set id [waveform add -signals [subst  {
+	{[format {tbench.dut.top.top_PCSrcE[1:0]}]}
+	} ]]
+waveform format $id -radix %b -color #ff9900 -namecolor #ff9900
+set id [waveform add -signals [subst  {
+	{[format {tbench.dut.top.top_BranchE}]}
+	} ]]
+waveform format $id -color #ff9900 -namecolor #ff9900
+set id [waveform add -signals [subst  {
+	{[format {tbench.dut.top.top_JumpE}]}
+	} ]]
+waveform format $id -color #ff9900 -namecolor #ff9900
+set id [waveform add -signals [subst  {
+	{[format {tbench.dut.top.top_JumplrE}]}
+	} ]]
+waveform format $id -color #ff9900 -namecolor #ff9900
+set id [waveform add -signals [subst  {
+	{[format {tbench.dut.top.top_FlushE}]}
+	} ]]
+waveform format $id -color #ff9900 -namecolor #ff9900
+set id [waveform add -signals [subst  {
+	{[format {tbench.dut.top.top_ForwardAE[1:0]}]}
+	} ]]
+waveform format $id -radix %b -color #ff9900 -namecolor #ff9900
+set id [waveform add -signals [subst  {
+	{[format {tbench.dut.top.top_ForwardBE[1:0]}]}
+	} ]]
+waveform format $id -radix %b -color #ff9900 -namecolor #ff9900
+set id [waveform add -signals [subst  {
+	{[format {tbench.dut.top.top_ResultSrcE[1:0]}]}
+	} ]]
+waveform format $id -radix %b -color #ff9900 -namecolor #ff9900
+set id [waveform add -signals [subst  {
+	{[format {tbench.dut.i_clk}]}
+	} ]]
+waveform format $id -namecolor #00ff00
+set id [waveform add -signals [subst  {
+	{[format {tbench.dut.top.top_MemWriteM}]}
+	} ]]
+waveform format $id -color #ff0099 -namecolor #ff0099
+set id [waveform add -signals [subst  {
+	{[format {tbench.dut.top.top_ALUResultM[31:0]}]}
+	} ]]
+waveform format $id -color #ff0099 -namecolor #ff0099
+set id [waveform add -signals [subst  {
+	{[format {tbench.dut.top.top_WriteDataM[31:0]}]}
+	} ]]
+waveform format $id -color #ff0099 -namecolor #ff0099
+set id [waveform add -signals [subst  {
+	{[format {tbench.dut.top.top_ReadDataM[31:0]}]}
+	} ]]
+waveform format $id -color #ff0099 -namecolor #ff0099
+set id [waveform add -signals [subst  {
+	{[format {tbench.dut.top.top_ResultSrcM[1:0]}]}
+	} ]]
+waveform format $id -radix %b -color #ff0099 -namecolor #ff0099
+set id [waveform add -signals [subst  {
+	{[format {tbench.dut.top.top_LSMemM}]}
+	} ]]
+waveform format $id -color #ff0000 -namecolor #ff0000
+set id [waveform add -signals [subst  {
+	{[format {tbench.dut.top.top_LSWordM}]}
+	} ]]
+waveform format $id -color #ff0000 -namecolor #ff0000
+set id [waveform add -signals [subst  {
+	{[format {tbench.dut.top.top_LSHalfM}]}
+	} ]]
+waveform format $id -color #ff0000 -namecolor #ff0000
+set id [waveform add -signals [subst  {
+	{[format {tbench.dut.top.top_LSByteM}]}
+	} ]]
+waveform format $id -color #ff0000 -namecolor #ff0000
+set id [waveform add -signals [subst  {
+	{[format {tbench.dut.top.top_LSHalfUM}]}
+	} ]]
+waveform format $id -color #ff0000 -namecolor #ff0000
+set id [waveform add -signals [subst  {
+	{[format {tbench.dut.top.top_LSByteUM}]}
+	} ]]
+waveform format $id -color #ff0000 -namecolor #ff0000
+set id [waveform add -signals [subst  {
+	{[format {tbench.dut.top.top_MemSelM[3:0]}]}
+	} ]]
+waveform format $id -radix %b -color #ff0000 -namecolor #ff0000
+set id [waveform add -signals [subst  {
+	{[format {tbench.dut.top.top_MemDataReadOutM[31:0]}]}
+	} ]]
+waveform format $id -color #00ffff -namecolor #00ffff
+set id [waveform add -signals [subst  {
+	{[format {tbench.dut.top.top_MemAddrM[3:0]}]}
+	} ]]
+waveform format $id -color #00ffff -namecolor #00ffff
+waveform hierarchy expand $id
+set id2 [lindex [waveform hierarchy content $id] 0]
+waveform format $id2 -color #00ffff -namecolor #00ffff
+set id2 [lindex [waveform hierarchy content $id] 1]
+waveform format $id2 -color #00ffff -namecolor #00ffff
+set id2 [lindex [waveform hierarchy content $id] 2]
+waveform format $id2 -color #00ffff -namecolor #00ffff
+set id2 [lindex [waveform hierarchy content $id] 3]
+waveform format $id2 -color #00ffff -namecolor #00ffff
+set id [waveform add -signals [subst  {
+	{[format {tbench.dut.top.top_MemDataWriteM[3:0]}]}
+	} ]]
+waveform format $id -color #00ffff -namecolor #00ffff
+waveform hierarchy expand $id
+set id2 [lindex [waveform hierarchy content $id] 0]
+waveform format $id2 -color #00ffff -namecolor #00ffff
+set id2 [lindex [waveform hierarchy content $id] 1]
+waveform format $id2 -color #00ffff -namecolor #00ffff
+set id2 [lindex [waveform hierarchy content $id] 2]
+waveform format $id2 -color #00ffff -namecolor #00ffff
+set id2 [lindex [waveform hierarchy content $id] 3]
+waveform format $id2 -color #00ffff -namecolor #00ffff
+set id [waveform add -signals [subst  {
+	{[format {tbench.dut.top.top_MemWriteEnM[3:0]}]}
+	} ]]
+waveform format $id -color #00ffff -namecolor #00ffff
+waveform hierarchy expand $id
+set id2 [lindex [waveform hierarchy content $id] 0]
+waveform format $id2 -color #00ffff -namecolor #00ffff
+set id2 [lindex [waveform hierarchy content $id] 1]
+waveform format $id2 -color #00ffff -namecolor #00ffff
+set id2 [lindex [waveform hierarchy content $id] 2]
+waveform format $id2 -color #00ffff -namecolor #00ffff
+set id2 [lindex [waveform hierarchy content $id] 3]
+waveform format $id2 -color #00ffff -namecolor #00ffff
+set id [waveform add -signals [subst  {
+	{[format {tbench.dut.i_clk}]}
+	} ]]
+waveform format $id -color #00ff00 -namecolor #00ff00
+set id [waveform add -signals [subst  {
+	{[format {tbench.dut.top.top_RegWriteW}]}
+	} ]]
+waveform format $id -color #ffff00 -namecolor #ffff00
+set id [waveform add -signals [subst  {
+	{[format {tbench.dut.top.top_RdW[4:0]}]}
+	} ]]
+waveform format $id -color #ffff00 -namecolor #ffff00
+set id [waveform add -signals [subst  {
+	{[format {tbench.dut.top.top_ALUResultW[31:0]}]}
+	} ]]
+waveform format $id -color #ffff00 -namecolor #ffff00
+set id [waveform add -signals [subst  {
+	{[format {tbench.dut.top.top_ReadDataW[31:0]}]}
+	} ]]
+waveform format $id -color #ffff00 -namecolor #ffff00
+set id [waveform add -signals [subst  {
+	{[format {tbench.dut.top.top_PCTargetW[31:0]}]}
+	} ]]
+waveform format $id -color #ffff00 -namecolor #ffff00
+set id [waveform add -signals [subst  {
+	{[format {tbench.dut.top.top_PCPlus4W[31:0]}]}
+	} ]]
+waveform format $id -color #ffff00 -namecolor #ffff00
+set id [waveform add -signals [subst  {
+	{[format {tbench.dut.top.top_ResultSrcW[1:0]}]}
+	} ]]
+waveform format $id -color #ffff00 -namecolor #ffff00
+set id [waveform add -signals [subst  {
+	{[format {tbench.dut.top.top_ResultW[31:0]}]}
+	} ]]
+waveform format $id -color #ffff00 -namecolor #ffff00
+set id [waveform add -signals [subst  {
+	{[format {tbench.dut.i_clk}]}
+	} ]]
+waveform format $id -namecolor #00ff00
+set id [waveform add -signals [subst  {
+	{[format {tbench.dut.i_io_sw[31:0]}]}
+	} ]]
+waveform format $id -color #0099ff -namecolor #0099ff
+set id [waveform add -signals [subst  {
+	{[format {tbench.dut.o_io_ledr[31:0]}]}
+	} ]]
+waveform format $id -color #0099ff -namecolor #0099ff
+set id [waveform add -signals [subst  {
+	{[format {tbench.dut.o_io_ledg[31:0]}]}
+	} ]]
+waveform format $id -color #0099ff -namecolor #0099ff
+set id [waveform add -signals [subst  {
+	{[format {tbench.dut.o_io_lcd[31:0]}]}
+	} ]]
+waveform format $id -color #0099ff -namecolor #0099ff
+set id [waveform add -signals [subst  {
+	{[format {tbench.dut.o_io_hex0[6:0]}]}
+	} ]]
+waveform format $id -color #0099ff -namecolor #0099ff
+set id [waveform add -signals [subst  {
+	{[format {tbench.dut.o_io_hex1[6:0]}]}
+	} ]]
+waveform format $id -color #0099ff -namecolor #0099ff
+set id [waveform add -signals [subst  {
+	{[format {tbench.dut.o_io_hex2[6:0]}]}
+	} ]]
+waveform format $id -color #0099ff -namecolor #0099ff
+set id [waveform add -signals [subst  {
+	{[format {tbench.dut.o_io_hex3[6:0]}]}
+	} ]]
+waveform format $id -color #0099ff -namecolor #0099ff
+set id [waveform add -signals [subst  {
+	{[format {tbench.dut.o_io_hex4[6:0]}]}
+	} ]]
+waveform format $id -color #0099ff -namecolor #0099ff
+set id [waveform add -signals [subst  {
+	{[format {tbench.dut.o_io_hex5[6:0]}]}
+	} ]]
+waveform format $id -color #0099ff -namecolor #0099ff
+set id [waveform add -signals [subst  {
+	{[format {tbench.dut.o_io_hex6[6:0]}]}
+	} ]]
+waveform format $id -color #0099ff -namecolor #0099ff
+set id [waveform add -signals [subst  {
+	{[format {tbench.dut.o_io_hex7[6:0]}]}
+	} ]]
+waveform format $id -color #0099ff -namecolor #0099ff
+
+waveform xview limits 80.805ns 140.805ns
+waveform set -signalfilter rst

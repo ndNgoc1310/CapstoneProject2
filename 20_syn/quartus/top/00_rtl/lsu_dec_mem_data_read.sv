@@ -1,0 +1,34 @@
+module lsu_dec_mem_data_read
+(
+    input   logic [31:0]    MemDataReadM,
+    input   logic [3:0]     MemSelM,
+    input   logic           LSWordM, LSHalfM, LSByteM, LSHalfUM, LSByteUM,
+    output  logic [31:0]    MemDataReadOutM
+);
+
+logic [7:0] mem0, mem1, mem2, mem3;
+assign mem0 = MemDataReadM[7:0];
+assign mem1 = MemDataReadM[15:8];
+assign mem2 = MemDataReadM[23:16];
+assign mem3 = MemDataReadM[31:24];
+
+logic [31:0] mem3210, mem0321, mem1032, mem2103;
+assign mem3210 = {mem3, mem2, mem1, mem0};
+assign mem0321 = {mem0, mem3, mem2, mem1};
+assign mem1032 = {mem1, mem0, mem3, mem2};
+assign mem2103 = {mem2, mem1, mem0, mem3};
+
+// Memory data byte decoding
+logic [31:0] data_read;
+assign data_read =  (mem3210 & {32{MemSelM[0]}}) |
+                    (mem0321 & {32{MemSelM[1]}}) |
+                    (mem1032 & {32{MemSelM[2]}}) |
+                    (mem2103 & {32{MemSelM[3]}});
+
+assign MemDataReadOutM = (data_read                                 & {32{LSWordM}})    |
+                         ({16'b0, data_read[15:0]}                  & {32{LSHalfUM}})   |
+                         ({24'b0, data_read[7:0]}                   & {32{LSByteUM}})   |
+                         ({{16{data_read[15]}}, data_read[15:0]}    & {32{LSHalfM}})    |
+                         ({{24{data_read[7]}}, data_read[7:0]}      & {32{LSByteM}});
+
+endmodule : lsu_dec_mem_data_read

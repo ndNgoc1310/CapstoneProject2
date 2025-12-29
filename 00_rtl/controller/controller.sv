@@ -63,8 +63,8 @@ eu eu
 (
     .opD            (opD),
     .funct12D       (funct12D),
-    .Ecall          (Ebreak),
-    .Ebreak         (Ecall)
+    .Ecall          (Ecall),
+    .Ebreak         (Ebreak)
 );
 
 // Instruction Validation

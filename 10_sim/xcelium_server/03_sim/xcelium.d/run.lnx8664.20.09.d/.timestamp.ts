@@ -1,12 +1,12 @@
 1766920006 /home/admin/CapstoneProject2/10_sim/xcelium_server/00_src/dmem_8b_16k.sv
-1767023914 /home/admin/CapstoneProject2/10_sim/xcelium_server/01_bench/scoreboard.sv
+1767049882 /home/admin/CapstoneProject2/10_sim/xcelium_server/01_bench/scoreboard.sv
 1767009120 /home/admin/CapstoneProject2/10_sim/xcelium_server/00_src/lsu_io_buffer_in.sv
 1765457255 /home/admin/CapstoneProject2/10_sim/xcelium_server/00_src/adder_1b.sv
 1765457255 /home/admin/CapstoneProject2/10_sim/xcelium_server/00_src/hazard_unit.sv
 1767013463 /home/admin/CapstoneProject2/10_sim/xcelium_server/00_src/top.sv
 1766991800 /home/admin/CapstoneProject2/10_sim/xcelium_server/00_src/lsu_dec_mem_data_read.sv
-1767018087 /home/admin/CapstoneProject2/10_sim/xcelium_server/01_bench/tbench.sv
-1767018896 /home/admin/CapstoneProject2/10_sim/xcelium_server/00_src/processor.sv
+1767049187 /home/admin/CapstoneProject2/10_sim/xcelium_server/01_bench/tbench.sv
+1767048669 /home/admin/CapstoneProject2/10_sim/xcelium_server/00_src/processor.sv
 1767010486 /home/admin/CapstoneProject2/10_sim/xcelium_server/00_src/imem.sv
 1767013463 /home/admin/CapstoneProject2/10_sim/xcelium_server/00_src/data_path.sv
 1765457255 /home/admin/CapstoneProject2/10_sim/xcelium_server/00_src/alu.sv
@@ -43,5 +43,5 @@
 1767022137 /home/admin/CapstoneProject2/10_sim/xcelium_server/00_src/lsu_dec_io_out.sv
 1767023598 /home/admin/CapstoneProject2/10_sim/xcelium_server/00_src/pipelined.sv
 1765457255 /home/admin/CapstoneProject2/10_sim/xcelium_server/00_src/extender.sv
-1767018737 /home/admin/CapstoneProject2/10_sim/xcelium_server/00_src/controller.sv
+1767048569 /home/admin/CapstoneProject2/10_sim/xcelium_server/00_src/controller.sv
 1766968327 /home/admin/CapstoneProject2/10_sim/xcelium_server/00_src/lsu_dec_mem_addr.sv

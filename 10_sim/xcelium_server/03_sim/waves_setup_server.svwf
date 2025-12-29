@@ -36,6 +36,10 @@ set id [waveform add -signals [subst  {
 	} ]]
 waveform format $id -color #ffff00 -namecolor #ffff00
 set id [waveform add -signals [subst  {
+	{[format {tbench.dut.o_pc_debug[31:0]}]}
+	} ]]
+waveform format $id -color #ffff00 -namecolor #ffff00
+set id [waveform add -signals [subst  {
 	{[format {tbench.dut.i_reset}]}
 	} ]]
 waveform format $id -color #ffff00 -namecolor #ffff00
@@ -112,7 +116,15 @@ set id [waveform add -signals [subst  {
 	} ]]
 waveform format $id -color #00ffff -namecolor #00ffff
 set id [waveform add -signals [subst  {
+	{[format {tbench.dut.top.top_opD[6:0]}]}
+	} ]]
+waveform format $id -radix %b -color #00ffff -namecolor #00ffff
+set id [waveform add -signals [subst  {
 	{[format {tbench.dut.top.top_funct3D[2:0]}]}
+	} ]]
+waveform format $id -radix %b -color #00ffff -namecolor #00ffff
+set id [waveform add -signals [subst  {
+	{[format {tbench.dut.top.top_funct12D[11:0]}]}
 	} ]]
 waveform format $id -radix %b -color #00ffff -namecolor #00ffff
 set id [waveform add -signals [subst  {
@@ -387,5 +399,5 @@ set id [waveform add -signals [subst  {
 	} ]]
 waveform format $id -color #0099ff -namecolor #0099ff
 
-waveform xview limits 80.805ns 140.805ns
+waveform xview limits 95.845ns 155.845ns
 waveform set -signalfilter rst

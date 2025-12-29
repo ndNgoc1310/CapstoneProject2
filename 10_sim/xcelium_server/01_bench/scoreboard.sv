@@ -65,7 +65,10 @@ module scoreboard(
 
 
   always @(negedge i_clk) begin : result
-      if (o_insn_vld && ((o_pc_debug == 32'h24) || (o_pc_debug == 32'h28))) begin
+      // if (o_insn_vld && ((o_pc_debug == 32'h1c) || (o_pc_debug == 32'h20))) begin
+      if (o_insn_vld && ((o_pc_debug == 32'h2c)) begin
+      // duyngocn
+      // if (o_insn_vld && Ebreak) begin
         $display("\n=================== Result ===================");
         if (num_cycle != 0) $display("Total Clock Cycles Executed = %1.0f", num_cycle);
         else                $display("Total Clock Cycles Executed = N/A");

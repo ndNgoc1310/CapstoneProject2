@@ -3,7 +3,7 @@
 1765457255 /home/admin/CapstoneProject2/10_sim/xcelium_server/00_src/alu.sv
 1765457255 /home/admin/CapstoneProject2/10_sim/xcelium_server/00_src/and_nb.sv
 1766937425 /home/admin/CapstoneProject2/10_sim/xcelium_server/00_src/bru.sv
-1767018737 /home/admin/CapstoneProject2/10_sim/xcelium_server/00_src/controller.sv
+1767048569 /home/admin/CapstoneProject2/10_sim/xcelium_server/00_src/controller.sv
 1767013463 /home/admin/CapstoneProject2/10_sim/xcelium_server/00_src/data_path.sv
 1766937372 /home/admin/CapstoneProject2/10_sim/xcelium_server/00_src/dec_alu.sv
 1766937389 /home/admin/CapstoneProject2/10_sim/xcelium_server/00_src/dec_main.sv
@@ -34,7 +34,7 @@
 1765457255 /home/admin/CapstoneProject2/10_sim/xcelium_server/00_src/mux_8.sv
 1765457255 /home/admin/CapstoneProject2/10_sim/xcelium_server/00_src/or_nb.sv
 1767023598 /home/admin/CapstoneProject2/10_sim/xcelium_server/00_src/pipelined.sv
-1767018896 /home/admin/CapstoneProject2/10_sim/xcelium_server/00_src/processor.sv
+1767048669 /home/admin/CapstoneProject2/10_sim/xcelium_server/00_src/processor.sv
 1766920233 /home/admin/CapstoneProject2/10_sim/xcelium_server/00_src/reg_file.sv
 1765457255 /home/admin/CapstoneProject2/10_sim/xcelium_server/00_src/shifter_l_l_nb.sv
 1765457255 /home/admin/CapstoneProject2/10_sim/xcelium_server/00_src/shifter_r_a_nb.sv
@@ -42,6 +42,6 @@
 1767013463 /home/admin/CapstoneProject2/10_sim/xcelium_server/00_src/top.sv
 1765457255 /home/admin/CapstoneProject2/10_sim/xcelium_server/00_src/xor_nb.sv
 1766741669 /home/admin/CapstoneProject2/10_sim/xcelium_server/01_bench/driver.sv
-1767023914 /home/admin/CapstoneProject2/10_sim/xcelium_server/01_bench/scoreboard.sv
-1767018087 /home/admin/CapstoneProject2/10_sim/xcelium_server/01_bench/tbench.sv
+1767049882 /home/admin/CapstoneProject2/10_sim/xcelium_server/01_bench/scoreboard.sv
+1767049187 /home/admin/CapstoneProject2/10_sim/xcelium_server/01_bench/tbench.sv
 1766741669 /home/admin/CapstoneProject2/10_sim/xcelium_server/01_bench/tlib.svh

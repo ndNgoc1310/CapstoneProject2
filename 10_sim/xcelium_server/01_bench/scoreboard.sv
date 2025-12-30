@@ -20,11 +20,7 @@ module scoreboard(
   input  logic         o_ctrl    ,
   input  logic         o_mispred ,
   input  logic [31:0]  o_pc_debug,
-  input  logic         o_insn_vld,
-
-  
-  // duyngocn: 
-  input logic Ebreak
+  input  logic         o_insn_vld
 );
 
 
@@ -66,8 +62,6 @@ module scoreboard(
 
   always @(negedge i_clk) begin : result
       if (o_insn_vld && ((o_pc_debug == 32'h1c) || (o_pc_debug == 32'h20))) begin
-      // duyngocn
-      // if (o_insn_vld && Ebreak) begin
         $display("\n=================== Result ===================");
         if (num_cycle != 0) $display("Total Clock Cycles Executed = %1.0f", num_cycle);
         else                $display("Total Clock Cycles Executed = N/A");

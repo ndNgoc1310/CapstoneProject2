@@ -2,6 +2,12 @@
 // File created by:  xrun
 // Do not modify this file
 //
+/home/admin/CapstoneProject2/10_sim/xcelium_server/00_src/prim_util_pkg.sv
+/home/admin/CapstoneProject2/10_sim/xcelium_server/00_src/top_pkg.sv
+/home/admin/CapstoneProject2/10_sim/xcelium_server/00_src/prim_secded_pkg.sv
+/home/admin/CapstoneProject2/10_sim/xcelium_server/00_src/prim_mubi_pkg.sv
+/home/admin/CapstoneProject2/10_sim/xcelium_server/00_src/prim_count_pkg.sv
+/home/admin/CapstoneProject2/10_sim/xcelium_server/00_src/tlul_pkg.sv
 /home/admin/CapstoneProject2/10_sim/xcelium_server/00_src/adder_1b.sv
 /home/admin/CapstoneProject2/10_sim/xcelium_server/00_src/adder_nb.sv
 /home/admin/CapstoneProject2/10_sim/xcelium_server/00_src/alu.sv
@@ -13,6 +19,7 @@
 /home/admin/CapstoneProject2/10_sim/xcelium_server/00_src/dec_main.sv
 /home/admin/CapstoneProject2/10_sim/xcelium_server/00_src/dmem.sv
 /home/admin/CapstoneProject2/10_sim/xcelium_server/00_src/dmem_8b_16k.sv
+/home/admin/CapstoneProject2/10_sim/xcelium_server/00_src/dmem_dec.sv
 /home/admin/CapstoneProject2/10_sim/xcelium_server/00_src/eu.sv
 /home/admin/CapstoneProject2/10_sim/xcelium_server/00_src/extender.sv
 /home/admin/CapstoneProject2/10_sim/xcelium_server/00_src/flop_r.sv
@@ -39,14 +46,18 @@
 /home/admin/CapstoneProject2/10_sim/xcelium_server/00_src/mux_8.sv
 /home/admin/CapstoneProject2/10_sim/xcelium_server/00_src/or_nb.sv
 /home/admin/CapstoneProject2/10_sim/xcelium_server/00_src/pipelined.sv
+/home/admin/CapstoneProject2/10_sim/xcelium_server/00_src/prim_assert.sv
+/home/admin/CapstoneProject2/10_sim/xcelium_server/00_src/prim_fifo_sync.sv
 /home/admin/CapstoneProject2/10_sim/xcelium_server/00_src/processor.sv
 /home/admin/CapstoneProject2/10_sim/xcelium_server/00_src/reg_file.sv
 /home/admin/CapstoneProject2/10_sim/xcelium_server/00_src/shifter_l_l_nb.sv
 /home/admin/CapstoneProject2/10_sim/xcelium_server/00_src/shifter_r_a_nb.sv
 /home/admin/CapstoneProject2/10_sim/xcelium_server/00_src/shifter_r_l_nb.sv
+/home/admin/CapstoneProject2/10_sim/xcelium_server/00_src/tlul_adapter_host.sv
+/home/admin/CapstoneProject2/10_sim/xcelium_server/00_src/tlul_adapter_sram.sv
+/home/admin/CapstoneProject2/10_sim/xcelium_server/00_src/tlul_mgr.sv
 /home/admin/CapstoneProject2/10_sim/xcelium_server/00_src/top.sv
 /home/admin/CapstoneProject2/10_sim/xcelium_server/00_src/xor_nb.sv
 /home/admin/CapstoneProject2/10_sim/xcelium_server/01_bench/driver.sv
 /home/admin/CapstoneProject2/10_sim/xcelium_server/01_bench/scoreboard.sv
 /home/admin/CapstoneProject2/10_sim/xcelium_server/01_bench/tbench.sv
-/home/admin/CapstoneProject2/10_sim/xcelium_server/01_bench/tlib.svh

@@ -2,6 +2,8 @@
 `define CLOCK_PERIOD 2
 `define TIMEOUT      50_000
 
+`include "tlib.svh"
+
 module tbench;
 
   // Clock and reset generator
@@ -35,9 +37,6 @@ module tbench;
   logic         mispred ;
   logic         insn_vld;
 
-  // duyngocn
-  logic         Ebreak;
-
 
   pipelined dut (
     .i_clk     (clk      ),
@@ -60,10 +59,7 @@ module tbench;
     .o_ctrl    (ctrl     ),
     .o_mispred (mispred  ),
     .o_pc_debug(pc_debug ),
-    .o_insn_vld(insn_vld ),
-
-    // duyngocn
-    .Ebreak    (Ebreak   )
+    .o_insn_vld(insn_vld )
   );
 
   driver driver (
@@ -93,10 +89,7 @@ module tbench;
     .o_ctrl    (ctrl     ),
     .o_mispred (mispred  ),
     .o_pc_debug(pc_debug ),
-    .o_insn_vld(insn_vld ),
-
-    // duyngocn
-    .Ebreak    (Ebreak   )
+    .o_insn_vld(insn_vld )
   );
 
 

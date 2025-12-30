@@ -2,56 +2,58 @@
 
 module data_path
 (
-    // Debugging-----
-        // Register File
-        input   logic [4:0]  top_regfile_addr,
-        output  logic [31:0] top_regfile_data,
+    // // Debugging-----
+    //     // Register File
+    //     input   logic [4:0]  top_regfile_addr,
+    //     output  logic [31:0] top_regfile_data,
         
-        // Fetch Stage (F)
-        output  logic   [31:0]  top_pcF0, top_PCPlus4F,
+    //     // Fetch Stage (F)
+    //     output  logic   [31:0]  top_pcF0, top_PCPlus4F,
 
-        // Decode Stage (D)
-        output  logic   [31:0]  top_InstrD, top_pcD, top_ImmExtD, top_PCPlus4D,
-        output  logic   [31:0]  top_Read1D, top_Read2D,
-        output  logic   [4:0]   top_RdD,
+    //     // Decode Stage (D)
+    //     output  logic   [31:0]  top_InstrD, top_pcD, top_ImmExtD, top_PCPlus4D,
+    //     output  logic   [31:0]  top_Read1D, top_Read2D,
+    //     output  logic   [4:0]   top_RdD,
 
-        // Execute Stage (E)
-        output  logic   [31:0]  top_Read1E, top_Read2E, top_pcE, top_ImmExtE, top_PCPlus4E, top_PCTargetE, top_SrcAE, top_SrcBE, top_ALUResultE, top_WriteDataE,
-        output  logic           top_RegWriteE, top_MemWriteE, top_ALUSrcE,
-        output  logic   [1:0]   top_ResultSrcE, 
-        output  logic   [3:0]   top_ALUControlE,
+    //     // Execute Stage (E)
+    //     output  logic   [31:0]  top_Read1E, top_Read2E, top_pcE, top_ImmExtE, top_PCPlus4E, top_PCTargetE, top_SrcAE, top_SrcBE, top_ALUResultE, top_WriteDataE,
+    //     output  logic           top_RegWriteE, top_MemWriteE, top_ALUSrcE,
+    //     output  logic   [1:0]   top_ResultSrcE, 
+    //     output  logic   [3:0]   top_ALUControlE,
     
-        // Memory Stage (M)
-        output  logic   [31:0]  top_pcM, top_PCTargetM, top_PCPlus4M, top_ReadDataM, top_ALUResultM, top_WriteDataM,
-        output  logic   [1:0]   top_ResultSrcM,
-        output  logic   [2:0]   top_funct3M,
-        output  logic           top_MemWriteM,
+    //     // Memory Stage (M)
+    //     output  logic   [31:0]  top_pcM, top_PCTargetM, top_PCPlus4M, top_ReadDataM, top_ALUResultM, top_WriteDataM,
+    //     output  logic   [1:0]   top_ResultSrcM,
+    //     output  logic   [2:0]   top_funct3M,
+    //     output  logic           top_MemWriteM,
 
-            // LSU
-                // LSU Decoder (lsu_dec)
-                output  logic 			top_LSMemM, top_LSLedrM, top_LSLedgM, top_LSHex03M, top_LSHex47M, top_LSLcdM, top_LSSwM, top_LSKeyM,		// LSU Memory Mapped I/O select signals
-                output  logic 			top_LSWordM, top_LSHalfM, top_LSByteM, top_LSHalfUM, top_LSByteUM,								// Load/Store type signals
-                output  logic [31:0] 	top_MemDataReadOutM,
-                output  logic [3:0] 	top_MemSelM,
+    //         // LSU
+    //             // LSU Decoder (lsu_dec)
+    //             output  logic 			top_LSMemM, top_LSLedrM, top_LSLedgM, top_LSHex03M, top_LSHex47M, top_LSLcdM, top_LSSwM, top_LSKeyM,		// LSU Memory Mapped I/O select signals
+    //             output  logic 			top_LSWordM, top_LSHalfM, top_LSByteM, top_LSHalfUM, top_LSByteUM,								// Load/Store type signals
+    //             output  logic [31:0] 	top_MemDataReadOutM,
+    //             output  logic [3:0] 	top_MemSelM,
                 
-                // I/O Output Decoder (lsu_dec_io_out)
-                output  logic [31:0] 	top_LedrDataM, top_LedgDataM, top_LcdDataM,
-                output  logic [6:0] 	top_Hex04DataM, top_Hex15DataM, top_Hex26DataM, top_Hex37DataM,
-                output  logic 			top_LedrWriteEnM, top_LedgWriteEnM, top_LcdWriteEnM, top_Hex03WriteEnM, top_Hex47WriteEnM,
+    //             // I/O Output Decoder (lsu_dec_io_out)
+    //             output  logic [31:0] 	top_LedrDataM, top_LedgDataM, top_LcdDataM,
+    //             output  logic [6:0] 	top_Hex04DataM, top_Hex15DataM, top_Hex26DataM, top_Hex37DataM,
+    //             output  logic 			top_LedrWriteEnM, top_LedgWriteEnM, top_LcdWriteEnM, top_Hex03WriteEnM, top_Hex47WriteEnM,
 
-                // I/O Input Buffer (lsu_io_buffer_in)
-                output  logic [31:0] 	top_SwDataOutM,
-                output  logic [1:0] 	top_KeyDataOutM,
-            //
+    //             // I/O Input Buffer (lsu_io_buffer_in)
+    //             output  logic [31:0] 	top_SwDataOutM,
+    //             output  logic [1:0] 	top_KeyDataOutM,
+    //         //
 
-        // Write Back Stage (W)
-        output  logic   [1:0]   top_ResultSrcW,
-        output  logic   [31:0]  top_ALUResultW, top_ReadDataW, top_pcW, top_PCTargetW, top_PCPlus4W, top_ResultW, 
-    //
+    //     // Write Back Stage (W)
+    //     output  logic   [1:0]   top_ResultSrcW,
+    //     output  logic   [31:0]  top_ALUResultW, top_ReadDataW, top_pcW, top_PCTargetW, top_PCPlus4W, top_ResultW, 
+    // //
     
     // System signals
         input   logic           clk, rstn,
-        output  logic           InstrVldE, InstrVldM, InstrVldW,
+        output  logic           InstrVldW,
+        output  logic   [31:0]  pcW,
+
     //
 
     // From/To Controller signals/buses
@@ -112,6 +114,11 @@ module data_path
         output  logic   [3:0][7:0]   MemDataWriteM,
     //
 
+    // TileLink TL-UL
+        output  logic   [31:0]  ALUResultM_o,
+        output  logic           LSMemM_o, MemWriteM_o,
+    //
+
     // I/O interface
         input   logic   [31:0]  SwDataInM,                                                      // Input from switches
         input   logic   [1:0]   KeyDataInM,                                                     // Input from keys    
@@ -135,15 +142,15 @@ module data_path
     logic           RegWriteE, MemWriteE, ALUSrcE;
     logic   [1:0]   ResultSrcE; assign ResultSrcEb0 = ResultSrcE[0];
     logic   [3:0]   ALUControlE;
-    // logic           InstrVldE;
+    logic           InstrVldE;
 
     // Memory Stage (M)
     logic   [31:0]  ReadDataM, PCPlus4M, PCTargetM, ALUResultM, WriteDataM;
     logic   [1:0]   ResultSrcM;
     logic           MemWriteM;
     logic   [2:0]   funct3M;
-
-    // logic           InstrVldM;
+    logic           InstrVldM;
+    logic   [31:0]  pcM;
 
     // Write Back Stage (W)
     logic   [1:0]   ResultSrcW;
@@ -151,64 +158,63 @@ module data_path
 
 //
 
-// Debug
-    logic   [31:0]  pcM, pcW;
-    assign  top_pcM = pcM;
-    assign  top_pcW = pcW;
-//
+// // Debug
+//     assign  top_pcM = pcM;
+//     assign  top_pcW = pcW;
+// //
 
 
-// Debugging---------------
-    always_comb begin
-        // Fetch Stage
-        top_pcF0 = pcF0;
-        top_PCPlus4F = PCPlus4F;
+// // Debugging---------------
+//     always_comb begin
+//         // Fetch Stage
+//         top_pcF0 = pcF0;
+//         top_PCPlus4F = PCPlus4F;
 
-        // Decode Stage
-        top_InstrD = InstrD;
-        top_pcD = pcD;
-        top_ImmExtD = ImmExtD;
-        top_PCPlus4D = PCPlus4D;
-        top_Read1D = Read1D;
-        top_Read2D = Read2D;
-        top_RdD = RdD;
+//         // Decode Stage
+//         top_InstrD = InstrD;
+//         top_pcD = pcD;
+//         top_ImmExtD = ImmExtD;
+//         top_PCPlus4D = PCPlus4D;
+//         top_Read1D = Read1D;
+//         top_Read2D = Read2D;
+//         top_RdD = RdD;
 
-        // Execute Stage
-        top_Read1E = Read1E;
-        top_Read2E = Read2E;
-        top_pcE = pcE;
-        top_ImmExtE = ImmExtE;
-        top_PCPlus4E = PCPlus4E;
-        top_PCTargetE = PCTargetE;
-        top_SrcAE = SrcAE;
-        top_SrcBE = SrcBE;
-        top_ALUResultE = ALUResultE;
-        top_WriteDataE = WriteDataE;
-        top_RegWriteE = RegWriteE;
-        top_MemWriteE = MemWriteE;
-        top_ResultSrcE = ResultSrcE;
-        top_ALUSrcE = ALUSrcE;
-        top_ALUControlE = ALUControlE;
+//         // Execute Stage
+//         top_Read1E = Read1E;
+//         top_Read2E = Read2E;
+//         top_pcE = pcE;
+//         top_ImmExtE = ImmExtE;
+//         top_PCPlus4E = PCPlus4E;
+//         top_PCTargetE = PCTargetE;
+//         top_SrcAE = SrcAE;
+//         top_SrcBE = SrcBE;
+//         top_ALUResultE = ALUResultE;
+//         top_WriteDataE = WriteDataE;
+//         top_RegWriteE = RegWriteE;
+//         top_MemWriteE = MemWriteE;
+//         top_ResultSrcE = ResultSrcE;
+//         top_ALUSrcE = ALUSrcE;
+//         top_ALUControlE = ALUControlE;
 
-        // Memory Stage
-        top_PCTargetM = PCTargetM;
-        top_PCPlus4M = PCPlus4M;
-        top_ResultSrcM = ResultSrcM;
-        top_ReadDataM = ReadDataM;
-        top_ALUResultM = ALUResultM;
-        top_WriteDataM = WriteDataM;
-        top_funct3M = funct3M;
-        top_MemWriteM = MemWriteM;
+//         // Memory Stage
+//         top_PCTargetM = PCTargetM;
+//         top_PCPlus4M = PCPlus4M;
+//         top_ResultSrcM = ResultSrcM;
+//         top_ReadDataM = ReadDataM;
+//         top_ALUResultM = ALUResultM;
+//         top_WriteDataM = WriteDataM;
+//         top_funct3M = funct3M;
+//         top_MemWriteM = MemWriteM;
 
-        // Write Back Stage
-        top_ResultSrcW = ResultSrcW;
-        top_ALUResultW = ALUResultW;
-        top_ReadDataW = ReadDataW;
-        top_PCTargetW = PCTargetW;
-        top_PCPlus4W = PCPlus4W;
-        top_ResultW = ResultW;
-    end
-// ----------------
+//         // Write Back Stage
+//         top_ResultSrcW = ResultSrcW;
+//         top_ALUResultW = ALUResultW;
+//         top_ReadDataW = ReadDataW;
+//         top_PCTargetW = PCTargetW;
+//         top_PCPlus4W = PCPlus4W;
+//         top_ResultW = ResultW;
+//     end
+// // ----------------
 
 // Forward from InstrD to next stage
     assign opD          = InstrD[6:0];
@@ -218,6 +224,12 @@ module data_path
     assign Rs1D         = InstrD[19:15];
     assign Rs2D         = InstrD[24:20];
     assign RdD          = InstrD[11:7];
+//
+
+// Forward these internal signals to outside for TL-UL connection
+    assign ALUResultM_o = ALUResultM;
+    assign LSMemM_o = LSMemM;
+    assign MemWriteM_o = MemWriteM;
 //
 
 // Pipeline Registers
@@ -374,10 +386,10 @@ module data_path
 // Register File
     reg_file rf
     (
-        // Output to top level
-        .top_regfile_addr   (top_regfile_addr),
-        .top_regfile_data   (top_regfile_data),
-
+        // // Debug
+        //     .top_regfile_addr   (top_regfile_addr),
+        //     .top_regfile_data   (top_regfile_data),
+        // //
         .clk            (clk),
         .rstn            (rstn),
         .i_rd_addr_0    (InstrD[19:15]),
@@ -393,42 +405,42 @@ module data_path
 // Load Store Unit
     lsu lsu
     (
-        // Debug ---
-            // LSU Decoder signals
-            .top_LSMemM     (top_LSMemM),
-            .top_LSLedrM    (top_LSLedrM),
-            .top_LSLedgM    (top_LSLedgM),
-            .top_LSHex03M   (top_LSHex03M),
-            .top_LSHex47M   (top_LSHex47M),
-            .top_LSLcdM     (top_LSLcdM),
-            .top_LSSwM      (top_LSSwM),
-            .top_LSKeyM     (top_LSKeyM),
-            .top_LSWordM    (top_LSWordM),
-            .top_LSHalfM    (top_LSHalfM),
-            .top_LSByteM    (top_LSByteM),
-            .top_LSHalfUM   (top_LSHalfUM),
-            .top_LSByteUM   (top_LSByteUM),
-            .top_MemDataReadOutM (top_MemDataReadOutM),
-            .top_MemSelM    (top_MemSelM),
+        // // Debug ---
+        //     // LSU Decoder signals
+        //     .top_LSMemM     (top_LSMemM),
+        //     .top_LSLedrM    (top_LSLedrM),
+        //     .top_LSLedgM    (top_LSLedgM),
+        //     .top_LSHex03M   (top_LSHex03M),
+        //     .top_LSHex47M   (top_LSHex47M),
+        //     .top_LSLcdM     (top_LSLcdM),
+        //     .top_LSSwM      (top_LSSwM),
+        //     .top_LSKeyM     (top_LSKeyM),
+        //     .top_LSWordM    (top_LSWordM),
+        //     .top_LSHalfM    (top_LSHalfM),
+        //     .top_LSByteM    (top_LSByteM),
+        //     .top_LSHalfUM   (top_LSHalfUM),
+        //     .top_LSByteUM   (top_LSByteUM),
+        //     .top_MemDataReadOutM (top_MemDataReadOutM),
+        //     .top_MemSelM    (top_MemSelM),
             
-            // I/O Output Decoder signals
-            .top_LedrDataM  (top_LedrDataM),
-            .top_LedgDataM  (top_LedgDataM),
-            .top_LcdDataM   (top_LcdDataM),
-            .top_Hex04DataM (top_Hex04DataM),
-            .top_Hex15DataM (top_Hex15DataM),
-            .top_Hex26DataM (top_Hex26DataM),
-            .top_Hex37DataM (top_Hex37DataM),
-            .top_LedrWriteEnM (top_LedrWriteEnM),
-            .top_LedgWriteEnM (top_LedgWriteEnM),
-            .top_LcdWriteEnM  (top_LcdWriteEnM),
-            .top_Hex03WriteEnM (top_Hex03WriteEnM),
-            .top_Hex47WriteEnM (top_Hex47WriteEnM),
+        //     // I/O Output Decoder signals
+        //     .top_LedrDataM  (top_LedrDataM),
+        //     .top_LedgDataM  (top_LedgDataM),
+        //     .top_LcdDataM   (top_LcdDataM),
+        //     .top_Hex04DataM (top_Hex04DataM),
+        //     .top_Hex15DataM (top_Hex15DataM),
+        //     .top_Hex26DataM (top_Hex26DataM),
+        //     .top_Hex37DataM (top_Hex37DataM),
+        //     .top_LedrWriteEnM (top_LedrWriteEnM),
+        //     .top_LedgWriteEnM (top_LedgWriteEnM),
+        //     .top_LcdWriteEnM  (top_LcdWriteEnM),
+        //     .top_Hex03WriteEnM (top_Hex03WriteEnM),
+        //     .top_Hex47WriteEnM (top_Hex47WriteEnM),
             
-            // I/O Input Buffer signals
-            .top_SwDataOutM (top_SwDataOutM),
-            .top_KeyDataOutM (top_KeyDataOutM),
-        //
+        //     // I/O Input Buffer signals
+        //     .top_SwDataOutM (top_SwDataOutM),
+        //     .top_KeyDataOutM (top_KeyDataOutM),
+        // //
         
         .clk            (clk),
         .rstn           (rstn),

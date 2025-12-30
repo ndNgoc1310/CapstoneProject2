@@ -3,3 +3,7 @@
 // Do not modify this file
 //
 -sv
+-INCDIR
+./../00_src
+-INCDIR
+./../01_bench

@@ -2,6 +2,8 @@
 // File created by:  xrun
 // Do not modify this file
 //
++incdir+./../00_src
++incdir+./../01_bench
 -ACCESS
 +rwc
 -timescale

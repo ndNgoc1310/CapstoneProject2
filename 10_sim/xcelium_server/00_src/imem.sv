@@ -16,6 +16,7 @@ initial begin
 //    $readmemh("test_hex.txt", IMEM); // for Quartus simulation
 end
 
+
 assign rd = IMEM[a[31:2]]; // word aligned - divide address by 4
 
 endmodule: imem

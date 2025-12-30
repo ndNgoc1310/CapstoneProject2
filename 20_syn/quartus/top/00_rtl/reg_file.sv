@@ -2,10 +2,10 @@
 
 module reg_file
 (
-    // Debugging: Add debug ports
-        input  logic [4:0]  top_regfile_addr,
-        output logic [31:0] top_regfile_data,
-    //
+    // // Debugging: Add debug ports
+    //     input  logic [4:0]  top_regfile_addr,
+    //     output logic [31:0] top_regfile_data,
+    // //
     
     input   logic   clk, rstn,
     input   logic   [4:0] i_rd_addr_0, i_rd_addr_1,
@@ -45,7 +45,8 @@ always_ff @(negedge clk)
 assign rd1 = (a1 != 0) ? REGFILE[a1] : 0; 
 assign rd2 = (a2 != 0) ? REGFILE[a2] : 0; 
 
-// Debugging
-assign top_regfile_data = (top_regfile_addr != 0) ? REGFILE[top_regfile_addr] : 0;
+// // Debugging
+//     assign top_regfile_data = (top_regfile_addr != 0) ? REGFILE[top_regfile_addr] : 0;
+// //
 
 endmodule  : reg_file   

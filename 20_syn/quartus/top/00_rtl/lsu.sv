@@ -1,22 +1,22 @@
 `timescale 1ns/1ps
 
 module lsu (
-	// Debug ----
-		// LSU Decoder (lsu_dec)
-		output  logic 			top_LSMemM, top_LSLedrM, top_LSLedgM, top_LSHex03M, top_LSHex47M, top_LSLcdM, top_LSSwM, top_LSKeyM,		// LSU Memory Mapped I/O select signals
-		output  logic 			top_LSWordM, top_LSHalfM, top_LSByteM, top_LSHalfUM, top_LSByteUM,								// Load/Store type signals
-		output  logic [31:0] 	top_MemDataReadOutM,
-		output  logic [3:0] 	top_MemSelM,
+	// // Debug ----
+	// 	// LSU Decoder (lsu_dec)
+	// 	output  logic 			top_LSMemM, top_LSLedrM, top_LSLedgM, top_LSHex03M, top_LSHex47M, top_LSLcdM, top_LSSwM, top_LSKeyM,		// LSU Memory Mapped I/O select signals
+	// 	output  logic 			top_LSWordM, top_LSHalfM, top_LSByteM, top_LSHalfUM, top_LSByteUM,								// Load/Store type signals
+	// 	output  logic [31:0] 	top_MemDataReadOutM,
+	// 	output  logic [3:0] 	top_MemSelM,
 		
-		// I/O Output Decoder (lsu_dec_io_out)
-		output  logic [31:0] 	top_LedrDataM, top_LedgDataM, top_LcdDataM,
-		output  logic [6:0] 	top_Hex04DataM, top_Hex15DataM, top_Hex26DataM, top_Hex37DataM,
-		output  logic 			top_LedrWriteEnM, top_LedgWriteEnM, top_LcdWriteEnM, top_Hex03WriteEnM, top_Hex47WriteEnM,
+	// 	// I/O Output Decoder (lsu_dec_io_out)
+	// 	output  logic [31:0] 	top_LedrDataM, top_LedgDataM, top_LcdDataM,
+	// 	output  logic [6:0] 	top_Hex04DataM, top_Hex15DataM, top_Hex26DataM, top_Hex37DataM,
+	// 	output  logic 			top_LedrWriteEnM, top_LedgWriteEnM, top_LcdWriteEnM, top_Hex03WriteEnM, top_Hex47WriteEnM,
 
-		// I/O Input Buffer (lsu_io_buffer_in)
-		output  logic [31:0] 	top_SwDataOutM,
-		output  logic [1:0] 	top_KeyDataOutM,
-	//
+	// 	// I/O Input Buffer (lsu_io_buffer_in)
+	// 	output  logic [31:0] 	top_SwDataOutM,
+	// 	output  logic [1:0] 	top_KeyDataOutM,
+	// //
 
 	input 	logic  	       	clk, 						// Global clock, active on the rising edge
 	input 	logic  	       	rstn, 						// Global active reset
@@ -58,9 +58,9 @@ module lsu (
 	logic [31:0] MemDataReadOutM;
 
 	lsu_dec lsu_dec (
-		// Debug ---
-        	.top_MemSelM        (top_MemSelM    ),
-    	//
+		// // Debug ---
+        // 	.top_MemSelM        (top_MemSelM    ),
+    	// //
 		.clk				(clk				),
 		.rstn				(rstn				),
 
@@ -203,41 +203,41 @@ module lsu (
 		.ReadDataM			(ReadDataM			)
 	);
 
-// Debug ---
-	// LSU Decoder signals
-	assign top_LSMemM = LSMemM;
-	assign top_LSLedrM = LSLedrM;
-	assign top_LSLedgM = LSLedgM;
-	assign top_LSHex03M = LSHex03M;
-	assign top_LSHex47M = LSHex47M;
-	assign top_LSLcdM = LSLcdM;
-	assign top_LSSwM = LSSwM;
-	assign top_LSKeyM = LSKeyM;
-	assign top_LSWordM = LSWordM;
-	assign top_LSHalfM = LSHalfM;
-	assign top_LSByteM = LSByteM;
-	assign top_LSHalfUM = LSHalfUM;
-	assign top_LSByteUM = LSByteUM;
-	assign top_MemDataReadOutM = MemDataReadOutM;
+// // Debug ---
+// 	// LSU Decoder signals
+// 	assign top_LSMemM = LSMemM;
+// 	assign top_LSLedrM = LSLedrM;
+// 	assign top_LSLedgM = LSLedgM;
+// 	assign top_LSHex03M = LSHex03M;
+// 	assign top_LSHex47M = LSHex47M;
+// 	assign top_LSLcdM = LSLcdM;
+// 	assign top_LSSwM = LSSwM;
+// 	assign top_LSKeyM = LSKeyM;
+// 	assign top_LSWordM = LSWordM;
+// 	assign top_LSHalfM = LSHalfM;
+// 	assign top_LSByteM = LSByteM;
+// 	assign top_LSHalfUM = LSHalfUM;
+// 	assign top_LSByteUM = LSByteUM;
+// 	assign top_MemDataReadOutM = MemDataReadOutM;
 	
-	// I/O Output Decoder signals
-	assign top_LedrDataM = LedrDataM;
-	assign top_LedgDataM = LedgDataM;
-	assign top_LcdDataM = LcdDataM;
-	assign top_Hex04DataM = Hex04DataM;
-	assign top_Hex15DataM = Hex15DataM;
-	assign top_Hex26DataM = Hex26DataM;
-	assign top_Hex37DataM = Hex37DataM;
-	assign top_LedrWriteEnM = LedrWriteEnM;
-	assign top_LedgWriteEnM = LedgWriteEnM;
-	assign top_LcdWriteEnM = LcdWriteEnM;
-	assign top_Hex03WriteEnM = Hex03WriteEnM;
-	assign top_Hex47WriteEnM = Hex47WriteEnM;
+// 	// I/O Output Decoder signals
+// 	assign top_LedrDataM = LedrDataM;
+// 	assign top_LedgDataM = LedgDataM;
+// 	assign top_LcdDataM = LcdDataM;
+// 	assign top_Hex04DataM = Hex04DataM;
+// 	assign top_Hex15DataM = Hex15DataM;
+// 	assign top_Hex26DataM = Hex26DataM;
+// 	assign top_Hex37DataM = Hex37DataM;
+// 	assign top_LedrWriteEnM = LedrWriteEnM;
+// 	assign top_LedgWriteEnM = LedgWriteEnM;
+// 	assign top_LcdWriteEnM = LcdWriteEnM;
+// 	assign top_Hex03WriteEnM = Hex03WriteEnM;
+// 	assign top_Hex47WriteEnM = Hex47WriteEnM;
 	
-	// I/O Input Buffer signals
-	assign top_SwDataOutM = SwDataOutM;
-	assign top_KeyDataOutM = KeyDataOutM;
-//
+// 	// I/O Input Buffer signals
+// 	assign top_SwDataOutM = SwDataOutM;
+// 	assign top_KeyDataOutM = KeyDataOutM;
+// //
 
 
 endmodule : lsu

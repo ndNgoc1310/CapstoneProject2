@@ -1,8 +1,32 @@
 // Include dirs (xrun)
 +incdir+./../../00_rtl
 +incdir+./../../02_include
++incdir+./../../00_rtl/tilelink/pkg
++incdir+./../../00_rtl/tilelink/prim
++incdir+./../../00_rtl/tilelink/tlul 
 
-// RTL FILES ---
+// ==========================================
+// 1. TILELINK LIBRARY (MUST BE COMPILED FIRST)
+// ==========================================
+// Packages
+./../../00_rtl/tilelink/pkg/prim_util_pkg.sv
+./../../00_rtl/tilelink/pkg/top_pkg.sv
+./../../00_rtl/tilelink/pkg/prim_secded_pkg.sv
+./../../00_rtl/tilelink/pkg/prim_mubi_pkg.sv 
+./../../00_rtl/tilelink/pkg/prim_count_pkg.sv 
+./../../00_rtl/tilelink/pkg/tlul_pkg.sv
+
+// Primitives & Macros
+./../../00_rtl/tilelink/prim/prim_assert.sv
+./../../00_rtl/tilelink/prim/prim_fifo_sync.sv
+
+// Components
+./../../00_rtl/tilelink/tlul/tlul_adapter_host.sv
+./../../00_rtl/tilelink/tlul/tlul_adapter_sram.sv
+
+// ==========================================
+// 2. USER RTL FILES
+// ==========================================
 // Common
 ./../../00_rtl/common/adder_1b.sv
 ./../../00_rtl/common/adder_nb.sv
@@ -55,8 +79,9 @@
 // Top
 ./../../00_rtl/top/pipelined.sv
 ./../../00_rtl/top/processor.sv
+./../../00_rtl/top/dmem_dec.sv
+./../../00_rtl/top/tlul_mgr.sv
 ./../../00_rtl/top/top.sv
-
 
 # Set top-level module for simulation
 -top processor_tb

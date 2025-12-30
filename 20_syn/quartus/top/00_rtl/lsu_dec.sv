@@ -1,8 +1,8 @@
 module lsu_dec
 (
-    // Debug ---
-        output  logic [3:0] top_MemSelM,
-    //
+    // // Debug ---
+    //     output  logic [3:0] top_MemSelM,
+    // //
     
     input   logic           clk, rstn,
     
@@ -46,9 +46,9 @@ lsu_dec_type lsu_dec_type (
 
 // Memory decoding: address, data, write enable
 lsu_dec_mem lsu_dec_mem (
-    // Debug ---
-        .top_MemSelM        (top_MemSelM    ),
-    //
+    // // Debug ---
+    //     .top_MemSelM        (top_MemSelM    ),
+    // //
 
     .clk                (clk            ),
     .rstn               (rstn           ),

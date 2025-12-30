@@ -1,12 +1,19 @@
-filelist="-f ./flist"
+filelist="-f ./flist.f"
 tb_file="/home/admin/CapstoneProject2/01_tb/system/processor_tb.sv"
 time_unit="-timescale 1ns/1ns"
 acc_debug="+access+rcw"
 seed = +ntb_random_seed=automatic
 wave_data="waves.shm/"
 
+.PHONY: clean
+clean:
+	@echo "-> CLEANING SIMULATION FILES"
+	rm -rf INCA_libs *.shm *.history *.log *.ucdb *.fsdb xcelium.d xrun.* cov_work
+
 PHONY:	sim
 sim:	
+	@echo "-> CLEANING SIMULATION FILES"
+	rm -rf INCA_libs *.shm *.history *.log *.ucdb *.fsdb xcelium.d xrun.* cov_work
 	@echo "-> SIMULATION"
 	xrun $(GUI) +xm64bit -sv \
 	$(filelist) \
@@ -27,10 +34,6 @@ wave:
 
 .PHONY: all
 all: clean sim wave
-
-clean:
-	@echo "-> CLEANING SIMULATION FILES"
-	rm -rf INCA_libs *.shm *.history *.log *.ucdb *.fsdb xcelium.d xrun.* cov_work
 
 distclean: clean
 	@echo "-> DISTRIBUTION CLEAN REMOVING ALL FILES EXCEPT MAKEFILE, makefile, .f"

@@ -1,7 +1,7 @@
 module lsu_dec_mem (
-    // Debug ---
-        output  logic [3:0] top_MemSelM,
-    //
+    // // Debug ---
+    //     output  logic [3:0] top_MemSelM,
+    // //
     
     // Inputs
     input   logic           clk, rstn,
@@ -29,9 +29,9 @@ module lsu_dec_mem (
     assign MemSelM[2] =  ALUResultM[1] & ~ALUResultM[0];
     assign MemSelM[3] =  ALUResultM[1] &  ALUResultM[0];
 
-// Debug ---
-    assign top_MemSelM = MemSelM;
-//
+// // Debug ---
+//     assign top_MemSelM = MemSelM;
+// //
 
 // Memory address decoding
 lsu_dec_mem_addr lsu_dec_mem_addr (

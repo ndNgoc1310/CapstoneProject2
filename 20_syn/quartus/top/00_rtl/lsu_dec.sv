@@ -4,6 +4,8 @@ module lsu_dec
         output  logic [3:0] top_MemSelM,
     //
     
+    input   logic           clk, rstn,
+    
     input   logic [2:0]     funct3M,  
     input   logic [31:0]    ALUResultM, WriteDataM,
     input   logic           MemWriteM,
@@ -47,6 +49,9 @@ lsu_dec_mem lsu_dec_mem (
     // Debug ---
         .top_MemSelM        (top_MemSelM    ),
     //
+
+    .clk                (clk            ),
+    .rstn               (rstn           ),
 
     .ALUResultM         (ALUResultM     ),
     .WriteDataM         (WriteDataM     ),

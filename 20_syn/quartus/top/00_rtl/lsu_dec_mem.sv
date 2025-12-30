@@ -4,6 +4,8 @@ module lsu_dec_mem (
     //
     
     // Inputs
+    input   logic           clk, rstn,
+
     input   logic   [31:0]  ALUResultM,
     input   logic           MemWriteM,
     input   logic           LSMemM,
@@ -62,6 +64,9 @@ lsu_dec_mem_write_en lsu_dec_mem_write_en (
 
 // Memory data read decoding
 lsu_dec_mem_data_read lsu_dec_mem_data_read (
+    .clk                (clk                ),
+    .rstn               (rstn               ),
+
     .MemDataReadM       (MemDataReadM       ),
     .MemSelM            (MemSelM            ),
     .LSWordM            (LSWordM            ),

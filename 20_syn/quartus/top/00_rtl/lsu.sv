@@ -61,7 +61,9 @@ module lsu (
 		// Debug ---
         	.top_MemSelM        (top_MemSelM    ),
     	//
-		
+		.clk				(clk				),
+		.rstn				(rstn				),
+
 		.funct3M			(funct3M			),
 		.ALUResultM			(ALUResultM			),
 		.WriteDataM			(WriteDataM			),
@@ -171,6 +173,9 @@ module lsu (
 
 // LSU Output Multiplexer
 	lsu_mux_out lsu_mux_out (
+		.clk				(clk				),
+		.rstn				(rstn				),
+
 		.MemDataReadOutM	(MemDataReadOutM	),
 		.LedrDataOutM		(LedrDataOutM		),
 		.LedgDataOutM		(LedgDataOutM		),

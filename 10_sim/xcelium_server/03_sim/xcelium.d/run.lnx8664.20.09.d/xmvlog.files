@@ -18,6 +18,7 @@
 /home/admin/CapstoneProject2/10_sim/xcelium_server/00_src/flop_r.sv
 /home/admin/CapstoneProject2/10_sim/xcelium_server/00_src/hazard_unit.sv
 /home/admin/CapstoneProject2/10_sim/xcelium_server/00_src/imem.sv
+/home/admin/CapstoneProject2/10_sim/xcelium_server/00_src/ivu.sv
 /home/admin/CapstoneProject2/10_sim/xcelium_server/00_src/led7seg_hex_dec.sv
 /home/admin/CapstoneProject2/10_sim/xcelium_server/00_src/lsu.sv
 /home/admin/CapstoneProject2/10_sim/xcelium_server/00_src/lsu_dec.sv

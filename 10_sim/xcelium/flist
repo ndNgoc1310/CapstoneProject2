@@ -24,6 +24,7 @@
 ./../../00_rtl/controller/controller.sv
 ./../../00_rtl/controller/eu.sv
 ./../../00_rtl/controller/dec_main.sv
+./../../00_rtl/controller/ivu.sv
 
 // Datapath
 ./../../00_rtl/datapath/alu.sv

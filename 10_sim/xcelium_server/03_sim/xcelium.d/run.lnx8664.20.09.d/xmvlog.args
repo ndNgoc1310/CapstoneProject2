@@ -22,6 +22,7 @@
 ./../00_src/flop_r.sv
 ./../00_src/hazard_unit.sv
 ./../00_src/imem.sv
+./../00_src/ivu.sv
 ./../00_src/led7seg_hex_dec.sv
 ./../00_src/lsu.sv
 ./../00_src/lsu_dec.sv

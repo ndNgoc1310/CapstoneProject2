@@ -34,7 +34,8 @@ led7seg_hex_dec led7seg_hex_dec_37 (
 );
 
 logic io_write_en;
-assign io_write_en = MemWriteM & LSWordM;
+// assign io_write_en = MemWriteM & LSWordM;
+assign io_write_en = MemWriteM;
 
 assign LedrWriteEnM = io_write_en & LSLedrM;
 assign LedgWriteEnM = io_write_en & LSLedgM;

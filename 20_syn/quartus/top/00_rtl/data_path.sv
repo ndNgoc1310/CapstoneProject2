@@ -22,7 +22,7 @@ module data_path
         output  logic   [3:0]   top_ALUControlE,
     
         // Memory Stage (M)
-        output  logic   [31:0]  top_PCTargetM, top_PCPlus4M, top_ReadDataM, top_ALUResultM, top_WriteDataM,
+        output  logic   [31:0]  top_pcM, top_PCTargetM, top_PCPlus4M, top_ReadDataM, top_ALUResultM, top_WriteDataM,
         output  logic   [1:0]   top_ResultSrcM,
         output  logic   [2:0]   top_funct3M,
         output  logic           top_MemWriteM,
@@ -46,12 +46,12 @@ module data_path
 
         // Write Back Stage (W)
         output  logic   [1:0]   top_ResultSrcW,
-        output  logic   [31:0]  top_ALUResultW, top_ReadDataW, top_PCTargetW, top_PCPlus4W, top_ResultW, 
+        output  logic   [31:0]  top_ALUResultW, top_ReadDataW, top_pcW, top_PCTargetW, top_PCPlus4W, top_ResultW, 
     //
     
     // System signals
         input   logic           clk, rstn,
-        output  logic           InstrVldW,
+        output  logic           InstrVldE, InstrVldM, InstrVldW,
     //
 
     // From/To Controller signals/buses
@@ -135,20 +135,28 @@ module data_path
     logic           RegWriteE, MemWriteE, ALUSrcE;
     logic   [1:0]   ResultSrcE; assign ResultSrcEb0 = ResultSrcE[0];
     logic   [3:0]   ALUControlE;
-    logic           InstrVldE;
+    // logic           InstrVldE;
 
     // Memory Stage (M)
     logic   [31:0]  ReadDataM, PCPlus4M, PCTargetM, ALUResultM, WriteDataM;
     logic   [1:0]   ResultSrcM;
     logic           MemWriteM;
     logic   [2:0]   funct3M;
-    logic           InstrVldM;
+
+    // logic           InstrVldM;
 
     // Write Back Stage (W)
     logic   [1:0]   ResultSrcW;
     logic   [31:0]  ALUResultW, ReadDataW, PCPlus4W, PCTargetW, ResultW; 
 
 //
+
+// Debug
+    logic   [31:0]  pcM, pcW;
+    assign  top_pcM = pcM;
+    assign  top_pcW = pcW;
+//
+
 
 // Debugging---------------
     always_comb begin
@@ -247,24 +255,24 @@ module data_path
                     ImmExtE, PCPlus4E, InstrVldE})
     );
 
-    flop_r #(.WIDTH(141)) Mreg
+    flop_r #(.WIDTH(173)) Mreg
     (
         .clk    (clk),
         .rstn   (rstn),
         .en     (1'b1),
         .clr    (1'b0),
-        .d      ({RegWriteE, ResultSrcE, MemWriteE, funct3E, ALUResultE, WriteDataE, RdE, PCPlus4E, PCTargetE, InstrVldE}),
-        .q      ({RegWriteM, ResultSrcM, MemWriteM, funct3M, ALUResultM, WriteDataM, RdM, PCPlus4M, PCTargetM, InstrVldM})
+        .d      ({RegWriteE, ResultSrcE, MemWriteE, funct3E, ALUResultE, WriteDataE, pcE, RdE, PCPlus4E, PCTargetE, InstrVldE}),
+        .q      ({RegWriteM, ResultSrcM, MemWriteM, funct3M, ALUResultM, WriteDataM, pcM, RdM, PCPlus4M, PCTargetM, InstrVldM})
     );
 
-    flop_r #(.WIDTH(105)) Wreg
+    flop_r #(.WIDTH(137)) Wreg
     (
         .clk    (clk),
         .rstn   (rstn),
         .en     (1'b1),
         .clr    (1'b0),
-        .d      ({RegWriteM, ResultSrcM, ALUResultM, RdM, PCPlus4M, PCTargetM, InstrVldM}),
-        .q      ({RegWriteW, ResultSrcW, ALUResultW, RdW, PCPlus4W, PCTargetW, InstrVldW})
+        .d      ({RegWriteM, ResultSrcM, ALUResultM, pcM, RdM, PCPlus4M, PCTargetM, InstrVldM}),
+        .q      ({RegWriteW, ResultSrcW, ALUResultW, pcW, RdW, PCPlus4W, PCTargetW, InstrVldW})
     );
     assign ReadDataW = ReadDataM; // bypass
 //

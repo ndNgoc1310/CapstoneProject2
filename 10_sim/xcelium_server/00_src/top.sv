@@ -119,17 +119,19 @@ module top
 
 logic   [31:0]  InstrF;
 logic   [31:0]  pcF;
-assign top_InstrF = InstrF;
-assign top_pcF    = pcF;
-
 logic   [31:0]  MemDataReadM;
 logic   [3:0]   MemWriteEnM;
 logic   [3:0][13:0]  MemAddrM;
 logic   [3:0][7:0]   MemDataWriteM;
-assign top_MemWriteEnM    = MemWriteEnM;
-assign top_MemAddrM       = MemAddrM;
-assign top_MemDataWriteM  = MemDataWriteM;
-assign top_MemDataReadM   = MemDataReadM;
+
+// Debug
+    assign top_InstrF = InstrF;
+    assign top_pcF    = pcF;
+    assign top_MemWriteEnM    = MemWriteEnM;
+    assign top_MemAddrM       = MemAddrM;
+    assign top_MemDataWriteM  = MemDataWriteM;
+    assign top_MemDataReadM   = MemDataReadM;
+//
 
 processor proc
 (

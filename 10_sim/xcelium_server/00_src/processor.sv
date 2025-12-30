@@ -206,7 +206,6 @@ module processor
     end
 //
 
-logic   tmp_Ecall, tmp_Ebreak;
 controller ctrl
 (
     .opD            (opD),
@@ -228,12 +227,10 @@ controller ctrl
     .BranchD        (BranchD),
     .ImmSrcD        (ImmSrcD),
     .ALUControlD    (ALUControlD),
-    .Ecall          (tmp_Ecall),
-    .Ebreak         (tmp_Ebreak),
+    .Ecall          (Ecall),
+    .Ebreak         (Ebreak),
     .InstrVldD      (InstrVldD)
 );
-assign Ecall = tmp_Ecall & (~(FlushD | FlushE));
-assign Ebreak = tmp_Ebreak & (~(FlushD | FlushE));
 
 data_path dp
 (

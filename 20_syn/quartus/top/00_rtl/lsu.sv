@@ -35,6 +35,9 @@ module lsu (
 	// input 	logic  	[2:0]  	i_bmask, i_sl_sel, 				// check store load type
 	// input 	logic  	[1:0]  	i_io_key, 						// Input for keys
 
+	// To TL-UL
+	output	logic			LSMemM_o,
+
 	output 	logic 	[3:0] 	MemWriteEnM,											 		// Memory write enable after decoding
 	output 	logic 	[3:0][13:0]	MemAddrM,													// Memory address bytes
 	output 	logic 	[3:0][7:0]	MemDataWriteM, 												// Memory data bytes
@@ -56,6 +59,9 @@ module lsu (
 	logic LSMemM, LSLedrM, LSLedgM, LSHex03M, LSHex47M, LSLcdM, LSSwM, LSKeyM;			// LSU Memory Mapped I/O select signals
 	logic LSWordM, LSHalfM, LSByteM, LSHalfUM, LSByteUM;								// Load/Store type signals
 	logic [31:0] MemDataReadOutM;
+
+	// To TL-UL
+	assign LSMemM_o = LSMemM;
 
 	lsu_dec lsu_dec (
 		// // Debug ---

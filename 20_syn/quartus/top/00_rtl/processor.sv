@@ -108,7 +108,7 @@ module processor
     output  logic   [3:0][13:0]  MemAddrM,
     output  logic   [3:0][7:0]   MemDataWriteM,
 
-    // TileLink TL-UL
+    // To TL-UL
     output  logic   [31:0]  ALUResultM_o,
     output  logic           LSMemM_o, MemWriteM_o,
 
@@ -403,7 +403,7 @@ data_path dp
     .Hex6DataOutM   (Hex6DataOutM),
     .Hex7DataOutM   (Hex7DataOutM),
 
-    // TL-UL
+    // To TL-UL
     .ALUResultM_o   (ALUResultM_o),
     .LSMemM_o       (LSMemM_o),
     .MemWriteM_o    (MemWriteM_o)

@@ -130,7 +130,7 @@ module top
     logic   [3:0][7:0]  MemDataWriteM;
     logic   [31:0]  ALUResultM_o;
     logic           LSMemM_o, MemWriteM_o;
-    
+
     // // Debug
     //     assign top_InstrF = InstrF;
     //     assign top_pcF    = pcF;
@@ -294,7 +294,7 @@ module top
         .MemAddrM       (MemAddrM),
         .MemDataWriteM  (MemDataWriteM),
 
-        // TileLink TL-UL
+        // To TL-UL
         .LSMemM_o       (LSMemM_o),
         .MemWriteM_o    (MemWriteM_o),
         .ALUResultM_o   (ALUResultM_o),

@@ -114,7 +114,7 @@ module data_path
         output  logic   [3:0][7:0]   MemDataWriteM,
     //
 
-    // TileLink TL-UL
+    // To TL-UL
         output  logic   [31:0]  ALUResultM_o,
         output  logic           LSMemM_o, MemWriteM_o,
     //
@@ -226,9 +226,8 @@ module data_path
     assign RdD          = InstrD[11:7];
 //
 
-// Forward these internal signals to outside for TL-UL connection
+// To TL-UL
     assign ALUResultM_o = ALUResultM;
-    assign LSMemM_o = LSMemM;
     assign MemWriteM_o = MemWriteM;
 //
 
@@ -452,6 +451,7 @@ module data_path
         .WriteDataM     (WriteDataM),
         .MemWriteM      (MemWriteM),
         .funct3M        (funct3M),
+        .LSMemM_o       (LSMemM_o),
 
         .MemDataReadM   (MemDataReadM),
         .MemWriteEnM    (MemWriteEnM),

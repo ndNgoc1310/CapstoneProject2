@@ -4,7 +4,7 @@
 1765457255 /home/admin/CapstoneProject2/10_sim/xcelium_server/00_src/and_nb.sv
 1766937425 /home/admin/CapstoneProject2/10_sim/xcelium_server/00_src/bru.sv
 1767048569 /home/admin/CapstoneProject2/10_sim/xcelium_server/00_src/controller.sv
-1767013463 /home/admin/CapstoneProject2/10_sim/xcelium_server/00_src/data_path.sv
+1767054726 /home/admin/CapstoneProject2/10_sim/xcelium_server/00_src/data_path.sv
 1766937372 /home/admin/CapstoneProject2/10_sim/xcelium_server/00_src/dec_alu.sv
 1766937389 /home/admin/CapstoneProject2/10_sim/xcelium_server/00_src/dec_main.sv
 1766968407 /home/admin/CapstoneProject2/10_sim/xcelium_server/00_src/dmem.sv
@@ -21,7 +21,7 @@
 1767022137 /home/admin/CapstoneProject2/10_sim/xcelium_server/00_src/lsu_dec_io_out.sv
 1766982583 /home/admin/CapstoneProject2/10_sim/xcelium_server/00_src/lsu_dec_mem.sv
 1766968327 /home/admin/CapstoneProject2/10_sim/xcelium_server/00_src/lsu_dec_mem_addr.sv
-1766991800 /home/admin/CapstoneProject2/10_sim/xcelium_server/00_src/lsu_dec_mem_data_read.sv
+1767066762 /home/admin/CapstoneProject2/10_sim/xcelium_server/00_src/lsu_dec_mem_data_read.sv
 1766967892 /home/admin/CapstoneProject2/10_sim/xcelium_server/00_src/lsu_dec_mem_data_write.sv
 1766967887 /home/admin/CapstoneProject2/10_sim/xcelium_server/00_src/lsu_dec_mem_write_en.sv
 1766888532 /home/admin/CapstoneProject2/10_sim/xcelium_server/00_src/lsu_dec_type.sv
@@ -33,15 +33,15 @@
 1765457255 /home/admin/CapstoneProject2/10_sim/xcelium_server/00_src/mux_4.sv
 1765457255 /home/admin/CapstoneProject2/10_sim/xcelium_server/00_src/mux_8.sv
 1765457255 /home/admin/CapstoneProject2/10_sim/xcelium_server/00_src/or_nb.sv
-1767023598 /home/admin/CapstoneProject2/10_sim/xcelium_server/00_src/pipelined.sv
-1767048669 /home/admin/CapstoneProject2/10_sim/xcelium_server/00_src/processor.sv
+1767056489 /home/admin/CapstoneProject2/10_sim/xcelium_server/00_src/pipelined.sv
+1767054839 /home/admin/CapstoneProject2/10_sim/xcelium_server/00_src/processor.sv
 1766920233 /home/admin/CapstoneProject2/10_sim/xcelium_server/00_src/reg_file.sv
 1765457255 /home/admin/CapstoneProject2/10_sim/xcelium_server/00_src/shifter_l_l_nb.sv
 1765457255 /home/admin/CapstoneProject2/10_sim/xcelium_server/00_src/shifter_r_a_nb.sv
 1765457255 /home/admin/CapstoneProject2/10_sim/xcelium_server/00_src/shifter_r_l_nb.sv
-1767013463 /home/admin/CapstoneProject2/10_sim/xcelium_server/00_src/top.sv
+1767054901 /home/admin/CapstoneProject2/10_sim/xcelium_server/00_src/top.sv
 1765457255 /home/admin/CapstoneProject2/10_sim/xcelium_server/00_src/xor_nb.sv
 1766741669 /home/admin/CapstoneProject2/10_sim/xcelium_server/01_bench/driver.sv
-1767049882 /home/admin/CapstoneProject2/10_sim/xcelium_server/01_bench/scoreboard.sv
+1767054043 /home/admin/CapstoneProject2/10_sim/xcelium_server/01_bench/scoreboard.sv
 1767049187 /home/admin/CapstoneProject2/10_sim/xcelium_server/01_bench/tbench.sv
 1766741669 /home/admin/CapstoneProject2/10_sim/xcelium_server/01_bench/tlib.svh

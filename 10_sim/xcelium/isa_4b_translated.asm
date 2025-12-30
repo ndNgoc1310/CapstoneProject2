@@ -7,58 +7,58 @@ Disassembly of section .data:
 00000000 <.data>:
        0:	00007137          	lui	x2,0x7
        4:	00010113          	addi	x2,x2,0 # 0x7000
-       8:	0cc0006f          	jal	x0,0xd4 -----------------------1
-       c:	100002b7          	lui	x5,0x10000 -----------------------5 9 13 17 21 25
+       8:	0cc0006f          	jal	x0,0xd4
+       c:	100002b7          	lui	x5,0x10000 ------------------------------ jum here = print
       10:	00028293          	addi	x5,x5,0 # 0x10000000
-      14:	00a28023          	sb	x10,0(x5)
-      18:	00008067          	jalr	x0,0(x1) -------------------------6 10 14 18 22 26 ---------------------< 6
-      1c:	00100073          	ebreak ---------------------------------------------------------------------------< 1
+      14:	00a28023          	sb	x10,0(x5) ------------------------------- print
+      18:	00008067          	jalr	x0,0(x1) ---------------------------- jump back; PC = x1
+      1c:	00100073          	ebreak -------------------------------------- STOP
       20:	ffdff06f          	jal	x0,0x1c
-      24:	00112023          	sw	x1,0(x2)
-      28:	02e00513          	addi	x10,x0,46
+      24:	00112023          	sw	x1,0(x2) -------------------------------- jump here = PASS; MEM[x2] = MEM[0x7000] = x1 = prevPC + 4
+      28:	02e00513          	addi	x10,x0,46 --------------------------- dot
       2c:	fe1ff0ef          	jal	x1,0xc
-      30:	02e00513          	addi	x10,x0,46
+      30:	02e00513          	addi	x10,x0,46 --------------------------- dot
       34:	fd9ff0ef          	jal	x1,0xc
-      38:	02e00513          	addi	x10,x0,46
+      38:	02e00513          	addi	x10,x0,46 --------------------------- dot
       3c:	fd1ff0ef          	jal	x1,0xc
-      40:	05000513          	addi	x10,x0,80
+      40:	05000513          	addi	x10,x0,80 --------------------------- P
       44:	fc9ff0ef          	jal	x1,0xc
-      48:	04100513          	addi	x10,x0,65
+      48:	04100513          	addi	x10,x0,65 --------------------------- A
       4c:	fc1ff0ef          	jal	x1,0xc
-      50:	05300513          	addi	x10,x0,83
+      50:	05300513          	addi	x10,x0,83 --------------------------- S
       54:	fb9ff0ef          	jal	x1,0xc
-      58:	05300513          	addi	x10,x0,83
+      58:	05300513          	addi	x10,x0,83 --------------------------- S
       5c:	fb1ff0ef          	jal	x1,0xc
-      60:	00d00513          	addi	x10,x0,13
-      64:	fa9ff0ef          	jal	x1,0xc
-      68:	00a00513          	addi	x10,x0,10
+      60:	00d00513          	addi	x10,x0,13 --------------------------- next line
+      64:	fa9ff0ef          	jal	x1,0xc 
+      68:	00a00513          	addi	x10,x0,10 --------------------------- next line
       6c:	fa1ff0ef          	jal	x1,0xc
-      70:	00012083          	lw	x1,0(x2) --------------------------------------------------------------------------< 5
-      74:	00008067          	jalr	x0,0(x1) --------------------------------------------------------------------------< 4
-      78:	00112023          	sw	x1,0(x2)
-      7c:	02e00513          	addi	x10,x0,46
+      70:	00012083          	lw	x1,0(x2) -------------------------------- x1 = MEM[x2] = MEM[0x7000] = prevPC + 4                      
+      74:	00008067          	jalr	x0,0(x1) ---------------------------- jump back; PC = prevPC + 4
+      78:	00112023          	sw	x1,0(x2) -------------------------------- jump here = ERROR
+      7c:	02e00513          	addi	x10,x0,46 --------------------------- dot
       80:	f8dff0ef          	jal	x1,0xc
-      84:	02e00513          	addi	x10,x0,46
+      84:	02e00513          	addi	x10,x0,46 --------------------------- dot
       88:	f85ff0ef          	jal	x1,0xc
-      8c:	02e00513          	addi	x10,x0,46
+      8c:	02e00513          	addi	x10,x0,46 --------------------------- dot
       90:	f7dff0ef          	jal	x1,0xc
-      94:	04500513          	addi	x10,x0,69
+      94:	04500513          	addi	x10,x0,69 --------------------------- E
       98:	f75ff0ef          	jal	x1,0xc
-      9c:	05200513          	addi	x10,x0,82
+      9c:	05200513          	addi	x10,x0,82 --------------------------- R
       a0:	f6dff0ef          	jal	x1,0xc
-      a4:	05200513          	addi	x10,x0,82
+      a4:	05200513          	addi	x10,x0,82 --------------------------- R
       a8:	f65ff0ef          	jal	x1,0xc
-      ac:	04f00513          	addi	x10,x0,79
+      ac:	04f00513          	addi	x10,x0,79 --------------------------- O
       b0:	f5dff0ef          	jal	x1,0xc
-      b4:	05200513          	addi	x10,x0,82
+      b4:	05200513          	addi	x10,x0,82 --------------------------- R
       b8:	f55ff0ef          	jal	x1,0xc
-      bc:	00d00513          	addi	x10,x0,13
+      bc:	00d00513          	addi	x10,x0,13 --------------------------- next line
       c0:	f4dff0ef          	jal	x1,0xc
-      c4:	00a00513          	addi	x10,x0,10
+      c4:	00a00513          	addi	x10,x0,10 --------------------------- next line
       c8:	f45ff0ef          	jal	x1,0xc
-      cc:	00012083          	lw	x1,0(x2)
-      d0:	00008067          	jalr	x0,0(x1)
-      d4:	0a0000ef          	jal	x1,0x174 ----------------2
+      cc:	00012083          	lw	x1,0(x2) -------------------------------- x1 = MEM[x2] = MEM[0x7000] = prevPC + 4    
+      d0:	00008067          	jalr	x0,0(x1) ---------------------------- jump back; PC = prevPC + 4
+      d4:	0a0000ef          	jal	x1,0x174 
       d8:	184000ef          	jal	x1,0x25c
       dc:	240000ef          	jal	x1,0x31c
       e0:	320000ef          	jal	x1,0x400
@@ -97,30 +97,30 @@ Disassembly of section .data:
      164:	265010ef          	jal	x1,0x1bc8
      168:	2ad010ef          	jal	x1,0x1c14
      16c:	33d010ef          	jal	x1,0x1ca8
-     170:	eadff06f          	jal	x0,0x1c --------------------------------------------------------------------------< 2
-     174:	00112223          	sw	x1,4(x2) ----------------3
+     170:	eadff06f          	jal	x0,0x1c 
+     174:	00112223          	sw	x1,4(x2)
      178:	06100513          	addi	x10,x0,97
-     17c:	e91ff0ef          	jal	x1,0xc ----------------4
-     180:	06400513          	addi	x10,x0,100 -----------------7
-     184:	e89ff0ef          	jal	x1,0xc --------------8
-     188:	06400513          	addi	x10,x0,100 -----------------11
-     18c:	e81ff0ef          	jal	x1,0xc -------------12
-     190:	02e00513          	addi	x10,x0,46 -----------------15
-     194:	e79ff0ef          	jal	x1,0xc --------------16
-     198:	02e00513          	addi	x10,x0,46 -----------------19
-     19c:	e71ff0ef          	jal	x1,0xc --------------20
-     1a0:	02e00513          	addi	x10,x0,46 -----------------23
-     1a4:	e69ff0ef          	jal	x1,0xc ------------24
-     1a8:	00000893          	addi	x17,x0,0 ------------------27       x17 = 0
-     1ac:	00000313          	addi	                                    x6,x0,0
-     1b0:	00000393          	addi	                                    x7,x0,0
-     1b4:	007302b3          	add	x5,x6,x7                                x5 = x6 + x7 = 0 + 0 = 0
-     1b8:	08589863          	bne	x17,x5,0x248                            x17 = x5 = 0 -> not taken
+     17c:	e91ff0ef          	jal	x1,0xc
+     180:	06400513          	addi	x10,x0,100 --------------------------- d 
+     184:	e89ff0ef          	jal	x1,0xc
+     188:	06400513          	addi	x10,x0,100 --------------------------- d 
+     18c:	e81ff0ef          	jal	x1,0xc
+     190:	02e00513          	addi	x10,x0,46 --------------------------- dot
+     194:	e79ff0ef          	jal	x1,0xc
+     198:	02e00513          	addi	x10,x0,46 --------------------------- dot
+     19c:	e71ff0ef          	jal	x1,0xc
+     1a0:	02e00513          	addi	x10,x0,46 --------------------------- dot
+     1a4:	e69ff0ef          	jal	x1,0xc 
+     1a8:	00000893          	addi	x17,x0,0 
+     1ac:	00000313          	addi	              
+     1b0:	00000393          	addi	                               
+     1b4:	007302b3          	add	x5,x6,x7                            
+     1b8:	08589863          	bne	x17,x5,0x248                          
      1bc:	00a00893          	addi	x17,x0,10
      1c0:	00200313          	addi	x6,x0,2
      1c4:	00800393          	addi	x7,x0,8
      1c8:	007302b3          	add	x5,x6,x7
-     1cc:	06589e63          	bne	x17,x5,0x248                            x17 = x5 = 10 -> not taken
+     1cc:	06589e63          	bne	x17,x5,0x248                         
      1d0:	ffff88b7          	lui	x17,0xffff8
      1d4:	00088893          	addi	x17,x17,0 # 0xffff8000
      1d8:	00000313          	addi	x6,x0,0
@@ -151,23 +151,23 @@ Disassembly of section .data:
      23c:	005382b3          	add	x5,x7,x5
      240:	00589463          	bne	x17,x5,0x248
      244:	00c0006f          	jal	x0,0x250
-     248:	e31ff0ef          	jal	x1,0x78
+     248:	e31ff0ef          	jal	x1,0x78 --------------------------------- jump to ERROR; x1 = nextPC
      24c:	0080006f          	jal	x0,0x254
-     250:	dd5ff0ef          	jal	x1,0x24
+     250:	dd5ff0ef          	jal	x1,0x24 --------------------------------- jump to PASS; x1 = nextPC
      254:	00412083          	lw	x1,4(x2)
      258:	00008067          	jalr	x0,0(x1)
      25c:	00112223          	sw	x1,4(x2)
      260:	06100513          	addi	x10,x0,97
      264:	da9ff0ef          	jal	x1,0xc
-     268:	06400513          	addi	x10,x0,100
+     268:	06400513          	addi	x10,x0,100 -------------------------- d
      26c:	da1ff0ef          	jal	x1,0xc
-     270:	06400513          	addi	x10,x0,100
+     270:	06400513          	addi	x10,x0,100 -------------------------- d
      274:	d99ff0ef          	jal	x1,0xc
-     278:	06900513          	addi	x10,x0,105
+     278:	06900513          	addi	x10,x0,105 -------------------------- i
      27c:	d91ff0ef          	jal	x1,0xc
-     280:	02e00513          	addi	x10,x0,46
+     280:	02e00513          	addi	x10,x0,46 --------------------------- dot
      284:	d89ff0ef          	jal	x1,0xc
-     288:	02e00513          	addi	x10,x0,46
+     288:	02e00513          	addi	x10,x0,46 --------------------------- dot
      28c:	d81ff0ef          	jal	x1,0xc
      290:	00000893          	addi	x17,x0,0
      294:	00000313          	addi	x6,x0,0
@@ -199,23 +199,23 @@ Disassembly of section .data:
      2fc:	00b28293          	addi	x5,x5,11
      300:	00589463          	bne	x17,x5,0x308
      304:	00c0006f          	jal	x0,0x310
-     308:	d71ff0ef          	jal	x1,0x78
+     308:	d71ff0ef          	jal	x1,0x78 --------------------------------- jump to ERROR; x1 = nextPC
      30c:	0080006f          	jal	x0,0x314
-     310:	d15ff0ef          	jal	x1,0x24
+     310:	d15ff0ef          	jal	x1,0x24 --------------------------------- jump to PASS; x1 = nextPC
      314:	00412083          	lw	x1,4(x2)
      318:	00008067          	jalr	x0,0(x1)
      31c:	00112223          	sw	x1,4(x2)
-     320:	07300513          	addi	x10,x0,115
+     320:	07300513          	addi	x10,x0,115 -------------------------- s
      324:	ce9ff0ef          	jal	x1,0xc
-     328:	07500513          	addi	x10,x0,117
+     328:	07500513          	addi	x10,x0,117 -------------------------- u
      32c:	ce1ff0ef          	jal	x1,0xc
      330:	06200513          	addi	x10,x0,98
      334:	cd9ff0ef          	jal	x1,0xc
-     338:	02e00513          	addi	x10,x0,46
+     338:	02e00513          	addi	x10,x0,46 --------------------------- dot
      33c:	cd1ff0ef          	jal	x1,0xc
-     340:	02e00513          	addi	x10,x0,46
+     340:	02e00513          	addi	x10,x0,46 --------------------------- dot
      344:	cc9ff0ef          	jal	x1,0xc
-     348:	02e00513          	addi	x10,x0,46
+     348:	02e00513          	addi	x10,x0,46 --------------------------- dot
      34c:	cc1ff0ef          	jal	x1,0xc
      350:	00000893          	addi	x17,x0,0
      354:	00000313          	addi	x6,x0,0
@@ -256,23 +256,23 @@ Disassembly of section .data:
      3e0:	405382b3          	sub	x5,x7,x5
      3e4:	00589463          	bne	x17,x5,0x3ec
      3e8:	00c0006f          	jal	x0,0x3f4
-     3ec:	c8dff0ef          	jal	x1,0x78
+     3ec:	c8dff0ef          	jal	x1,0x78 --------------------------------- jump to ERROR; x1 = nextPC
      3f0:	0080006f          	jal	x0,0x3f8
-     3f4:	c31ff0ef          	jal	x1,0x24
+     3f4:	c31ff0ef          	jal	x1,0x24 --------------------------------- jump to PASS; x1 = nextPC
      3f8:	00412083          	lw	x1,4(x2)
      3fc:	00008067          	jalr	x0,0(x1)
      400:	00112223          	sw	x1,4(x2)
      404:	06100513          	addi	x10,x0,97
      408:	c05ff0ef          	jal	x1,0xc
-     40c:	06e00513          	addi	x10,x0,110
+     40c:	06e00513          	addi	x10,x0,110 -------------------------- m
      410:	bfdff0ef          	jal	x1,0xc
-     414:	06400513          	addi	x10,x0,100
+     414:	06400513          	addi	x10,x0,100 -------------------------- d
      418:	bf5ff0ef          	jal	x1,0xc
-     41c:	02e00513          	addi	x10,x0,46
+     41c:	02e00513          	addi	x10,x0,46 --------------------------- dot
      420:	bedff0ef          	jal	x1,0xc
-     424:	02e00513          	addi	x10,x0,46
+     424:	02e00513          	addi	x10,x0,46 --------------------------- dot
      428:	be5ff0ef          	jal	x1,0xc
-     42c:	02e00513          	addi	x10,x0,46
+     42c:	02e00513          	addi	x10,x0,46 --------------------------- dot
      430:	bddff0ef          	jal	x1,0xc
      434:	0f0018b7          	lui	x17,0xf001
      438:	f0088893          	addi	x17,x17,-256 # 0xf000f00
@@ -309,23 +309,23 @@ Disassembly of section .data:
      4b4:	0053f2b3          	and	x5,x7,x5
      4b8:	00589463          	bne	x17,x5,0x4c0
      4bc:	00c0006f          	jal	x0,0x4c8
-     4c0:	bb9ff0ef          	jal	x1,0x78
+     4c0:	bb9ff0ef          	jal	x1,0x78 --------------------------------- jump to ERROR; x1 = nextPC
      4c4:	0080006f          	jal	x0,0x4cc
-     4c8:	b5dff0ef          	jal	x1,0x24
+     4c8:	b5dff0ef          	jal	x1,0x24 --------------------------------- jump to PASS; x1 = nextPC
      4cc:	00412083          	lw	x1,4(x2)
      4d0:	00008067          	jalr	x0,0(x1)
      4d4:	00112223          	sw	x1,4(x2)
      4d8:	06100513          	addi	x10,x0,97
      4dc:	b31ff0ef          	jal	x1,0xc
-     4e0:	06e00513          	addi	x10,x0,110
+     4e0:	06e00513          	addi	x10,x0,110 -------------------------- m
      4e4:	b29ff0ef          	jal	x1,0xc
-     4e8:	06400513          	addi	x10,x0,100
+     4e8:	06400513          	addi	x10,x0,100 -------------------------- d
      4ec:	b21ff0ef          	jal	x1,0xc
-     4f0:	06900513          	addi	x10,x0,105
+     4f0:	06900513          	addi	x10,x0,105 -------------------------- i
      4f4:	b19ff0ef          	jal	x1,0xc
-     4f8:	02e00513          	addi	x10,x0,46
+     4f8:	02e00513          	addi	x10,x0,46 --------------------------- dot
      4fc:	b11ff0ef          	jal	x1,0xc
-     500:	02e00513          	addi	x10,x0,46
+     500:	02e00513          	addi	x10,x0,46 --------------------------- dot
      504:	b09ff0ef          	jal	x1,0xc
      508:	ff0108b7          	lui	x17,0xff010
      50c:	f0088893          	addi	x17,x17,-256 # 0xff00ff00
@@ -356,23 +356,23 @@ Disassembly of section .data:
      570:	f0f2f293          	andi	x5,x5,-241
      574:	00589463          	bne	x17,x5,0x57c
      578:	00c0006f          	jal	x0,0x584
-     57c:	afdff0ef          	jal	x1,0x78
+     57c:	afdff0ef          	jal	x1,0x78 --------------------------------- jump to ERROR; x1 = nextPC
      580:	0080006f          	jal	x0,0x588
-     584:	aa1ff0ef          	jal	x1,0x24
+     584:	aa1ff0ef          	jal	x1,0x24 --------------------------------- jump to PASS; x1 = nextPC
      588:	00412083          	lw	x1,4(x2)
      58c:	00008067          	jalr	x0,0(x1)
      590:	00112223          	sw	x1,4(x2)
-     594:	06f00513          	addi	x10,x0,111
+     594:	06f00513          	addi	x10,x0,111 -------------------------- o
      598:	a75ff0ef          	jal	x1,0xc
-     59c:	07200513          	addi	x10,x0,114
+     59c:	07200513          	addi	x10,x0,114 -------------------------- r
      5a0:	a6dff0ef          	jal	x1,0xc
-     5a4:	02e00513          	addi	x10,x0,46
+     5a4:	02e00513          	addi	x10,x0,46 --------------------------- dot
      5a8:	a65ff0ef          	jal	x1,0xc
-     5ac:	02e00513          	addi	x10,x0,46
+     5ac:	02e00513          	addi	x10,x0,46 --------------------------- dot
      5b0:	a5dff0ef          	jal	x1,0xc
-     5b4:	02e00513          	addi	x10,x0,46
+     5b4:	02e00513          	addi	x10,x0,46 --------------------------- dot
      5b8:	a55ff0ef          	jal	x1,0xc
-     5bc:	02e00513          	addi	x10,x0,46
+     5bc:	02e00513          	addi	x10,x0,46 --------------------------- dot
      5c0:	a4dff0ef          	jal	x1,0xc
      5c4:	ff1008b7          	lui	x17,0xff100
      5c8:	f0f88893          	addi	x17,x17,-241 # 0xff0fff0f
@@ -410,23 +410,23 @@ Disassembly of section .data:
      648:	0053e2b3          	or	x5,x7,x5
      64c:	00589463          	bne	x17,x5,0x654
      650:	00c0006f          	jal	x0,0x65c
-     654:	a25ff0ef          	jal	x1,0x78
+     654:	a25ff0ef          	jal	x1,0x78 --------------------------------- jump to ERROR; x1 = nextPC
      658:	0080006f          	jal	x0,0x660
-     65c:	9c9ff0ef          	jal	x1,0x24
+     65c:	9c9ff0ef          	jal	x1,0x24 --------------------------------- jump to PASS; x1 = nextPC
      660:	00412083          	lw	x1,4(x2)
      664:	00008067          	jalr	x0,0(x1)
      668:	00112223          	sw	x1,4(x2)
-     66c:	06f00513          	addi	x10,x0,111
+     66c:	06f00513          	addi	x10,x0,111 -------------------------- o
      670:	99dff0ef          	jal	x1,0xc
-     674:	07200513          	addi	x10,x0,114
+     674:	07200513          	addi	x10,x0,114 -------------------------- r
      678:	995ff0ef          	jal	x1,0xc
-     67c:	06900513          	addi	x10,x0,105
+     67c:	06900513          	addi	x10,x0,105 -------------------------- i
      680:	98dff0ef          	jal	x1,0xc
-     684:	02e00513          	addi	x10,x0,46
+     684:	02e00513          	addi	x10,x0,46 --------------------------- dot
      688:	985ff0ef          	jal	x1,0xc
-     68c:	02e00513          	addi	x10,x0,46
+     68c:	02e00513          	addi	x10,x0,46 --------------------------- dot
      690:	97dff0ef          	jal	x1,0xc
-     694:	02e00513          	addi	x10,x0,46
+     694:	02e00513          	addi	x10,x0,46 --------------------------- dot
      698:	975ff0ef          	jal	x1,0xc
      69c:	f0f00893          	addi	x17,x0,-241
      6a0:	ff010337          	lui	x6,0xff010
@@ -459,23 +459,23 @@ Disassembly of section .data:
      70c:	f0f2e293          	ori	x5,x5,-241
      710:	00589463          	bne	x17,x5,0x718
      714:	00c0006f          	jal	x0,0x720
-     718:	961ff0ef          	jal	x1,0x78
+     718:	961ff0ef          	jal	x1,0x78 --------------------------------- jump to ERROR; x1 = nextPC
      71c:	0080006f          	jal	x0,0x724
-     720:	905ff0ef          	jal	x1,0x24
+     720:	905ff0ef          	jal	x1,0x24 --------------------------------- jump to PASS; x1 = nextPC
      724:	00412083          	lw	x1,4(x2)
      728:	00008067          	jalr	x0,0(x1)
      72c:	00112223          	sw	x1,4(x2)
-     730:	07800513          	addi	x10,x0,120
+     730:	07800513          	addi	x10,x0,120 -------------------------- x
      734:	8d9ff0ef          	jal	x1,0xc
-     738:	06f00513          	addi	x10,x0,111
+     738:	06f00513          	addi	x10,x0,111 -------------------------- o
      73c:	8d1ff0ef          	jal	x1,0xc
-     740:	07200513          	addi	x10,x0,114
+     740:	07200513          	addi	x10,x0,114 -------------------------- r
      744:	8c9ff0ef          	jal	x1,0xc
-     748:	02e00513          	addi	x10,x0,46
+     748:	02e00513          	addi	x10,x0,46 --------------------------- dot
      74c:	8c1ff0ef          	jal	x1,0xc
-     750:	02e00513          	addi	x10,x0,46
+     750:	02e00513          	addi	x10,x0,46 --------------------------- dot
      754:	8b9ff0ef          	jal	x1,0xc
-     758:	02e00513          	addi	x10,x0,46
+     758:	02e00513          	addi	x10,x0,46 --------------------------- dot
      75c:	8b1ff0ef          	jal	x1,0xc
      760:	f00ff8b7          	lui	x17,0xf00ff
      764:	00f88893          	addi	x17,x17,15 # 0xf00ff00f
@@ -513,23 +513,23 @@ Disassembly of section .data:
      7e4:	0053c2b3          	xor	x5,x7,x5
      7e8:	00589463          	bne	x17,x5,0x7f0
      7ec:	00c0006f          	jal	x0,0x7f8
-     7f0:	889ff0ef          	jal	x1,0x78
+     7f0:	889ff0ef          	jal	x1,0x78 --------------------------------- jump to ERROR; x1 = nextPC
      7f4:	0080006f          	jal	x0,0x7fc
-     7f8:	82dff0ef          	jal	x1,0x24
+     7f8:	82dff0ef          	jal	x1,0x24 --------------------------------- jump to PASS; x1 = nextPC
      7fc:	00412083          	lw	x1,4(x2)
      800:	00008067          	jalr	x0,0(x1)
      804:	00112223          	sw	x1,4(x2)
-     808:	07800513          	addi	x10,x0,120
+     808:	07800513          	addi	x10,x0,120 -------------------------- x
      80c:	801ff0ef          	jal	x1,0xc
-     810:	06f00513          	addi	x10,x0,111
+     810:	06f00513          	addi	x10,x0,111 -------------------------- o
      814:	ff8ff0ef          	jal	x1,0xc
-     818:	07200513          	addi	x10,x0,114
+     818:	07200513          	addi	x10,x0,114 -------------------------- r
      81c:	ff0ff0ef          	jal	x1,0xc
-     820:	06900513          	addi	x10,x0,105
+     820:	06900513          	addi	x10,x0,105 -------------------------- i
      824:	fe8ff0ef          	jal	x1,0xc
-     828:	02e00513          	addi	x10,x0,46
+     828:	02e00513          	addi	x10,x0,46 --------------------------- dot
      82c:	fe0ff0ef          	jal	x1,0xc
-     830:	02e00513          	addi	x10,x0,46
+     830:	02e00513          	addi	x10,x0,46 --------------------------- dot
      834:	fd8ff0ef          	jal	x1,0xc
      838:	ff0108b7          	lui	x17,0xff010
      83c:	f0088893          	addi	x17,x17,-256 # 0xff00ff00
@@ -564,23 +564,23 @@ Disassembly of section .data:
      8b0:	f0f2c293          	xori	x5,x5,-241
      8b4:	00589463          	bne	x17,x5,0x8bc
      8b8:	00c0006f          	jal	x0,0x8c4
-     8bc:	fbcff0ef          	jal	x1,0x78
+     8bc:	fbcff0ef          	jal	x1,0x78 --------------------------------- jump to ERROR; x1 = nextPC
      8c0:	0080006f          	jal	x0,0x8c8
-     8c4:	f60ff0ef          	jal	x1,0x24
+     8c4:	f60ff0ef          	jal	x1,0x24 --------------------------------- jump to PASS; x1 = nextPC
      8c8:	00412083          	lw	x1,4(x2)
      8cc:	00008067          	jalr	x0,0(x1)
      8d0:	00112223          	sw	x1,4(x2)
-     8d4:	07300513          	addi	x10,x0,115
+     8d4:	07300513          	addi	x10,x0,115 -------------------------- s
      8d8:	f34ff0ef          	jal	x1,0xc
-     8dc:	06c00513          	addi	x10,x0,108
+     8dc:	06c00513          	addi	x10,x0,108 -------------------------- l
      8e0:	f2cff0ef          	jal	x1,0xc
-     8e4:	07400513          	addi	x10,x0,116
+     8e4:	07400513          	addi	x10,x0,116 -------------------------- t
      8e8:	f24ff0ef          	jal	x1,0xc
-     8ec:	02e00513          	addi	x10,x0,46
+     8ec:	02e00513          	addi	x10,x0,46 --------------------------- dot
      8f0:	f1cff0ef          	jal	x1,0xc
-     8f4:	02e00513          	addi	x10,x0,46
+     8f4:	02e00513          	addi	x10,x0,46 --------------------------- dot
      8f8:	f14ff0ef          	jal	x1,0xc
-     8fc:	02e00513          	addi	x10,x0,46
+     8fc:	02e00513          	addi	x10,x0,46 --------------------------- dot
      900:	f0cff0ef          	jal	x1,0xc
      904:	00000893          	addi	x17,x0,0
      908:	00000313          	addi	x6,x0,0
@@ -637,23 +637,23 @@ Disassembly of section .data:
      9d4:	005322b3          	slt	x5,x6,x5
      9d8:	00589463          	bne	x17,x5,0x9e0
      9dc:	00c0006f          	jal	x0,0x9e8
-     9e0:	e98ff0ef          	jal	x1,0x78
+     9e0:	e98ff0ef          	jal	x1,0x78 --------------------------------- jump to ERROR; x1 = nextPC
      9e4:	0080006f          	jal	x0,0x9ec
-     9e8:	e3cff0ef          	jal	x1,0x24
+     9e8:	e3cff0ef          	jal	x1,0x24 --------------------------------- jump to PASS; x1 = nextPC
      9ec:	00412083          	lw	x1,4(x2)
      9f0:	00008067          	jalr	x0,0(x1)
      9f4:	00112223          	sw	x1,4(x2)
-     9f8:	07300513          	addi	x10,x0,115
+     9f8:	07300513          	addi	x10,x0,115 -------------------------- s
      9fc:	e10ff0ef          	jal	x1,0xc
-     a00:	06c00513          	addi	x10,x0,108
+     a00:	06c00513          	addi	x10,x0,108 -------------------------- l
      a04:	e08ff0ef          	jal	x1,0xc
-     a08:	07400513          	addi	x10,x0,116
+     a08:	07400513          	addi	x10,x0,116 -------------------------- t
      a0c:	e00ff0ef          	jal	x1,0xc
-     a10:	07500513          	addi	x10,x0,117
+     a10:	07500513          	addi	x10,x0,117 -------------------------- u
      a14:	df8ff0ef          	jal	x1,0xc
-     a18:	02e00513          	addi	x10,x0,46
+     a18:	02e00513          	addi	x10,x0,46 --------------------------- dot
      a1c:	df0ff0ef          	jal	x1,0xc
-     a20:	02e00513          	addi	x10,x0,46
+     a20:	02e00513          	addi	x10,x0,46 --------------------------- dot
      a24:	de8ff0ef          	jal	x1,0xc
      a28:	00000893          	addi	x17,x0,0
      a2c:	00000313          	addi	x6,x0,0
@@ -710,23 +710,23 @@ Disassembly of section .data:
      af8:	005332b3          	sltu	x5,x6,x5
      afc:	00589463          	bne	x17,x5,0xb04
      b00:	00c0006f          	jal	x0,0xb0c
-     b04:	d74ff0ef          	jal	x1,0x78
+     b04:	d74ff0ef          	jal	x1,0x78 --------------------------------- jump to ERROR; x1 = nextPC
      b08:	0080006f          	jal	x0,0xb10
-     b0c:	d18ff0ef          	jal	x1,0x24
+     b0c:	d18ff0ef          	jal	x1,0x24 --------------------------------- jump to PASS; x1 = nextPC
      b10:	00412083          	lw	x1,4(x2)
      b14:	00008067          	jalr	x0,0(x1)
      b18:	00112223          	sw	x1,4(x2)
-     b1c:	07300513          	addi	x10,x0,115
+     b1c:	07300513          	addi	x10,x0,115 -------------------------- s
      b20:	cecff0ef          	jal	x1,0xc
-     b24:	06c00513          	addi	x10,x0,108
+     b24:	06c00513          	addi	x10,x0,108 -------------------------- l
      b28:	ce4ff0ef          	jal	x1,0xc
-     b2c:	07400513          	addi	x10,x0,116
+     b2c:	07400513          	addi	x10,x0,116 -------------------------- t
      b30:	cdcff0ef          	jal	x1,0xc
-     b34:	06900513          	addi	x10,x0,105
+     b34:	06900513          	addi	x10,x0,105 -------------------------- i
      b38:	cd4ff0ef          	jal	x1,0xc
-     b3c:	02e00513          	addi	x10,x0,46
+     b3c:	02e00513          	addi	x10,x0,46 --------------------------- dot
      b40:	cccff0ef          	jal	x1,0xc
-     b44:	02e00513          	addi	x10,x0,46
+     b44:	02e00513          	addi	x10,x0,46 --------------------------- dot
      b48:	cc4ff0ef          	jal	x1,0xc
      b4c:	00000893          	addi	x17,x0,0
      b50:	00000313          	addi	x6,x0,0
@@ -758,23 +758,23 @@ Disassembly of section .data:
      bb8:	fff2a293          	slti	x5,x5,-1
      bbc:	00589463          	bne	x17,x5,0xbc4
      bc0:	00c0006f          	jal	x0,0xbcc
-     bc4:	cb4ff0ef          	jal	x1,0x78
+     bc4:	cb4ff0ef          	jal	x1,0x78 --------------------------------- jump to ERROR; x1 = nextPC
      bc8:	0080006f          	jal	x0,0xbd0
-     bcc:	c58ff0ef          	jal	x1,0x24
+     bcc:	c58ff0ef          	jal	x1,0x24 --------------------------------- jump to PASS; x1 = nextPC
      bd0:	00412083          	lw	x1,4(x2)
      bd4:	00008067          	jalr	x0,0(x1)
      bd8:	00112223          	sw	x1,4(x2)
-     bdc:	07300513          	addi	x10,x0,115
+     bdc:	07300513          	addi	x10,x0,115 -------------------------- s
      be0:	c2cff0ef          	jal	x1,0xc
-     be4:	06c00513          	addi	x10,x0,108
+     be4:	06c00513          	addi	x10,x0,108 -------------------------- l
      be8:	c24ff0ef          	jal	x1,0xc
-     bec:	07400513          	addi	x10,x0,116
+     bec:	07400513          	addi	x10,x0,116 -------------------------- t
      bf0:	c1cff0ef          	jal	x1,0xc
-     bf4:	06900513          	addi	x10,x0,105
+     bf4:	06900513          	addi	x10,x0,105 -------------------------- i
      bf8:	c14ff0ef          	jal	x1,0xc
-     bfc:	07500513          	addi	x10,x0,117
+     bfc:	07500513          	addi	x10,x0,117 -------------------------- u
      c00:	c0cff0ef          	jal	x1,0xc
-     c04:	02e00513          	addi	x10,x0,46
+     c04:	02e00513          	addi	x10,x0,46 --------------------------- dot
      c08:	c04ff0ef          	jal	x1,0xc
      c0c:	00000893          	addi	x17,x0,0
      c10:	00000313          	addi	x6,x0,0
@@ -806,23 +806,23 @@ Disassembly of section .data:
      c78:	fff2b293          	sltiu	x5,x5,-1
      c7c:	00589463          	bne	x17,x5,0xc84
      c80:	00c0006f          	jal	x0,0xc8c
-     c84:	bf4ff0ef          	jal	x1,0x78
+     c84:	bf4ff0ef          	jal	x1,0x78 --------------------------------- jump to ERROR; x1 = nextPC
      c88:	0080006f          	jal	x0,0xc90
-     c8c:	b98ff0ef          	jal	x1,0x24
+     c8c:	b98ff0ef          	jal	x1,0x24 --------------------------------- jump to PASS; x1 = nextPC
      c90:	00412083          	lw	x1,4(x2)
      c94:	00008067          	jalr	x0,0(x1)
      c98:	00112223          	sw	x1,4(x2)
-     c9c:	07300513          	addi	x10,x0,115
+     c9c:	07300513          	addi	x10,x0,115 -------------------------- s
      ca0:	b6cff0ef          	jal	x1,0xc
-     ca4:	06c00513          	addi	x10,x0,108
+     ca4:	06c00513          	addi	x10,x0,108 -------------------------- l
      ca8:	b64ff0ef          	jal	x1,0xc
-     cac:	06c00513          	addi	x10,x0,108
+     cac:	06c00513          	addi	x10,x0,108 -------------------------- l
      cb0:	b5cff0ef          	jal	x1,0xc
-     cb4:	02e00513          	addi	x10,x0,46
+     cb4:	02e00513          	addi	x10,x0,46 --------------------------- dot
      cb8:	b54ff0ef          	jal	x1,0xc
-     cbc:	02e00513          	addi	x10,x0,46
+     cbc:	02e00513          	addi	x10,x0,46 --------------------------- dot
      cc0:	b4cff0ef          	jal	x1,0xc
-     cc4:	02e00513          	addi	x10,x0,46
+     cc4:	02e00513          	addi	x10,x0,46 --------------------------- dot
      cc8:	b44ff0ef          	jal	x1,0xc
      ccc:	000048b7          	lui	x17,0x4
      cd0:	00088893          	addi	x17,x17,0 # 0x4000
@@ -850,23 +850,23 @@ Disassembly of section .data:
      d28:	007312b3          	sll	x5,x6,x7
      d2c:	00589463          	bne	x17,x5,0xd34
      d30:	00c0006f          	jal	x0,0xd3c
-     d34:	b44ff0ef          	jal	x1,0x78
+     d34:	b44ff0ef          	jal	x1,0x78 --------------------------------- jump to ERROR; x1 = nextPC
      d38:	0080006f          	jal	x0,0xd40
-     d3c:	ae8ff0ef          	jal	x1,0x24
+     d3c:	ae8ff0ef          	jal	x1,0x24 --------------------------------- jump to PASS; x1 = nextPC
      d40:	00412083          	lw	x1,4(x2)
      d44:	00008067          	jalr	x0,0(x1)
      d48:	00112223          	sw	x1,4(x2)
-     d4c:	07300513          	addi	x10,x0,115
+     d4c:	07300513          	addi	x10,x0,115 -------------------------- s
      d50:	abcff0ef          	jal	x1,0xc
-     d54:	06c00513          	addi	x10,x0,108
+     d54:	06c00513          	addi	x10,x0,108 -------------------------- l
      d58:	ab4ff0ef          	jal	x1,0xc
-     d5c:	06c00513          	addi	x10,x0,108
+     d5c:	06c00513          	addi	x10,x0,108 -------------------------- l
      d60:	aacff0ef          	jal	x1,0xc
-     d64:	06900513          	addi	x10,x0,105
+     d64:	06900513          	addi	x10,x0,105 -------------------------- i
      d68:	aa4ff0ef          	jal	x1,0xc
-     d6c:	02e00513          	addi	x10,x0,46
+     d6c:	02e00513          	addi	x10,x0,46 --------------------------- dot
      d70:	a9cff0ef          	jal	x1,0xc
-     d74:	02e00513          	addi	x10,x0,46
+     d74:	02e00513          	addi	x10,x0,46 --------------------------- dot
      d78:	a94ff0ef          	jal	x1,0xc
      d7c:	000048b7          	lui	x17,0x4
      d80:	00088893          	addi	x17,x17,0 # 0x4000
@@ -885,23 +885,23 @@ Disassembly of section .data:
      db4:	00e31293          	slli	x5,x6,0xe
      db8:	00589463          	bne	x17,x5,0xdc0
      dbc:	00c0006f          	jal	x0,0xdc8
-     dc0:	ab8ff0ef          	jal	x1,0x78
+     dc0:	ab8ff0ef          	jal	x1,0x78 --------------------------------- jump to ERROR; x1 = nextPC
      dc4:	0080006f          	jal	x0,0xdcc
-     dc8:	a5cff0ef          	jal	x1,0x24
+     dc8:	a5cff0ef          	jal	x1,0x24 --------------------------------- jump to PASS; x1 = nextPC
      dcc:	00412083          	lw	x1,4(x2)
      dd0:	00008067          	jalr	x0,0(x1)
      dd4:	00112223          	sw	x1,4(x2)
-     dd8:	07300513          	addi	x10,x0,115
+     dd8:	07300513          	addi	x10,x0,115 -------------------------- s
      ddc:	a30ff0ef          	jal	x1,0xc
-     de0:	07200513          	addi	x10,x0,114
+     de0:	07200513          	addi	x10,x0,114 -------------------------- r
      de4:	a28ff0ef          	jal	x1,0xc
-     de8:	06c00513          	addi	x10,x0,108
+     de8:	06c00513          	addi	x10,x0,108 -------------------------- l
      dec:	a20ff0ef          	jal	x1,0xc
-     df0:	02e00513          	addi	x10,x0,46
+     df0:	02e00513          	addi	x10,x0,46 --------------------------- dot
      df4:	a18ff0ef          	jal	x1,0xc
-     df8:	02e00513          	addi	x10,x0,46
+     df8:	02e00513          	addi	x10,x0,46 --------------------------- dot
      dfc:	a10ff0ef          	jal	x1,0xc
-     e00:	02e00513          	addi	x10,x0,46
+     e00:	02e00513          	addi	x10,x0,46 --------------------------- dot
      e04:	a08ff0ef          	jal	x1,0xc
      e08:	020008b7          	lui	x17,0x2000
      e0c:	f0088893          	addi	x17,x17,-256 # 0x1ffff00
@@ -931,23 +931,23 @@ Disassembly of section .data:
      e6c:	007352b3          	srl	x5,x6,x7
      e70:	00589463          	bne	x17,x5,0xe78
      e74:	00c0006f          	jal	x0,0xe80
-     e78:	a00ff0ef          	jal	x1,0x78
+     e78:	a00ff0ef          	jal	x1,0x78 --------------------------------- jump to ERROR; x1 = nextPC
      e7c:	0080006f          	jal	x0,0xe84
-     e80:	9a4ff0ef          	jal	x1,0x24
+     e80:	9a4ff0ef          	jal	x1,0x24 --------------------------------- jump to PASS; x1 = nextPC
      e84:	00412083          	lw	x1,4(x2)
      e88:	00008067          	jalr	x0,0(x1)
      e8c:	00112223          	sw	x1,4(x2)
-     e90:	07300513          	addi	x10,x0,115
+     e90:	07300513          	addi	x10,x0,115 -------------------------- s
      e94:	978ff0ef          	jal	x1,0xc
-     e98:	07200513          	addi	x10,x0,114
+     e98:	07200513          	addi	x10,x0,114 -------------------------- r
      e9c:	970ff0ef          	jal	x1,0xc
-     ea0:	06c00513          	addi	x10,x0,108
+     ea0:	06c00513          	addi	x10,x0,108 -------------------------- l
      ea4:	968ff0ef          	jal	x1,0xc
-     ea8:	06900513          	addi	x10,x0,105
+     ea8:	06900513          	addi	x10,x0,105 -------------------------- i
      eac:	960ff0ef          	jal	x1,0xc
-     eb0:	02e00513          	addi	x10,x0,46
+     eb0:	02e00513          	addi	x10,x0,46 --------------------------- dot
      eb4:	958ff0ef          	jal	x1,0xc
-     eb8:	02e00513          	addi	x10,x0,46
+     eb8:	02e00513          	addi	x10,x0,46 --------------------------- dot
      ebc:	950ff0ef          	jal	x1,0xc
      ec0:	000408b7          	lui	x17,0x40
      ec4:	ffe88893          	addi	x17,x17,-2 # 0x3fffe
@@ -968,23 +968,23 @@ Disassembly of section .data:
      f00:	00e35293          	srli	x5,x6,0xe
      f04:	00589463          	bne	x17,x5,0xf0c
      f08:	00c0006f          	jal	x0,0xf14
-     f0c:	96cff0ef          	jal	x1,0x78
+     f0c:	96cff0ef          	jal	x1,0x78 --------------------------------- jump to ERROR; x1 = nextPC
      f10:	0080006f          	jal	x0,0xf18
-     f14:	910ff0ef          	jal	x1,0x24
+     f14:	910ff0ef          	jal	x1,0x24 --------------------------------- jump to PASS; x1 = nextPC
      f18:	00412083          	lw	x1,4(x2)
      f1c:	00008067          	jalr	x0,0(x1)
      f20:	00112223          	sw	x1,4(x2)
-     f24:	07300513          	addi	x10,x0,115
+     f24:	07300513          	addi	x10,x0,115 -------------------------- s
      f28:	8e4ff0ef          	jal	x1,0xc
-     f2c:	07200513          	addi	x10,x0,114
+     f2c:	07200513          	addi	x10,x0,114 -------------------------- r
      f30:	8dcff0ef          	jal	x1,0xc
      f34:	06100513          	addi	x10,x0,97
      f38:	8d4ff0ef          	jal	x1,0xc
-     f3c:	02e00513          	addi	x10,x0,46
+     f3c:	02e00513          	addi	x10,x0,46 --------------------------- dot
      f40:	8ccff0ef          	jal	x1,0xc
-     f44:	02e00513          	addi	x10,x0,46
+     f44:	02e00513          	addi	x10,x0,46 --------------------------- dot
      f48:	8c4ff0ef          	jal	x1,0xc
-     f4c:	02e00513          	addi	x10,x0,46
+     f4c:	02e00513          	addi	x10,x0,46 --------------------------- dot
      f50:	8bcff0ef          	jal	x1,0xc
      f54:	f0000893          	addi	x17,x0,-256
      f58:	ffff8337          	lui	x6,0xffff8
@@ -1012,23 +1012,23 @@ Disassembly of section .data:
      fb0:	407352b3          	sra	x5,x6,x7
      fb4:	00589463          	bne	x17,x5,0xfbc
      fb8:	00c0006f          	jal	x0,0xfc4
-     fbc:	8bcff0ef          	jal	x1,0x78
+     fbc:	8bcff0ef          	jal	x1,0x78 --------------------------------- jump to ERROR; x1 = nextPC
      fc0:	0080006f          	jal	x0,0xfc8
-     fc4:	860ff0ef          	jal	x1,0x24
+     fc4:	860ff0ef          	jal	x1,0x24 --------------------------------- jump to PASS; x1 = nextPC
      fc8:	00412083          	lw	x1,4(x2)
      fcc:	00008067          	jalr	x0,0(x1)
      fd0:	00112223          	sw	x1,4(x2)
-     fd4:	07300513          	addi	x10,x0,115
+     fd4:	07300513          	addi	x10,x0,115 -------------------------- s
      fd8:	834ff0ef          	jal	x1,0xc
-     fdc:	07200513          	addi	x10,x0,114
+     fdc:	07200513          	addi	x10,x0,114 -------------------------- r
      fe0:	82cff0ef          	jal	x1,0xc
      fe4:	06100513          	addi	x10,x0,97
      fe8:	824ff0ef          	jal	x1,0xc
-     fec:	06900513          	addi	x10,x0,105
+     fec:	06900513          	addi	x10,x0,105 -------------------------- i
      ff0:	81cff0ef          	jal	x1,0xc
-     ff4:	02e00513          	addi	x10,x0,46
+     ff4:	02e00513          	addi	x10,x0,46 --------------------------- dot
      ff8:	814ff0ef          	jal	x1,0xc
-     ffc:	02e00513          	addi	x10,x0,46
+     ffc:	02e00513          	addi	x10,x0,46 --------------------------- dot
     1000:	80cff0ef          	jal	x1,0xc
     1004:	ffe00893          	addi	x17,x0,-2
     1008:	ffff8337          	lui	x6,0xffff8
@@ -1048,72 +1048,72 @@ Disassembly of section .data:
     1040:	40e35293          	srai	x5,x6,0xe
     1044:	00589463          	bne	x17,x5,0x104c
     1048:	00c0006f          	jal	x0,0x1054
-    104c:	82cff0ef          	jal	x1,0x78
+    104c:	82cff0ef          	jal	x1,0x78 --------------------------------- jump to ERROR; x1 = nextPC
     1050:	0080006f          	jal	x0,0x1058
-    1054:	fd1fe0ef          	jal	x1,0x24
+    1054:	fd1fe0ef          	jal	x1,0x24 --------------------------------- jump to PASS; x1 = nextPC
     1058:	00412083          	lw	x1,4(x2)
     105c:	00008067          	jalr	x0,0(x1)
     1060:	00112223          	sw	x1,4(x2)
-    1064:	06c00513          	addi	x10,x0,108
+    1064:	06c00513          	addi	x10,x0,108 -------------------------- l
     1068:	fa5fe0ef          	jal	x1,0xc
-    106c:	07700513          	addi	x10,x0,119
+    106c:	07700513          	addi	x10,x0,119 -------------------------- w 
     1070:	f9dfe0ef          	jal	x1,0xc
-    1074:	02e00513          	addi	x10,x0,46
+    1074:	02e00513          	addi	x10,x0,46 --------------------------- dot
     1078:	f95fe0ef          	jal	x1,0xc
-    107c:	02e00513          	addi	x10,x0,46
+    107c:	02e00513          	addi	x10,x0,46 --------------------------- dot
     1080:	f8dfe0ef          	jal	x1,0xc
-    1084:	02e00513          	addi	x10,x0,46
+    1084:	02e00513          	addi	x10,x0,46 --------------------------- dot
     1088:	f85fe0ef          	jal	x1,0xc
-    108c:	02e00513          	addi	x10,x0,46
+    108c:	02e00513          	addi	x10,x0,46 --------------------------- dot
     1090:	f7dfe0ef          	jal	x1,0xc
     1094:	123458b7          	lui	x17,0x12345
-    1098:	67888893          	addi	x17,x17,1656 # 0x12345678
+    1098:	67888893          	addi	x17,x17,1656 # 0x12345678 ----------- x17 = 0x12345678
     109c:	deadc837          	lui	x16,0xdeadc
-    10a0:	eef80813          	addi	x16,x16,-273 # 0xdeadbeef
+    10a0:	eef80813          	addi	x16,x16,-273 # 0xdeadbeef ----------- x16 = 0xdeadbeef
     10a4:	00003337          	lui	x6,0x3
     10a8:	00030313          	addi	x6,x6,0 # 0x3000
     10ac:	01132023          	sw	x17,0(x6)
     10b0:	01032223          	sw	x16,4(x6)
     10b4:	00032283          	lw	x5,0(x6)
-    10b8:	00589a63          	bne	x17,x5,0x10cc
+    10b8:	00589a63          	bne	x17,x5,0x10cc --------------------------- not taken = PASS; taken = ERROR
     10bc:	00080893          	addi	x17,x16,0
     10c0:	00432283          	lw	x5,4(x6)
-    10c4:	00589463          	bne	x17,x5,0x10cc
-    10c8:	00c0006f          	jal	x0,0x10d4
-    10cc:	fadfe0ef          	jal	x1,0x78
+    10c4:	00589463          	bne	x17,x5,0x10cc --------------------------- not taken = PASS; taken = ERROR
+    10c8:	00c0006f          	jal	x0,0x10d4 ------------------------------- jump to PASS (pre)
+    10cc:	fadfe0ef          	jal	x1,0x78 --------------------------------- jump to ERROR; x1 = nextPC
     10d0:	0080006f          	jal	x0,0x10d8
-    10d4:	f51fe0ef          	jal	x1,0x24
+    10d4:	f51fe0ef          	jal	x1,0x24 --------------------------------- jump to PASS; x1 = nextPC
     10d8:	00412083          	lw	x1,4(x2)
     10dc:	00008067          	jalr	x0,0(x1)
     10e0:	00112223          	sw	x1,4(x2)
-    10e4:	06c00513          	addi	x10,x0,108
+    10e4:	06c00513          	addi	x10,x0,108 -------------------------- l
     10e8:	f25fe0ef          	jal	x1,0xc
-    10ec:	06800513          	addi	x10,x0,104
+    10ec:	06800513          	addi	x10,x0,104 -------------------------- h
     10f0:	f1dfe0ef          	jal	x1,0xc
-    10f4:	02e00513          	addi	x10,x0,46
+    10f4:	02e00513          	addi	x10,x0,46 --------------------------- dot
     10f8:	f15fe0ef          	jal	x1,0xc
-    10fc:	02e00513          	addi	x10,x0,46
+    10fc:	02e00513          	addi	x10,x0,46 --------------------------- dot
     1100:	f0dfe0ef          	jal	x1,0xc
-    1104:	02e00513          	addi	x10,x0,46
+    1104:	02e00513          	addi	x10,x0,46 --------------------------- dot
     1108:	f05fe0ef          	jal	x1,0xc
-    110c:	02e00513          	addi	x10,x0,46
+    110c:	02e00513          	addi	x10,x0,46 --------------------------- dot
     1110:	efdfe0ef          	jal	x1,0xc
     1114:	123458b7          	lui	x17,0x12345
-    1118:	67888893          	addi	x17,x17,1656 # 0x12345678
+    1118:	67888893          	addi	x17,x17,1656 # 0x12345678 ----------- x17 = 0x12345678
     111c:	deadc837          	lui	x16,0xdeadc
-    1120:	eef80813          	addi	x16,x16,-273 # 0xdeadbeef
+    1120:	eef80813          	addi	x16,x16,-273 # 0xdeadbeef ----------- x16 = 0xdeadbeef ----------- x16 = 0xdeadbeef
     1124:	00003337          	lui	x6,0x3
-    1128:	01030313          	addi	x6,x6,16 # 0x3010
-    112c:	01132023          	sw	x17,0(x6)
-    1130:	01032223          	sw	x16,4(x6)
+    1128:	01030313          	addi	x6,x6,16 # 0x3010 ------------------- x6 = 0x3010
+    112c:	01132023          	sw	x17,0(x6) ------------------------------- MEM[x6] = x17 -> MEM[0x3010] = 0x12345678
+    1130:	01032223          	sw	x16,4(x6) ------------------------------- MEM[x6] = x16 + 4 -> MEM[0x3014] = 0xdeadbeef
     1134:	000058b7          	lui	x17,0x5
-    1138:	67888893          	addi	x17,x17,1656 # 0x5678
-    113c:	00031283          	lh	x5,0(x6)
-    1140:	02589c63          	bne	x17,x5,0x1178
+    1138:	67888893          	addi	x17,x17,1656 # 0x5678 --------------- x17 = 0x5678
+    113c:	00031283          	lh	x5,0(x6) -------------------------------- x5 = MEM[x6] (lh) = MEM[0x3010] (lh) = 0x12345678 (lh) = 0x5678
+    1140:	02589c63          	bne	x17,x5,0x1178 --------------------------- jump to ERROR (pre); if x17 != x5 ? -> 0x5678 != 0x5678 ?
     1144:	000018b7          	lui	x17,0x1
-    1148:	23488893          	addi	x17,x17,564 # 0x1234
-    114c:	00231283          	lh	x5,2(x6)
-    1150:	02589463          	bne	x17,x5,0x1178
+    1148:	23488893          	addi	x17,x17,564 # 0x1234 ---------------- x17 = 0x1234
+    114c:	00231283          	lh	x5,2(x6) -------------------------------- x5 = MEM[x6+2] (lh) = MEM[0x3012] (half) = 0x0000BEEF(lh) -> 0xFFFFBEEF
+    1150:	02589463          	bne	x17,x5,0x1178 --------------------------- jump to ERROR (pre); if x17 != x5 ? -> 0x1234 != 0xFFFFBEEF ? CONFLICT !!!!!!!!!!!!!!!!!!!!!!
     1154:	ffffc8b7          	lui	x17,0xffffc
     1158:	eef88893          	addi	x17,x17,-273 # 0xffffbeef
     115c:	00431283          	lh	x5,4(x6)
@@ -1123,28 +1123,28 @@ Disassembly of section .data:
     116c:	00631283          	lh	x5,6(x6)
     1170:	00589463          	bne	x17,x5,0x1178
     1174:	00c0006f          	jal	x0,0x1180
-    1178:	f01fe0ef          	jal	x1,0x78
+    1178:	f01fe0ef          	jal	x1,0x78 --------------------------------- jump to ERROR; x1 = nextPC
     117c:	0080006f          	jal	x0,0x1184
-    1180:	ea5fe0ef          	jal	x1,0x24
+    1180:	ea5fe0ef          	jal	x1,0x24 --------------------------------- jump to PASS; x1 = nextPC
     1184:	00412083          	lw	x1,4(x2)
     1188:	00008067          	jalr	x0,0(x1)
     118c:	00112223          	sw	x1,4(x2)
-    1190:	06c00513          	addi	x10,x0,108
+    1190:	06c00513          	addi	x10,x0,108 -------------------------- l
     1194:	e79fe0ef          	jal	x1,0xc
-    1198:	06800513          	addi	x10,x0,104
+    1198:	06800513          	addi	x10,x0,104 -------------------------- h
     119c:	e71fe0ef          	jal	x1,0xc
-    11a0:	07500513          	addi	x10,x0,117
+    11a0:	07500513          	addi	x10,x0,117 -------------------------- u
     11a4:	e69fe0ef          	jal	x1,0xc
-    11a8:	02e00513          	addi	x10,x0,46
+    11a8:	02e00513          	addi	x10,x0,46 --------------------------- dot
     11ac:	e61fe0ef          	jal	x1,0xc
-    11b0:	02e00513          	addi	x10,x0,46
+    11b0:	02e00513          	addi	x10,x0,46 --------------------------- dot
     11b4:	e59fe0ef          	jal	x1,0xc
-    11b8:	02e00513          	addi	x10,x0,46
+    11b8:	02e00513          	addi	x10,x0,46 --------------------------- dot
     11bc:	e51fe0ef          	jal	x1,0xc
     11c0:	123458b7          	lui	x17,0x12345
-    11c4:	67888893          	addi	x17,x17,1656 # 0x12345678
+    11c4:	67888893          	addi	x17,x17,1656 # 0x12345678 ----------- x17 = 0x12345678
     11c8:	deadc837          	lui	x16,0xdeadc
-    11cc:	eef80813          	addi	x16,x16,-273 # 0xdeadbeef
+    11cc:	eef80813          	addi	x16,x16,-273 # 0xdeadbeef ----------- x16 = 0xdeadbeef
     11d0:	00003337          	lui	x6,0x3
     11d4:	02030313          	addi	x6,x6,32 # 0x3020
     11d8:	01132023          	sw	x17,0(x6)
@@ -1166,28 +1166,28 @@ Disassembly of section .data:
     1218:	00635283          	lhu	x5,6(x6)
     121c:	00589463          	bne	x17,x5,0x1224
     1220:	00c0006f          	jal	x0,0x122c
-    1224:	e55fe0ef          	jal	x1,0x78
+    1224:	e55fe0ef          	jal	x1,0x78 --------------------------------- jump to ERROR; x1 = nextPC
     1228:	0080006f          	jal	x0,0x1230
-    122c:	df9fe0ef          	jal	x1,0x24
+    122c:	df9fe0ef          	jal	x1,0x24 --------------------------------- jump to PASS; x1 = nextPC
     1230:	00412083          	lw	x1,4(x2)
     1234:	00008067          	jalr	x0,0(x1)
     1238:	00112223          	sw	x1,4(x2)
-    123c:	06c00513          	addi	x10,x0,108
+    123c:	06c00513          	addi	x10,x0,108 -------------------------- l
     1240:	dcdfe0ef          	jal	x1,0xc
     1244:	06200513          	addi	x10,x0,98
     1248:	dc5fe0ef          	jal	x1,0xc
-    124c:	02e00513          	addi	x10,x0,46
+    124c:	02e00513          	addi	x10,x0,46 --------------------------- dot
     1250:	dbdfe0ef          	jal	x1,0xc
-    1254:	02e00513          	addi	x10,x0,46
+    1254:	02e00513          	addi	x10,x0,46 --------------------------- dot
     1258:	db5fe0ef          	jal	x1,0xc
-    125c:	02e00513          	addi	x10,x0,46
+    125c:	02e00513          	addi	x10,x0,46 --------------------------- dot
     1260:	dadfe0ef          	jal	x1,0xc
-    1264:	02e00513          	addi	x10,x0,46
+    1264:	02e00513          	addi	x10,x0,46 --------------------------- dot
     1268:	da5fe0ef          	jal	x1,0xc
     126c:	123458b7          	lui	x17,0x12345
-    1270:	67888893          	addi	x17,x17,1656 # 0x12345678
+    1270:	67888893          	addi	x17,x17,1656 # 0x12345678 ----------- x17 = 0x12345678
     1274:	deadc837          	lui	x16,0xdeadc
-    1278:	eef80813          	addi	x16,x16,-273 # 0xdeadbeef
+    1278:	eef80813          	addi	x16,x16,-273 # 0xdeadbeef ----------- x16 = 0xdeadbeef
     127c:	00003337          	lui	x6,0x3
     1280:	02030313          	addi	x6,x6,32 # 0x3020
     1284:	01132023          	sw	x17,0(x6)
@@ -1205,28 +1205,28 @@ Disassembly of section .data:
     12b4:	00730283          	lb	x5,7(x6)
     12b8:	00589463          	bne	x17,x5,0x12c0
     12bc:	00c0006f          	jal	x0,0x12c8
-    12c0:	db9fe0ef          	jal	x1,0x78
+    12c0:	db9fe0ef          	jal	x1,0x78 --------------------------------- jump to ERROR; x1 = nextPC
     12c4:	0080006f          	jal	x0,0x12cc
-    12c8:	d5dfe0ef          	jal	x1,0x24
+    12c8:	d5dfe0ef          	jal	x1,0x24 --------------------------------- jump to PASS; x1 = nextPC
     12cc:	00412083          	lw	x1,4(x2)
     12d0:	00008067          	jalr	x0,0(x1)
     12d4:	00112223          	sw	x1,4(x2)
-    12d8:	06c00513          	addi	x10,x0,108
+    12d8:	06c00513          	addi	x10,x0,108 -------------------------- l
     12dc:	d31fe0ef          	jal	x1,0xc
     12e0:	06200513          	addi	x10,x0,98
     12e4:	d29fe0ef          	jal	x1,0xc
-    12e8:	07500513          	addi	x10,x0,117
+    12e8:	07500513          	addi	x10,x0,117 -------------------------- u
     12ec:	d21fe0ef          	jal	x1,0xc
-    12f0:	02e00513          	addi	x10,x0,46
+    12f0:	02e00513          	addi	x10,x0,46 --------------------------- dot
     12f4:	d19fe0ef          	jal	x1,0xc
-    12f8:	02e00513          	addi	x10,x0,46
+    12f8:	02e00513          	addi	x10,x0,46 --------------------------- dot
     12fc:	d11fe0ef          	jal	x1,0xc
-    1300:	02e00513          	addi	x10,x0,46
+    1300:	02e00513          	addi	x10,x0,46 --------------------------- dot
     1304:	d09fe0ef          	jal	x1,0xc
     1308:	123458b7          	lui	x17,0x12345
-    130c:	67888893          	addi	x17,x17,1656 # 0x12345678
+    130c:	67888893          	addi	x17,x17,1656 # 0x12345678 ----------- x17 = 0x12345678
     1310:	deadc837          	lui	x16,0xdeadc
-    1314:	eef80813          	addi	x16,x16,-273 # 0xdeadbeef
+    1314:	eef80813          	addi	x16,x16,-273 # 0xdeadbeef ----------- x16 = 0xdeadbeef
     1318:	00003337          	lui	x6,0x3
     131c:	04030313          	addi	x6,x6,64 # 0x3040
     1320:	01132023          	sw	x17,0(x6)
@@ -1244,28 +1244,28 @@ Disassembly of section .data:
     1350:	00734283          	lbu	x5,7(x6)
     1354:	00589463          	bne	x17,x5,0x135c
     1358:	00c0006f          	jal	x0,0x1364
-    135c:	d1dfe0ef          	jal	x1,0x78
+    135c:	d1dfe0ef          	jal	x1,0x78 --------------------------------- jump to ERROR; x1 = nextPC
     1360:	0080006f          	jal	x0,0x1368
-    1364:	cc1fe0ef          	jal	x1,0x24
+    1364:	cc1fe0ef          	jal	x1,0x24 --------------------------------- jump to PASS; x1 = nextPC
     1368:	00412083          	lw	x1,4(x2)
     136c:	00008067          	jalr	x0,0(x1)
     1370:	00112223          	sw	x1,4(x2)
-    1374:	07300513          	addi	x10,x0,115
+    1374:	07300513          	addi	x10,x0,115 -------------------------- s
     1378:	c95fe0ef          	jal	x1,0xc
-    137c:	07700513          	addi	x10,x0,119
+    137c:	07700513          	addi	x10,x0,119 -------------------------- w
     1380:	c8dfe0ef          	jal	x1,0xc
-    1384:	02e00513          	addi	x10,x0,46
+    1384:	02e00513          	addi	x10,x0,46 --------------------------- dot
     1388:	c85fe0ef          	jal	x1,0xc
-    138c:	02e00513          	addi	x10,x0,46
+    138c:	02e00513          	addi	x10,x0,46 --------------------------- dot
     1390:	c7dfe0ef          	jal	x1,0xc
-    1394:	02e00513          	addi	x10,x0,46
+    1394:	02e00513          	addi	x10,x0,46 --------------------------- dot
     1398:	c75fe0ef          	jal	x1,0xc
-    139c:	02e00513          	addi	x10,x0,46
+    139c:	02e00513          	addi	x10,x0,46 --------------------------- dot
     13a0:	c6dfe0ef          	jal	x1,0xc
     13a4:	123458b7          	lui	x17,0x12345
-    13a8:	67888893          	addi	x17,x17,1656 # 0x12345678
+    13a8:	67888893          	addi	x17,x17,1656 # 0x12345678 ----------- x17 = 0x12345678
     13ac:	deadc837          	lui	x16,0xdeadc
-    13b0:	eef80813          	addi	x16,x16,-273 # 0xdeadbeef
+    13b0:	eef80813          	addi	x16,x16,-273 # 0xdeadbeef ----------- x16 = 0xdeadbeef
     13b4:	00003337          	lui	x6,0x3
     13b8:	05030313          	addi	x6,x6,80 # 0x3050
     13bc:	01132023          	sw	x17,0(x6)
@@ -1276,28 +1276,28 @@ Disassembly of section .data:
     13d0:	00432283          	lw	x5,4(x6)
     13d4:	00589463          	bne	x17,x5,0x13dc
     13d8:	00c0006f          	jal	x0,0x13e4
-    13dc:	c9dfe0ef          	jal	x1,0x78
+    13dc:	c9dfe0ef          	jal	x1,0x78 --------------------------------- jump to ERROR; x1 = nextPC
     13e0:	0080006f          	jal	x0,0x13e8
-    13e4:	c41fe0ef          	jal	x1,0x24
+    13e4:	c41fe0ef          	jal	x1,0x24 --------------------------------- jump to PASS; x1 = nextPC
     13e8:	00412083          	lw	x1,4(x2)
     13ec:	00008067          	jalr	x0,0(x1)
     13f0:	00112223          	sw	x1,4(x2)
-    13f4:	07300513          	addi	x10,x0,115
+    13f4:	07300513          	addi	x10,x0,115 -------------------------- s
     13f8:	c15fe0ef          	jal	x1,0xc
-    13fc:	06800513          	addi	x10,x0,104
+    13fc:	06800513          	addi	x10,x0,104 -------------------------- h
     1400:	c0dfe0ef          	jal	x1,0xc
-    1404:	02e00513          	addi	x10,x0,46
+    1404:	02e00513          	addi	x10,x0,46 --------------------------- dot
     1408:	c05fe0ef          	jal	x1,0xc
-    140c:	02e00513          	addi	x10,x0,46
+    140c:	02e00513          	addi	x10,x0,46 --------------------------- dot
     1410:	bfdfe0ef          	jal	x1,0xc
-    1414:	02e00513          	addi	x10,x0,46
+    1414:	02e00513          	addi	x10,x0,46 --------------------------- dot
     1418:	bf5fe0ef          	jal	x1,0xc
-    141c:	02e00513          	addi	x10,x0,46
+    141c:	02e00513          	addi	x10,x0,46 --------------------------- dot
     1420:	bedfe0ef          	jal	x1,0xc
     1424:	123458b7          	lui	x17,0x12345
-    1428:	67888893          	addi	x17,x17,1656 # 0x12345678
+    1428:	67888893          	addi	x17,x17,1656 # 0x12345678 ----------- x17 = 0x12345678
     142c:	deadc837          	lui	x16,0xdeadc
-    1430:	eef80813          	addi	x16,x16,-273 # 0xdeadbeef
+    1430:	eef80813          	addi	x16,x16,-273 # 0xdeadbeef ----------- x16 = 0xdeadbeef
     1434:	00003337          	lui	x6,0x3
     1438:	06030313          	addi	x6,x6,96 # 0x3060
     143c:	01131023          	sh	x17,0(x6)
@@ -1312,28 +1312,28 @@ Disassembly of section .data:
     1460:	00432283          	lw	x5,4(x6)
     1464:	00589463          	bne	x17,x5,0x146c
     1468:	00c0006f          	jal	x0,0x1474
-    146c:	c0dfe0ef          	jal	x1,0x78
+    146c:	c0dfe0ef          	jal	x1,0x78 --------------------------------- jump to ERROR; x1 = nextPC
     1470:	0080006f          	jal	x0,0x1478
-    1474:	bb1fe0ef          	jal	x1,0x24
+    1474:	bb1fe0ef          	jal	x1,0x24 --------------------------------- jump to PASS; x1 = nextPC
     1478:	00412083          	lw	x1,4(x2)
     147c:	00008067          	jalr	x0,0(x1)
     1480:	00112223          	sw	x1,4(x2)
-    1484:	07300513          	addi	x10,x0,115
+    1484:	07300513          	addi	x10,x0,115 -------------------------- s
     1488:	b85fe0ef          	jal	x1,0xc
     148c:	06200513          	addi	x10,x0,98
     1490:	b7dfe0ef          	jal	x1,0xc
-    1494:	02e00513          	addi	x10,x0,46
+    1494:	02e00513          	addi	x10,x0,46 --------------------------- dot
     1498:	b75fe0ef          	jal	x1,0xc
-    149c:	02e00513          	addi	x10,x0,46
+    149c:	02e00513          	addi	x10,x0,46 --------------------------- dot
     14a0:	b6dfe0ef          	jal	x1,0xc
-    14a4:	02e00513          	addi	x10,x0,46
+    14a4:	02e00513          	addi	x10,x0,46 --------------------------- dot
     14a8:	b65fe0ef          	jal	x1,0xc
-    14ac:	02e00513          	addi	x10,x0,46
+    14ac:	02e00513          	addi	x10,x0,46 --------------------------- dot
     14b0:	b5dfe0ef          	jal	x1,0xc
     14b4:	123458b7          	lui	x17,0x12345
-    14b8:	67888893          	addi	x17,x17,1656 # 0x12345678
+    14b8:	67888893          	addi	x17,x17,1656 # 0x12345678 ----------- x17 = 0x12345678
     14bc:	deadc837          	lui	x16,0xdeadc
-    14c0:	eef80813          	addi	x16,x16,-273 # 0xdeadbeef
+    14c0:	eef80813          	addi	x16,x16,-273 # 0xdeadbeef ----------- x16 = 0xdeadbeef
     14c4:	00003337          	lui	x6,0x3
     14c8:	07030313          	addi	x6,x6,112 # 0x3070
     14cc:	01130023          	sb	x17,0(x6)
@@ -1345,23 +1345,23 @@ Disassembly of section .data:
     14e4:	00032283          	lw	x5,0(x6)
     14e8:	00589463          	bne	x17,x5,0x14f0
     14ec:	00c0006f          	jal	x0,0x14f8
-    14f0:	b89fe0ef          	jal	x1,0x78
+    14f0:	b89fe0ef          	jal	x1,0x78 --------------------------------- jump to ERROR; x1 = nextPC
     14f4:	0080006f          	jal	x0,0x14fc
-    14f8:	b2dfe0ef          	jal	x1,0x24
+    14f8:	b2dfe0ef          	jal	x1,0x24 --------------------------------- jump to PASS; x1 = nextPC
     14fc:	00412083          	lw	x1,4(x2)
     1500:	00008067          	jalr	x0,0(x1)
     1504:	00112223          	sw	x1,4(x2)
-    1508:	06100513          	addi	x10,x0,97
+    1508:	06100513          	addi	x10,x0,97 --------------------------- a
     150c:	b01fe0ef          	jal	x1,0xc
-    1510:	07500513          	addi	x10,x0,117
+    1510:	07500513          	addi	x10,x0,117 -------------------------- u
     1514:	af9fe0ef          	jal	x1,0xc
-    1518:	06900513          	addi	x10,x0,105
+    1518:	06900513          	addi	x10,x0,105 -------------------------- i
     151c:	af1fe0ef          	jal	x1,0xc
-    1520:	07000513          	addi	x10,x0,112
+    1520:	07000513          	addi	x10,x0,112 -------------------------- p
     1524:	ae9fe0ef          	jal	x1,0xc
-    1528:	06300513          	addi	x10,x0,99
+    1528:	06300513          	addi	x10,x0,99 --------------------------- c
     152c:	ae1fe0ef          	jal	x1,0xc
-    1530:	02e00513          	addi	x10,x0,46
+    1530:	02e00513          	addi	x10,x0,46 --------------------------- dot
     1534:	ad9fe0ef          	jal	x1,0xc
     1538:	00007297          	auipc	x5,0x7
     153c:	00000897          	auipc	x17,0x0
@@ -1371,46 +1371,46 @@ Disassembly of section .data:
     154c:	006888b3          	add	x17,x17,x6
     1550:	00589463          	bne	x17,x5,0x1558
     1554:	00c0006f          	jal	x0,0x1560
-    1558:	b21fe0ef          	jal	x1,0x78
+    1558:	b21fe0ef          	jal	x1,0x78 --------------------------------- jump to ERROR; x1 = nextPC
     155c:	0080006f          	jal	x0,0x1564
-    1560:	ac5fe0ef          	jal	x1,0x24
+    1560:	ac5fe0ef          	jal	x1,0x24 --------------------------------- jump to PASS; x1 = nextPC
     1564:	00412083          	lw	x1,4(x2)
     1568:	00008067          	jalr	x0,0(x1)
     156c:	00112223          	sw	x1,4(x2)
-    1570:	06c00513          	addi	x10,x0,108
+    1570:	06c00513          	addi	x10,x0,108 -------------------------- l
     1574:	a99fe0ef          	jal	x1,0xc
-    1578:	07500513          	addi	x10,x0,117
+    1578:	07500513          	addi	x10,x0,117 -------------------------- u
     157c:	a91fe0ef          	jal	x1,0xc
-    1580:	06900513          	addi	x10,x0,105
+    1580:	06900513          	addi	x10,x0,105 -------------------------- i
     1584:	a89fe0ef          	jal	x1,0xc
-    1588:	02e00513          	addi	x10,x0,46
+    1588:	02e00513          	addi	x10,x0,46 --------------------------- dot
     158c:	a81fe0ef          	jal	x1,0xc
-    1590:	02e00513          	addi	x10,x0,46
+    1590:	02e00513          	addi	x10,x0,46 --------------------------- dot
     1594:	a79fe0ef          	jal	x1,0xc
-    1598:	02e00513          	addi	x10,x0,46
+    1598:	02e00513          	addi	x10,x0,46 --------------------------- dot
     159c:	a71fe0ef          	jal	x1,0xc
     15a0:	000072b7          	lui	x5,0x7
     15a4:	00700893          	addi	x17,x0,7
     15a8:	00c89893          	slli	x17,x17,0xc
     15ac:	00589463          	bne	x17,x5,0x15b4
     15b0:	00c0006f          	jal	x0,0x15bc
-    15b4:	ac5fe0ef          	jal	x1,0x78
+    15b4:	ac5fe0ef          	jal	x1,0x78 --------------------------------- jump to ERROR; x1 = nextPC
     15b8:	0080006f          	jal	x0,0x15c0
-    15bc:	a69fe0ef          	jal	x1,0x24
+    15bc:	a69fe0ef          	jal	x1,0x24 --------------------------------- jump to PASS; x1 = nextPC
     15c0:	00412083          	lw	x1,4(x2)
     15c4:	00008067          	jalr	x0,0(x1)
     15c8:	00112223          	sw	x1,4(x2)
-    15cc:	06200513          	addi	x10,x0,98
+    15cc:	06200513          	addi	x10,x0,98 --------------------------- b
     15d0:	a3dfe0ef          	jal	x1,0xc
-    15d4:	06500513          	addi	x10,x0,101
+    15d4:	06500513          	addi	x10,x0,101 -------------------------- e
     15d8:	a35fe0ef          	jal	x1,0xc
-    15dc:	07100513          	addi	x10,x0,113
+    15dc:	07100513          	addi	x10,x0,113 -------------------------- q
     15e0:	a2dfe0ef          	jal	x1,0xc
-    15e4:	02e00513          	addi	x10,x0,46
+    15e4:	02e00513          	addi	x10,x0,46 --------------------------- dot
     15e8:	a25fe0ef          	jal	x1,0xc
-    15ec:	02e00513          	addi	x10,x0,46
+    15ec:	02e00513          	addi	x10,x0,46 --------------------------- dot
     15f0:	a1dfe0ef          	jal	x1,0xc
-    15f4:	02e00513          	addi	x10,x0,46
+    15f4:	02e00513          	addi	x10,x0,46 --------------------------- dot
     15f8:	a15fe0ef          	jal	x1,0xc
     15fc:	00000293          	addi	x5,x0,0
     1600:	00000313          	addi	x6,x0,0
@@ -1456,23 +1456,23 @@ Disassembly of section .data:
     16a0:	fe628ee3          	beq	x5,x6,0x169c
     16a4:	0080006f          	jal	x0,0x16ac
     16a8:	00c0006f          	jal	x0,0x16b4
-    16ac:	9cdfe0ef          	jal	x1,0x78
+    16ac:	9cdfe0ef          	jal	x1,0x78 --------------------------------- jump to ERROR; x1 = nextPC
     16b0:	0080006f          	jal	x0,0x16b8
-    16b4:	971fe0ef          	jal	x1,0x24
+    16b4:	971fe0ef          	jal	x1,0x24 --------------------------------- jump to PASS; x1 = nextPC
     16b8:	00412083          	lw	x1,4(x2)
     16bc:	00008067          	jalr	x0,0(x1)
     16c0:	00112223          	sw	x1,4(x2)
     16c4:	06200513          	addi	x10,x0,98
     16c8:	945fe0ef          	jal	x1,0xc
-    16cc:	06e00513          	addi	x10,x0,110
+    16cc:	06e00513          	addi	x10,x0,110 -------------------------- m
     16d0:	93dfe0ef          	jal	x1,0xc
     16d4:	06500513          	addi	x10,x0,101
     16d8:	935fe0ef          	jal	x1,0xc
-    16dc:	02e00513          	addi	x10,x0,46
+    16dc:	02e00513          	addi	x10,x0,46 --------------------------- dot
     16e0:	92dfe0ef          	jal	x1,0xc
-    16e4:	02e00513          	addi	x10,x0,46
+    16e4:	02e00513          	addi	x10,x0,46 --------------------------- dot
     16e8:	925fe0ef          	jal	x1,0xc
-    16ec:	02e00513          	addi	x10,x0,46
+    16ec:	02e00513          	addi	x10,x0,46 --------------------------- dot
     16f0:	91dfe0ef          	jal	x1,0xc
     16f4:	00000293          	addi	x5,x0,0
     16f8:	00100313          	addi	x6,x0,1
@@ -1517,23 +1517,23 @@ Disassembly of section .data:
     1794:	fe629ee3          	bne	x5,x6,0x1790
     1798:	0080006f          	jal	x0,0x17a0
     179c:	00c0006f          	jal	x0,0x17a8
-    17a0:	8d9fe0ef          	jal	x1,0x78
+    17a0:	8d9fe0ef          	jal	x1,0x78 --------------------------------- jump to ERROR; x1 = nextPC
     17a4:	0080006f          	jal	x0,0x17ac
-    17a8:	87dfe0ef          	jal	x1,0x24
+    17a8:	87dfe0ef          	jal	x1,0x24 --------------------------------- jump to PASS; x1 = nextPC
     17ac:	00412083          	lw	x1,4(x2)
     17b0:	00008067          	jalr	x0,0(x1)
     17b4:	00112223          	sw	x1,4(x2)
     17b8:	06200513          	addi	x10,x0,98
     17bc:	851fe0ef          	jal	x1,0xc
-    17c0:	06c00513          	addi	x10,x0,108
+    17c0:	06c00513          	addi	x10,x0,108 -------------------------- l
     17c4:	849fe0ef          	jal	x1,0xc
-    17c8:	07400513          	addi	x10,x0,116
+    17c8:	07400513          	addi	x10,x0,116 -------------------------- t
     17cc:	841fe0ef          	jal	x1,0xc
-    17d0:	02e00513          	addi	x10,x0,46
+    17d0:	02e00513          	addi	x10,x0,46 --------------------------- dot
     17d4:	839fe0ef          	jal	x1,0xc
-    17d8:	02e00513          	addi	x10,x0,46
+    17d8:	02e00513          	addi	x10,x0,46 --------------------------- dot
     17dc:	831fe0ef          	jal	x1,0xc
-    17e0:	02e00513          	addi	x10,x0,46
+    17e0:	02e00513          	addi	x10,x0,46 --------------------------- dot
     17e4:	829fe0ef          	jal	x1,0xc
     17e8:	00000293          	addi	x5,x0,0
     17ec:	00100313          	addi	x6,x0,1
@@ -1577,23 +1577,23 @@ Disassembly of section .data:
     1884:	fe62cee3          	blt	x5,x6,0x1880
     1888:	0080006f          	jal	x0,0x1890
     188c:	00c0006f          	jal	x0,0x1898
-    1890:	fe8fe0ef          	jal	x1,0x78
+    1890:	fe8fe0ef          	jal	x1,0x78 --------------------------------- jump to ERROR; x1 = nextPC
     1894:	0080006f          	jal	x0,0x189c
-    1898:	f8cfe0ef          	jal	x1,0x24
+    1898:	f8cfe0ef          	jal	x1,0x24 --------------------------------- jump to PASS; x1 = nextPC
     189c:	00412083          	lw	x1,4(x2)
     18a0:	00008067          	jalr	x0,0(x1)
     18a4:	00112223          	sw	x1,4(x2)
     18a8:	06200513          	addi	x10,x0,98
     18ac:	f60fe0ef          	jal	x1,0xc
-    18b0:	06c00513          	addi	x10,x0,108
+    18b0:	06c00513          	addi	x10,x0,108 -------------------------- l
     18b4:	f58fe0ef          	jal	x1,0xc
-    18b8:	07400513          	addi	x10,x0,116
+    18b8:	07400513          	addi	x10,x0,116 -------------------------- t
     18bc:	f50fe0ef          	jal	x1,0xc
-    18c0:	07500513          	addi	x10,x0,117
+    18c0:	07500513          	addi	x10,x0,117 -------------------------- u
     18c4:	f48fe0ef          	jal	x1,0xc
-    18c8:	02e00513          	addi	x10,x0,46
+    18c8:	02e00513          	addi	x10,x0,46 --------------------------- dot
     18cc:	f40fe0ef          	jal	x1,0xc
-    18d0:	02e00513          	addi	x10,x0,46
+    18d0:	02e00513          	addi	x10,x0,46 --------------------------- dot
     18d4:	f38fe0ef          	jal	x1,0xc
     18d8:	00000293          	addi	x5,x0,0
     18dc:	00100313          	addi	x6,x0,1
@@ -1637,23 +1637,23 @@ Disassembly of section .data:
     1974:	fe62eee3          	bltu	x5,x6,0x1970
     1978:	0080006f          	jal	x0,0x1980
     197c:	00c0006f          	jal	x0,0x1988
-    1980:	ef8fe0ef          	jal	x1,0x78
+    1980:	ef8fe0ef          	jal	x1,0x78 --------------------------------- jump to ERROR; x1 = nextPC
     1984:	0080006f          	jal	x0,0x198c
-    1988:	e9cfe0ef          	jal	x1,0x24
+    1988:	e9cfe0ef          	jal	x1,0x24 --------------------------------- jump to PASS; x1 = nextPC
     198c:	00412083          	lw	x1,4(x2)
     1990:	00008067          	jalr	x0,0(x1)
     1994:	00112223          	sw	x1,4(x2)
     1998:	06200513          	addi	x10,x0,98
     199c:	e70fe0ef          	jal	x1,0xc
-    19a0:	06700513          	addi	x10,x0,103
+    19a0:	06700513          	addi	x10,x0,103 -------------------------- g
     19a4:	e68fe0ef          	jal	x1,0xc
     19a8:	06500513          	addi	x10,x0,101
     19ac:	e60fe0ef          	jal	x1,0xc
-    19b0:	02e00513          	addi	x10,x0,46
+    19b0:	02e00513          	addi	x10,x0,46 --------------------------- dot
     19b4:	e58fe0ef          	jal	x1,0xc
-    19b8:	02e00513          	addi	x10,x0,46
+    19b8:	02e00513          	addi	x10,x0,46 --------------------------- dot
     19bc:	e50fe0ef          	jal	x1,0xc
-    19c0:	02e00513          	addi	x10,x0,46
+    19c0:	02e00513          	addi	x10,x0,46 --------------------------- dot
     19c4:	e48fe0ef          	jal	x1,0xc
     19c8:	00100293          	addi	x5,x0,1
     19cc:	00000313          	addi	x6,x0,0
@@ -1698,23 +1698,23 @@ Disassembly of section .data:
     1a68:	fe62dee3          	bge	x5,x6,0x1a64
     1a6c:	0080006f          	jal	x0,0x1a74
     1a70:	00c0006f          	jal	x0,0x1a7c
-    1a74:	e04fe0ef          	jal	x1,0x78
+    1a74:	e04fe0ef          	jal	x1,0x78 --------------------------------- jump to ERROR; x1 = nextPC
     1a78:	0080006f          	jal	x0,0x1a80
-    1a7c:	da8fe0ef          	jal	x1,0x24
+    1a7c:	da8fe0ef          	jal	x1,0x24 --------------------------------- jump to PASS; x1 = nextPC
     1a80:	00412083          	lw	x1,4(x2)
     1a84:	00008067          	jalr	x0,0(x1)
     1a88:	00112223          	sw	x1,4(x2)
     1a8c:	06200513          	addi	x10,x0,98
     1a90:	d7cfe0ef          	jal	x1,0xc
-    1a94:	06700513          	addi	x10,x0,103
+    1a94:	06700513          	addi	x10,x0,103 -------------------------- g
     1a98:	d74fe0ef          	jal	x1,0xc
     1a9c:	06500513          	addi	x10,x0,101
     1aa0:	d6cfe0ef          	jal	x1,0xc
-    1aa4:	07500513          	addi	x10,x0,117
+    1aa4:	07500513          	addi	x10,x0,117 -------------------------- u
     1aa8:	d64fe0ef          	jal	x1,0xc
-    1aac:	02e00513          	addi	x10,x0,46
+    1aac:	02e00513          	addi	x10,x0,46 --------------------------- dot
     1ab0:	d5cfe0ef          	jal	x1,0xc
-    1ab4:	02e00513          	addi	x10,x0,46
+    1ab4:	02e00513          	addi	x10,x0,46 --------------------------- dot
     1ab8:	d54fe0ef          	jal	x1,0xc
     1abc:	00100293          	addi	x5,x0,1
     1ac0:	00000313          	addi	x6,x0,0
@@ -1759,66 +1759,66 @@ Disassembly of section .data:
     1b5c:	fe62fee3          	bgeu	x5,x6,0x1b58
     1b60:	0080006f          	jal	x0,0x1b68
     1b64:	00c0006f          	jal	x0,0x1b70
-    1b68:	d10fe0ef          	jal	x1,0x78
+    1b68:	d10fe0ef          	jal	x1,0x78 --------------------------------- jump to ERROR; x1 = nextPC
     1b6c:	0080006f          	jal	x0,0x1b74
-    1b70:	cb4fe0ef          	jal	x1,0x24
+    1b70:	cb4fe0ef          	jal	x1,0x24 --------------------------------- jump to PASS; x1 = nextPC
     1b74:	00412083          	lw	x1,4(x2)
     1b78:	00008067          	jalr	x0,0(x1)
     1b7c:	00112223          	sw	x1,4(x2)
-    1b80:	06a00513          	addi	x10,x0,106
+    1b80:	06a00513          	addi	x10,x0,106 -------------------------- j
     1b84:	c88fe0ef          	jal	x1,0xc
     1b88:	06100513          	addi	x10,x0,97
     1b8c:	c80fe0ef          	jal	x1,0xc
-    1b90:	06c00513          	addi	x10,x0,108
+    1b90:	06c00513          	addi	x10,x0,108 -------------------------- l
     1b94:	c78fe0ef          	jal	x1,0xc
-    1b98:	02e00513          	addi	x10,x0,46
+    1b98:	02e00513          	addi	x10,x0,46 --------------------------- dot
     1b9c:	c70fe0ef          	jal	x1,0xc
-    1ba0:	02e00513          	addi	x10,x0,46
+    1ba0:	02e00513          	addi	x10,x0,46 --------------------------- dot
     1ba4:	c68fe0ef          	jal	x1,0xc
-    1ba8:	02e00513          	addi	x10,x0,46
+    1ba8:	02e00513          	addi	x10,x0,46 --------------------------- dot
     1bac:	c60fe0ef          	jal	x1,0xc
     1bb0:	00c0006f          	jal	x0,0x1bbc
-    1bb4:	cc4fe0ef          	jal	x1,0x78
+    1bb4:	cc4fe0ef          	jal	x1,0x78 --------------------------------- jump to ERROR; x1 = nextPC
     1bb8:	0080006f          	jal	x0,0x1bc0
-    1bbc:	c68fe0ef          	jal	x1,0x24
+    1bbc:	c68fe0ef          	jal	x1,0x24 --------------------------------- jump to PASS; x1 = nextPC
     1bc0:	00412083          	lw	x1,4(x2)
     1bc4:	00008067          	jalr	x0,0(x1)
     1bc8:	00112223          	sw	x1,4(x2)
-    1bcc:	06a00513          	addi	x10,x0,106
+    1bcc:	06a00513          	addi	x10,x0,106 -------------------------- j
     1bd0:	c3cfe0ef          	jal	x1,0xc
     1bd4:	06100513          	addi	x10,x0,97
     1bd8:	c34fe0ef          	jal	x1,0xc
-    1bdc:	06c00513          	addi	x10,x0,108
+    1bdc:	06c00513          	addi	x10,x0,108 -------------------------- l
     1be0:	c2cfe0ef          	jal	x1,0xc
-    1be4:	07200513          	addi	x10,x0,114
+    1be4:	07200513          	addi	x10,x0,114 -------------------------- r
     1be8:	c24fe0ef          	jal	x1,0xc
-    1bec:	02e00513          	addi	x10,x0,46
+    1bec:	02e00513          	addi	x10,x0,46 --------------------------- dot
     1bf0:	c1cfe0ef          	jal	x1,0xc
-    1bf4:	02e00513          	addi	x10,x0,46
+    1bf4:	02e00513          	addi	x10,x0,46 --------------------------- dot
     1bf8:	c14fe0ef          	jal	x1,0xc
     1bfc:	00c0006f          	jal	x0,0x1c08
-    1c00:	c78fe0ef          	jal	x1,0x78
+    1c00:	c78fe0ef          	jal	x1,0x78 --------------------------------- jump to ERROR; x1 = nextPC
     1c04:	0080006f          	jal	x0,0x1c0c
-    1c08:	c1cfe0ef          	jal	x1,0x24
+    1c08:	c1cfe0ef          	jal	x1,0x24 --------------------------------- jump to PASS; x1 = nextPC
     1c0c:	00412083          	lw	x1,4(x2)
     1c10:	00008067          	jalr	x0,0(x1)
     1c14:	00112223          	sw	x1,4(x2)
-    1c18:	06d00513          	addi	x10,x0,109
+    1c18:	06d00513          	addi	x10,x0,109 -------------------------- m
     1c1c:	bf0fe0ef          	jal	x1,0xc
     1c20:	06100513          	addi	x10,x0,97
     1c24:	be8fe0ef          	jal	x1,0xc
-    1c28:	06c00513          	addi	x10,x0,108
+    1c28:	06c00513          	addi	x10,x0,108 -------------------------- l
     1c2c:	be0fe0ef          	jal	x1,0xc
-    1c30:	06700513          	addi	x10,x0,103
+    1c30:	06700513          	addi	x10,x0,103 -------------------------- g
     1c34:	bd8fe0ef          	jal	x1,0xc
-    1c38:	06e00513          	addi	x10,x0,110
+    1c38:	06e00513          	addi	x10,x0,110 -------------------------- m
     1c3c:	bd0fe0ef          	jal	x1,0xc
-    1c40:	02e00513          	addi	x10,x0,46
+    1c40:	02e00513          	addi	x10,x0,46 --------------------------- dot
     1c44:	bc8fe0ef          	jal	x1,0xc
     1c48:	123458b7          	lui	x17,0x12345
-    1c4c:	67888893          	addi	x17,x17,1656 # 0x12345678
+    1c4c:	67888893          	addi	x17,x17,1656 # 0x12345678 ----------- x17 = 0x12345678
     1c50:	deadc837          	lui	x16,0xdeadc
-    1c54:	eef80813          	addi	x16,x16,-273 # 0xdeadbeef
+    1c54:	eef80813          	addi	x16,x16,-273 # 0xdeadbeef ----------- x16 = 0xdeadbeef
     1c58:	00003337          	lui	x6,0x3
     1c5c:	00030313          	addi	x6,x6,0 # 0x3000
     1c60:	01132023          	sw	x17,0(x6)
@@ -1828,40 +1828,40 @@ Disassembly of section .data:
     1c70:	00232283          	lw	x5,2(x6)
     1c74:	00589463          	bne	x17,x5,0x1c7c
     1c78:	00c0006f          	jal	x0,0x1c84
-    1c7c:	bfcfe0ef          	jal	x1,0x78
+    1c7c:	bfcfe0ef          	jal	x1,0x78 --------------------------------- jump to ERROR; x1 = nextPC
     1c80:	0080006f          	jal	x0,0x1c88
-    1c84:	ba0fe0ef          	jal	x1,0x24
+    1c84:	ba0fe0ef          	jal	x1,0x24 --------------------------------- jump to PASS; x1 = nextPC
     1c88:	00412083          	lw	x1,4(x2)
     1c8c:	00008067          	jalr	x0,0(x1)
     1c90:	00c0006f          	jal	x0,0x1c9c
-    1c94:	be4fe0ef          	jal	x1,0x78
+    1c94:	be4fe0ef          	jal	x1,0x78 --------------------------------- jump to ERROR; x1 = nextPC
     1c98:	0080006f          	jal	x0,0x1ca0
-    1c9c:	bdcfe0ef          	jal	x1,0x78
+    1c9c:	bdcfe0ef          	jal	x1,0x78 --------------------------------- jump to ERROR; x1 = nextPC
     1ca0:	00412083          	lw	x1,4(x2)
     1ca4:	00008067          	jalr	x0,0(x1)
     1ca8:	00112223          	sw	x1,4(x2)
-    1cac:	06900513          	addi	x10,x0,105
+    1cac:	06900513          	addi	x10,x0,105 -------------------------- i
     1cb0:	b5cfe0ef          	jal	x1,0xc
-    1cb4:	06f00513          	addi	x10,x0,111
+    1cb4:	06f00513          	addi	x10,x0,111 -------------------------- o
     1cb8:	b54fe0ef          	jal	x1,0xc
-    1cbc:	07300513          	addi	x10,x0,115
+    1cbc:	07300513          	addi	x10,x0,115 -------------------------- s
     1cc0:	b4cfe0ef          	jal	x1,0xc
-    1cc4:	07700513          	addi	x10,x0,119
+    1cc4:	07700513          	addi	x10,x0,119 -------------------------- w
     1cc8:	b44fe0ef          	jal	x1,0xc
-    1ccc:	02e00513          	addi	x10,x0,46
+    1ccc:	02e00513          	addi	x10,x0,46 --------------------------- dot
     1cd0:	b3cfe0ef          	jal	x1,0xc
-    1cd4:	02e00513          	addi	x10,x0,46
+    1cd4:	02e00513          	addi	x10,x0,46 --------------------------- dot
     1cd8:	b34fe0ef          	jal	x1,0xc
     1cdc:	10010337          	lui	x6,0x10010
     1ce0:	00030313          	addi	x6,x6,0 # 0x10010000
     1ce4:	00032283          	lw	x5,0(x6)
     1ce8:	123458b7          	lui	x17,0x12345
-    1cec:	67888893          	addi	x17,x17,1656 # 0x12345678
+    1cec:	67888893          	addi	x17,x17,1656 # 0x12345678 ----------- x17 = 0x12345678
     1cf0:	00589463          	bne	x17,x5,0x1cf8
     1cf4:	00c0006f          	jal	x0,0x1d00
-    1cf8:	b80fe0ef          	jal	x1,0x78
+    1cf8:	b80fe0ef          	jal	x1,0x78 --------------------------------- jump to ERROR; x1 = nextPC
     1cfc:	0080006f          	jal	x0,0x1d04
-    1d00:	b24fe0ef          	jal	x1,0x24
-    1d04:	00412083          	lw	x1,4(x2) --------------------------------------------------------------------------< 4
-    1d08:	00008067          	jalr	x0,0(x1) --------------------------------------------------------------------------< 3
+    1d00:	b24fe0ef          	jal	x1,0x24 --------------------------------- jump to PASS; x1 = nextPC
+    1d04:	00412083          	lw	x1,4(x2) 
+    1d08:	00008067          	jalr	x0,0(x1)
 	...

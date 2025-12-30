@@ -23,7 +23,7 @@ module top
             output logic [3:0]      top_ALUControlE,
 
             // Memory Stage (M) 
-            output  logic   [31:0]  top_PCTargetM, top_PCPlus4M, top_ReadDataM, top_ALUResultM, top_WriteDataM,
+            output  logic   [31:0]  top_pcM, top_PCTargetM, top_PCPlus4M, top_ReadDataM, top_ALUResultM, top_WriteDataM,
             output  logic   [1:0]   top_ResultSrcM,
             output  logic   [2:0]   top_funct3M,
             output  logic           top_MemWriteM,
@@ -47,7 +47,7 @@ module top
 
             // Write Back Stage (W)
             output logic [1:0]      top_ResultSrcW,
-            output logic [31:0]     top_ALUResultW, top_ReadDataW, top_PCTargetW, top_PCPlus4W, top_ResultW,
+            output logic [31:0]     top_ALUResultW, top_ReadDataW, top_pcW, top_PCTargetW, top_PCPlus4W, top_ResultW,
         //
 
         // Internal - Controller Interface
@@ -106,7 +106,8 @@ module top
 
     // System
     input   logic           clk, rstn,
-    output  logic           Ecall, Ebreak, InstrVldW,
+    output  logic           Ecall, Ebreak, 
+    output  logic           InstrVldD, InstrVldE, InstrVldM, InstrVldW,
 
     // I/O Interface
     input   logic   [31:0]  SwDataInM,                                                      // Input from switches
@@ -164,6 +165,7 @@ processor proc
             .top_ResultSrcE     (top_ResultSrcE),
             .top_ALUControlE    (top_ALUControlE),
             
+            .top_pcM            (top_pcM),
             .top_PCTargetM      (top_PCTargetM),
             .top_PCPlus4M       (top_PCPlus4M),
             .top_ReadDataM      (top_ReadDataM),
@@ -213,6 +215,7 @@ processor proc
             .top_ResultSrcW     (top_ResultSrcW),
             .top_ALUResultW     (top_ALUResultW),
             .top_ReadDataW      (top_ReadDataW),
+            .top_pcW            (top_pcW),
             .top_PCTargetW      (top_PCTargetW),
             .top_PCPlus4W       (top_PCPlus4W),
             .top_ResultW        (top_ResultW),
@@ -271,6 +274,9 @@ processor proc
     .rstn           (rstn),
     .Ecall          (Ecall),
     .Ebreak         (Ebreak),
+    .InstrVldD      (InstrVldD),
+    .InstrVldE      (InstrVldE),
+    .InstrVldM      (InstrVldM),
     .InstrVldW      (InstrVldW),
 
     // Data Memory Interface

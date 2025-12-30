@@ -57,7 +57,7 @@ top top (
     .Hex6DataOutM   (o_io_hex6      ),
     .Hex7DataOutM   (o_io_hex7      ),
     // Debug
-    .top_PCPlus4W   (o_pc_debug     ),
+    .top_pcW        (o_pc_debug     ),
     .top_PCSrcE     (top_PCSrcE     ),
     .top_FlushD     (top_FlushD     ),
     .top_FlushE     (top_FlushE     ),
@@ -67,8 +67,8 @@ top top (
 );
 
 
-assign o_ctrl       = top_PCSrcE[1] | top_PCSrcE[0]; // 1 if not branch/jump
-assign o_mispred    = top_FlushD | top_FlushE; // 1 if flush due to mispredicted branch/jump
+assign o_ctrl       = top_PCSrcE[1] | top_PCSrcE[0]; // 1 if  branch/jump
+assign o_mispred    = top_FlushE & top_FlushD; // 1 if flush due to mispredicted branch/jump
 
 
 

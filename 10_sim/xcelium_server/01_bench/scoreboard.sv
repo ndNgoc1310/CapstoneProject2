@@ -65,8 +65,7 @@ module scoreboard(
 
 
   always @(negedge i_clk) begin : result
-      // if (o_insn_vld && ((o_pc_debug == 32'h1c) || (o_pc_debug == 32'h20))) begin
-      if (o_insn_vld && ((o_pc_debug == 32'h2c)) begin
+      if (o_insn_vld && ((o_pc_debug == 32'h1c) || (o_pc_debug == 32'h20))) begin
       // duyngocn
       // if (o_insn_vld && Ebreak) begin
         $display("\n=================== Result ===================");

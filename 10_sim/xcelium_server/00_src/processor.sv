@@ -23,7 +23,7 @@ module processor
             output logic [3:0]      top_ALUControlE,
 
             // Memory Stage (M) 
-            output  logic   [31:0]  top_PCTargetM, top_PCPlus4M, top_ReadDataM, top_ALUResultM, top_WriteDataM,
+            output  logic   [31:0]  top_pcM, top_PCTargetM, top_PCPlus4M, top_ReadDataM, top_ALUResultM, top_WriteDataM,
             output  logic   [1:0]   top_ResultSrcM,
             output  logic   [2:0]   top_funct3M,
             output  logic           top_MemWriteM,
@@ -47,7 +47,7 @@ module processor
 
             // Write Back Stage (W)
             output logic [1:0]      top_ResultSrcW,
-            output logic [31:0]     top_ALUResultW, top_ReadDataW, top_PCTargetW, top_PCPlus4W, top_ResultW,
+            output logic [31:0]     top_ALUResultW, top_ReadDataW, top_pcW, top_PCTargetW, top_PCPlus4W, top_ResultW,
         //
 
         // Internal - Controller Interface
@@ -94,7 +94,8 @@ module processor
 
     // System signals
     input   logic           clk, rstn,
-    output  logic           Ecall, Ebreak, InstrVldW,
+    output  logic           Ecall, Ebreak, 
+    output  logic           InstrVldD, InstrVldE, InstrVldM, InstrVldW,
 
     // Data path - Instruction Memory
     input   logic   [31:0]  InstrF,
@@ -132,7 +133,7 @@ module processor
     logic   [3:0]   FlagE; // Flag = {Ovf, Carry, Neg, Zero} (Overflow, Carry, Negative, Zero)
     logic   [2:0]   funct3E;
 
-    logic           InstrVldD;
+    // logic           InstrVldD;
 
 
     // From/To Hazard Unit signals/buses
@@ -266,14 +267,15 @@ data_path dp
         .top_ResultSrcE    (top_ResultSrcE),
         .top_ALUSrcE       (top_ALUSrcE),
         .top_ALUControlE   (top_ALUControlE),
-        
+
+        .top_pcM           (top_pcM),
         .top_PCTargetM     (top_PCTargetM),
         .top_PCPlus4M      (top_PCPlus4M),
         .top_ResultSrcM    (top_ResultSrcM),
         .top_ReadDataM     (top_ReadDataM),
         .top_ALUResultM    (top_ALUResultM),
         .top_WriteDataM    (top_WriteDataM),
-        .top_funct3M        (top_funct3M),
+        .top_funct3M       (top_funct3M),
         .top_MemWriteM     (top_MemWriteM),
 
         // LSU
@@ -316,6 +318,7 @@ data_path dp
         .top_ResultSrcW    (top_ResultSrcW),
         .top_ALUResultW    (top_ALUResultW),
         .top_ReadDataW     (top_ReadDataW),
+        .top_pcW           (top_pcW),
         .top_PCTargetW     (top_PCTargetW),
         .top_PCPlus4W      (top_PCPlus4W),
         .top_ResultW       (top_ResultW),
@@ -324,6 +327,9 @@ data_path dp
     // System signals
     .clk            (clk),
     .rstn           (rstn),
+    .InstrVldD      (InstrVldD),
+    .InstrVldE      (InstrVldE),
+    .InstrVldM      (InstrVldM),
     .InstrVldW      (InstrVldW),
 
     // From/To Controller signals/buses 
@@ -340,7 +346,6 @@ data_path dp
     .funct3D        (funct3D),
     .funct7D        (funct7D),
     .funct12D       (funct12D),
-    .InstrVldD      (InstrVldD),
 
     .PCSrcE         (PCSrcE),
     .JumpE          (JumpE),

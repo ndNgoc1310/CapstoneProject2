@@ -11,6 +11,7 @@ module pipelined (
     input  logic         i_reset   ,
     // Input peripherals
     input  logic [31:0]  i_io_sw   ,
+    input  logic [1:0]   i_io_key  ,
     // Output peripherals
     output logic [31:0]  o_io_lcd  ,
     output logic [31:0]  o_io_ledr ,
@@ -44,6 +45,7 @@ top top (
 
     // I/O Interface
     .SwDataInM      (i_io_sw        ),
+    .KeyDataInM     (i_io_key       ),
     .LcdDataOutM    (o_io_lcd       ),
     .LedrDataOutM   (o_io_ledr      ),
     .LedgDataOutM   (o_io_ledg      ),
